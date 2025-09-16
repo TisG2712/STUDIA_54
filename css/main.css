@@ -1,3 +1,8 @@
+.logo-text {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ============ 1. GLOBAL VARIABLES ============== */
 :root {
   --color-primary: #d38c37;
@@ -1003,7 +1008,11 @@ html {
   /* --- Scroll Video Sections --- */
   .scroll-video-section {
     height: auto; /* Không dùng hiệu ứng cuộn phức tạp trên mobile */
-    margin-top: 20px; /* Thêm khoảng cách với section phía trên */
+       .logo {
+      width: 90px;
+      height: auto;
+      display: block;
+    } margin-top: 20px; /* Thêm khoảng cách với section phía trên */
     padding: 60px 20px;
   }
   .scroll-video-sticky-wrapper {

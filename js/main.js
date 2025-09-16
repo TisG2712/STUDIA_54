@@ -181,6 +181,56 @@ function initNavbarScroll() {
 }
 
 /**
+ * Hiệu ứng 6: Active state cho navbar links
+ */
+function initNavbarActiveState() {
+  const navLinks = document.querySelectorAll(".main-nav a");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav a");
+
+  // Hàm để xóa active state khỏi tất cả links
+  function removeActiveState() {
+    navLinks.forEach((link) => link.classList.remove("active"));
+    mobileNavLinks.forEach((link) => link.classList.remove("active"));
+  }
+
+  // Hàm để thêm active state cho link được click
+  function addActiveState(clickedLink) {
+    removeActiveState();
+    clickedLink.classList.add("active");
+  }
+
+  // Xử lý click cho desktop navbar
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // Ngăn chặn hành vi mặc định
+      addActiveState(this);
+    });
+  });
+
+  // Xử lý click cho mobile navbar
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // Ngăn chặn hành vi mặc định
+      addActiveState(this);
+
+      // Đóng mobile sidebar sau khi click
+      const mobileSidebar = document.querySelector(".mobile-sidebar");
+      if (mobileSidebar) {
+        mobileSidebar.classList.remove("is-open");
+      }
+    });
+  });
+
+  // Xử lý focus state (khi dùng keyboard navigation)
+  [...navLinks, ...mobileNavLinks].forEach((link) => {
+    link.addEventListener("focus", function () {
+      removeActiveState();
+      this.classList.add("active");
+    });
+  });
+}
+
+/**
  * Chạy tất cả các hàm khởi tạo sau khi DOM đã tải xong
  */
 document.addEventListener("DOMContentLoaded", function () {
@@ -189,4 +239,5 @@ document.addEventListener("DOMContentLoaded", function () {
   initProjectStackAnimation();
   initMobileSidebar();
   initNavbarScroll();
+  initNavbarActiveState();
 });
