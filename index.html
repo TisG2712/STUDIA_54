@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section class="hero">
+    <!-- ===== SECTION 1 ===== -->
+    <section class="first-section">
       <!-- Thêm poster và các định dạng video khác nhau -->
       <video
         autoplay
@@ -19,81 +20,75 @@
         loop
         playsinline
         id="bg-video"
-        poster="./assets/images/poster-image.jpg"
+        poster="./assets/images/illustrator.jpg"
       >
-        <source
-          src="./assets/video/v4.www-y2mate.blog - WORLD S MOST INSANE CINEMATIC LUXURY PENTHOUSE TOUR SONY FX6 (1080p).mp4"
-          type="video/mp4"
-        />
+        <source src="./assets/video/Architect.mp4" type="video/mp4" />
         Trình duyệt của bạn không hỗ trợ thẻ video.
       </video>
       <header class="main-header">
         <a href="/" class="logo-text">
-          <h1 class="brand">STUDIA <span>54</span></h1>
+          <h1 class="brand">STUDIA 54</h1>
           <p class="tagline">ARCHITECTURE | DESIGN | FURNITURE</p>
         </a>
 
         <div class="navigation-menu">
           <nav class="main-nav">
             <ul>
-              <li><a href="#">ABOUT</a></li>
-              <li><a href="#">PORTFOLIO</a></li>
-              <li><a href="#">CONTACTS</a></li>
-              <li><a href="#">SERVICES</a></li>
+              <li><a href="./pages/about.html">GIỚI THIỆU</a></li>
+              <li><a href="./pages/portfolio.html">DANH MỤC</a></li>
+              <li><a href="./pages/contacts.html">LIÊN HỆ</a></li>
+              <li><a href="./pages/services.html">DỊCH VỤ</a></li>
             </ul>
           </nav>
-          <a href="#" class="cta-button">CONTACT US</a>
+          <button type="button" class="cta-button">
+            LIÊN HỆ VỚI CHÚNG TÔI
+          </button>
           <div class="lang-switcher">
             <span class="divider"></span>
-            <a href="#" class="active">RU</a>
+            <a href="#">VN</a>
             <a href="#">EN</a>
           </div>
         </div>
-
-        <!-- Nút Hamburger cho di động -->
-        <button class="menu-toggle" aria-label="Open menu">
-          <i class="ri-menu-line"></i>
-        </button>
       </header>
-      <div class="hero-footer-text">
+      <div class="first-section-text">
         <h2>STUDIA 54</h2>
         <p>
-          <span class="highlight">A LEADING INTERNATIONAL BUREAU</span> FOR
-          PREMIUM ARCHITECTURAL AND INTERIOR DESIGN
+          <span class="highlight">CÔNG TY QUỐC TẾ HÀNG ĐẦU</span> VỀ THIẾT KẾ
+          KIẾN TRÚC VÀ NỘI THẤT CAO CẤP
         </p>
       </div>
     </section>
 
-    <!-- ===== SECTION 2: ABOUT & IMAGE EXPAND ===== -->
-    <section class="about-section">
+    <!-- ===== SECTION 2 ===== -->
+    <section class="second-section">
       <div class="sticky-wrapper">
-        <div class="about-content">
-          <div class="about-text">
+        <div class="second-section-content">
+          <div class="second-section-text">
             <p class="large-text">
-              TODAY, WE HAVE
-              <span class="highlight">THE MOST EXTENSIVE PORTFOLIO</span> AND
-              PROJECT SCOPE IN THE PREMIUM SEGMENT
+              NGÀY NAY, CHÚNG TÔI CÓ
+              <span class="highlight">DANH MỤC VÀ PHẠM VI DỰ ÁN </span>
+              RỘNG RÃI NHẤT TRONG PHÂN KHÚC CAO CẤP
             </p>
-            <br />
-            <p>
-              Over 600 projects in 32 countries, with an average area starting
-              from 900 m². More than two million people
-              <span class="highlight">worldwide</span> follow the development of
-              Studia 54, including celebrities, renowned designers, and
-              architects
+            <p class="normal-text">
+              Hơn 600 dự án tại 32 quốc gia, với diện tích trung bình từ 900 m².
+              Hơn hai triệu người trên
+              <span class="highlight"> toàn thế giới</span> theo dõi sự phát
+              triển của Studia 54, bao gồm những người nổi tiếng, nhà thiết kế
+              và kiến trúc sư danh tiếng.
             </p>
           </div>
-          <div class="image-container" id="expanding-image-container">
+          <div class="second-section-image" id="expanding-image-container">
             <!-- Thay thế bằng đường dẫn ảnh của bạn -->
             <img
               src="./assets/images/global.png"
-              alt="Interior Design"
+              alt="Illustrator Store In the World"
               loading="lazy"
             />
           </div>
         </div>
       </div>
     </section>
+
     <!-- ===== SECTION 3: ARCHITECTURAL DESIGN ===== -->
     <section class="scroll-video-section">
       <div class="scroll-video-sticky-wrapper">
@@ -149,7 +144,7 @@
             muted
             loop
             playsinline
-            poster="./assets/images/poster-image.jpg"
+            poster="./assets/images/illustrator.jpg"
             loading="lazy"
           >
             <source
@@ -213,7 +208,7 @@
             muted
             loop
             playsinline
-            poster="./assets/images/poster-image.jpg"
+            poster="./assets/images/illustrator.jpg"
             loading="lazy"
           >
             <source
@@ -267,7 +262,7 @@
             muted
             loop
             playsinline
-            poster="./assets/images/poster-image.jpg"
+            poster="./assets/images/illustrator.jpg"
             loading="lazy"
           >
             <source
@@ -542,12 +537,12 @@
       </button>
       <nav class="mobile-nav">
         <ul>
-          <li><a href="#">ABOUT</a></li>
+          <li><a href="../STUDIA_54/pages/about.html">ABOUT</a></li>
           <li><a href="#">PORTFOLIO</a></li>
           <li><a href="#">CONTACTS</a></li>
           <li><a href="#">SERVICES</a></li>
         </ul>
-        <a href="#" class="cta-button">CONTACT US</a>
+        <button type="button" class="cta-button">CONTACT US</button>
       </nav>
     </div>
 
