@@ -21,10 +21,11 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   font-family: sans-serif;
   color: #fff;
-  background-color: #1F1F1F; /* Đặt màu nền chung cho toàn trang */
+  background-color: #1f1f1f; /* Đặt màu nền chung cho toàn trang */
 }
 
 /* ==== Section 1 ==== */
@@ -43,7 +44,12 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
   z-index: 1; /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
 }
 
@@ -74,10 +80,10 @@ body, html {
   display: flex;
   justify-content: space-between; /* Đẩy logo và menu ra hai bên */
   align-items: center;
-  padding: 1rem 2rem; 
+  padding: 1rem 2rem;
   z-index: 10; /* Tăng z-index để đảm bảo luôn ở trên cùng */
   height: 100px; /* navbar cao cố định */
-  max-height: 100px; 
+  max-height: 100px;
   /* Áp dụng hiệu ứng nền mờ trực tiếp và cố định */
   background-color: rgba(9, 9, 9, 0.3); /* Nền đen mờ, hợp với theme */
   backdrop-filter: blur(5px); /* Hiệu ứng làm mờ nền phía sau */
@@ -86,7 +92,9 @@ body, html {
 }
 
 .main-header.is-hidden {
-  transform: translateY(-100%); /* Di chuyển navbar lên trên để ẩn đi, nếu muốn sang ngang thì đổi thành translateX(-100%) */
+  transform: translateY(
+    -100%
+  ); /* Di chuyển navbar lên trên để ẩn đi, nếu muốn sang ngang thì đổi thành translateX(-100%) */
 }
 
 .logo-text {
@@ -102,12 +110,12 @@ body, html {
 .logo-text .brand {
   font-size: 2rem;
   font-weight: 500;
-  letter-spacing: var(--letter-spacing-base);  /* khoảng cách giữa các chữ */
+  letter-spacing: var(--letter-spacing-base); /* khoảng cách giữa các chữ */
 }
 
 .logo-text .tagline {
   font-size: 0.5rem;
-  letter-spacing: 1px;  /* thu hẹp lại so với mặc định */
+  letter-spacing: 1px; /* thu hẹp lại so với mặc định */
   margin-top: 0.2rem;
 }
 
@@ -146,7 +154,9 @@ body, html {
   left: 0;
   width: 0; /* Ban đầu không có chiều rộng */
   height: 1.5px; /* Độ dày của gạch chân */
-  background-color: var(--color-text-white); /* Đổi màu gạch chân thành màu trắng */
+  background-color: var(
+    --color-text-white
+  ); /* Đổi màu gạch chân thành màu trắng */
   transition: width 0.3s ease-out; /* Hiệu ứng trượt ra */
 }
 
@@ -176,8 +186,8 @@ body, html {
 
 .divider {
   display: inline-block;
-  width: 0.7px;      /* độ dày vạch */
-  height: 20px;    /* chiều cao vạch (tăng tùy ý) */
+  width: 0.7px; /* độ dày vạch */
+  height: 20px; /* chiều cao vạch (tăng tùy ý) */
   background: white; /* màu vạch */
 }
 
@@ -187,10 +197,10 @@ body, html {
   gap: 2rem;
 }
 
-.lang-switcher a{
+.lang-switcher a {
   color: #fff;
   text-decoration: none;
-  font-size:var(--font-size-base);
+  font-size: var(--font-size-base);
 }
 
 .first-section-text {
@@ -232,13 +242,12 @@ body, html {
 
 /* ==== Section 2 ==== */
 .second-section {
-  /* Tăng chiều cao section để có không gian cho ảnh dài hơn */
   height: 100vh;
   width: 100%;
-  background-color: #1F1F1F; /* Màu nền cho section */
+  background-color: inherit; /* Màu nền cho section */
   position: relative;
   color: #fff;
-  margin-top: 70px;;
+  margin-top: -40px;
 }
 
 .sticky-wrapper {
@@ -253,25 +262,32 @@ body, html {
 .second-section-content {
   position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column; /* Xếp các phần tử theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
-  padding-top: 0.7rem; /* Thêm padding để nội dung không bị sát viền */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1.5rem;
 }
 
 .second-section-text {
   text-align: center;
-  max-width: 80%;
+  max-width: 65%;
+  width: 90vw;
   z-index: 2;
   font-family: "Times New Roman", serif;
+  margin: 0 auto;
+  background: inherit;
+  padding: 1.2rem 1rem;
 }
 
 /* Trạng thái ban đầu của các đoạn văn bản: ẩn đi */
 .second-section-text > p {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 /* Khi section được cuộn tới, các đoạn văn bản sẽ hiện ra */
@@ -282,7 +298,7 @@ body, html {
 
 /* Thêm độ trễ cho đoạn văn bản thứ hai để nó xuất hiện sau */
 .second-section-text.is-visible > p:last-child {
-  transition-delay: 0.3s; /* Chữ nhỏ sẽ xuất hiện sau 0.3 giây */
+  transition-delay: 0.4s; /* Chữ nhỏ sẽ xuất hiện sau 0.4 giây */
 }
 
 .highlight {
@@ -290,54 +306,56 @@ body, html {
 }
 
 .second-section-text .large-text {
-  font-size: 2rem;
-  line-height: 1.7;
-  margin-bottom: 1rem; 
+  font-size: 2.2rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .second-section-text .normal-text {
   font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 }
 
 .second-section-image {
   /* Hiệu ứng xuất hiện */
   opacity: 0;
-  transform: translateY(200px) scale(0.2); /* Hiệu ứng bay lên và phóng to */
-  transition: opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s;
-  overflow: hidden; /* Quan trọng: để ẩn phần ảnh thừa */
-  width: 100%; /* Chiếm toàn bộ chiều rộng của container cha */
-  height: 100vh; /* Tăng chiều cao của ảnh */
-  position: relative; /* Cần thiết cho lớp phủ gradient */
+  transform: scale(0.3);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  will-change: opacity, transform;
+  overflow: hidden;
+  width: 100vw;
+  max-width: 600px;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Hiệu ứng fade ở cuối ảnh */
 }
 
 .second-section-image.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Lớp phủ tạo hiệu ứng fade cho ảnh */
-.second-section-image::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom, /* Hướng gradient từ trên xuống dưới */
-    var(--color-background) 0%, /* Bắt đầu với màu nền ở cạnh trên */
-    transparent 30%, /* Mờ dần sang trong suốt ở 30% */
-    transparent 70%, /* Giữ trong suốt đến 70% */
-    var(--color-background) 100% /* Mờ dần về màu nền ở cạnh dưới */
-  );
+  transform: scale(1.2);
 }
 
 .second-section-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top; /* Hiển thị phần đầu của ảnh */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
 }
+
+/* ==== Section 3 ==== */
 .scroll-video-section {
   height: 300vh;
   background-color: var(--color-background);
@@ -359,10 +377,18 @@ body, html {
   position: absolute;
   /* Tính toán vị trí và kích thước dựa trên tiến trình cuộn */
   /* Ban đầu: Toàn màn hình. Cuối cùng: Chiếm 2/3 bên phải */
-  top: calc(10px + 70px * var(--scroll-progress)); /* Di chuyển đến top: 80px, bắt đầu từ 10px */
-  left: calc(5px + (40vw - 40px + 1rem - 5px) * var(--scroll-progress)); /* Cập nhật theo chiều rộng mới của mô tả */
-  width: calc((100vw - 10px) - (40vw - 40px + 1rem + 10px) * var(--scroll-progress)); /* Mở rộng video ra để lấp đầy không gian */
-  height: calc((100vh - 10px) - 110px * var(--scroll-progress)); /* Thu nhỏ chiều cao để có padding 80px trên, 40px dưới */
+  top: calc(
+    10px + 70px * var(--scroll-progress)
+  ); /* Di chuyển đến top: 80px, bắt đầu từ 10px */
+  left: calc(
+    5px + (40vw - 40px + 1rem - 5px) * var(--scroll-progress)
+  ); /* Cập nhật theo chiều rộng mới của mô tả */
+  width: calc(
+    (100vw - 10px) - (40vw - 40px + 1rem + 10px) * var(--scroll-progress)
+  ); /* Mở rộng video ra để lấp đầy không gian */
+  height: calc(
+    (100vh - 10px) - 110px * var(--scroll-progress)
+  ); /* Thu nhỏ chiều cao để có padding 80px trên, 40px dưới */
 
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -412,7 +438,9 @@ body, html {
   top: 80px; /* Căn lề trên bằng với video, cách tiêu đề một khoảng */
   left: 40px;
   width: calc(40vw - 80px); /* Thu hẹp lại còn 40% */
-  height: calc(100vh - 120px); /* Chiều cao bằng với video (100vh - 80px top - 40px bottom) */
+  height: calc(
+    100vh - 120px
+  ); /* Chiều cao bằng với video (100vh - 80px top - 40px bottom) */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -472,7 +500,6 @@ body, html {
   line-height: 1.4; /* Giảm khoảng cách giữa các dòng trong cùng 1 đoạn */
   color: var(--color-text-light);
 }
-
 
 .desc-text-content p:not(:last-child) {
   margin-bottom: 0.5rem; /* Thêm khoảng cách giữa các đoạn văn */
@@ -658,7 +685,6 @@ html {
   padding-top: calc(2rem + 2rem); /* Bù cho chiều cao của tiêu đề cột trái */
 }
 
-
 .project-description-sticky-content h3 {
   font-size: 2rem;
   font-weight: 500;
@@ -673,12 +699,11 @@ html {
   margin-bottom: 1.5rem;
 }
 
-
 .team-consultation {
   color: #fff;
   padding: 80px 40px; /* Thêm padding cho section */
   font-family: Arial, sans-serif;
-  background: #1F1F1F;
+  background: #1f1f1f;
 }
 
 .team-wrapper {
