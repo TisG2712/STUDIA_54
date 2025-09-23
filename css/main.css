@@ -1,4 +1,8 @@
-/* ============ 1. GLOBAL VARIABLES ============== */
+/* =================================================================
+   GLOBAL STYLES & VARIABLES
+   ================================================================= */
+
+/* CSS Variables */
 :root {
   --color-primary: #d38c37;
   --color-primary-darker: #b6752f;
@@ -16,6 +20,7 @@
   --font-family-base: "Times New Roman", serif;
 }
 
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -26,34 +31,27 @@ body,
 html {
   font-family: sans-serif;
   color: #fff;
-  background-color: #1f1f1f; /* Đặt màu nền chung cho toàn trang */
+  background-color: #1f1f1f;
 }
 
-/* ==== Section 1 ==== */
+/* Common Utility Classes */
+.highlight {
+  color: var(--color-primary);
+}
+
+/* =================================================================
+   SECTION 1 - FIRST SECTION (HERO)
+   ================================================================= */
+
+
 .first-section {
-  height: 100vh; /* Chiều cao bằng 100% chiều cao của màn hình xem */
+  height: 100vh;
   width: 100%;
   position: relative;
-  overflow: hidden; /* Ẩn các phần của video tràn ra ngoài section */
+  overflow: hidden;
 }
 
-/* Thêm lớp phủ để che bớt độ mờ của video và tăng độ tương phản cho văn bản */
-.first-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
-  z-index: 1; /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
-}
-
+/* Video Background */
 #bg-video {
   position: absolute;
   top: 50%;
@@ -63,47 +61,98 @@ html {
   min-height: 100%;
   width: auto;
   height: auto;
-  object-fit: cover; /* Đảm bảo video lấp đầy toàn bộ không gian mà không bị méo */
-  opacity: 0; /* Ẩn video ban đầu */
-  transition: opacity 0.5s ease-in; /* Hiệu ứng mờ dần khi hiện ra */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
 #bg-video.is-loaded {
-  opacity: 1; /* Hiện video khi đã sẵn sàng */
+  opacity: 1;
 }
 
-/* --- Navbar Styles --- */
+/* Video Overlay */
+.first-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Gradient Overlay */
+.first-section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(to top, var(--color-background) 10%, transparent);
+  z-index: 2;
+}
+
+/* Hero Text */
+.first-section-text {
+  position: absolute;
+  bottom: 60px;
+  left: 2rem;
+  max-width: 700px;
+  z-index: 3;
+}
+
+.first-section-text h2 {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  letter-spacing: var(--letter-spacing-base);
+  font-family: var(--font-family-base);
+}
+
+.first-section-text p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-family: var(--font-family-base);
+}
+
+/* =================================================================
+   NAVIGATION & HEADER
+   ================================================================= */
+
 .main-header {
-  position: fixed; /* Đổi thành fixed để luôn cố định trên màn hình */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Đẩy logo và menu ra hai bên */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  z-index: 10; /* Tăng z-index để đảm bảo luôn ở trên cùng */
-  height: 100px; /* navbar cao cố định */
+  z-index: 10;
+  height: 100px;
   max-height: 100px;
-  /* Áp dụng hiệu ứng nền mờ trực tiếp và cố định */
-  background-color: rgba(9, 9, 9, 0.3); /* Nền đen mờ, hợp với theme */
-  backdrop-filter: blur(5px); /* Hiệu ứng làm mờ nền phía sau */
-  -webkit-backdrop-filter: blur(10px); /* Hỗ trợ Safari */
-  transition: transform 0.5s ease-in-out; /* Transition cho hiệu ứng ẩn/hiện */
+  background-color: rgba(9, 9, 9, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.5s ease-in-out;
 }
 
 .main-header.is-hidden {
-  transform: translateY(
-    -100%
-  ); /* Di chuyển navbar lên trên để ẩn đi, nếu muốn sang ngang thì đổi thành translateX(-100%) */
+  transform: translateY(-100%);
 }
 
+/* Logo */
 .logo-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-family-base);
   text-decoration: none;
   color: inherit;
 }
@@ -111,26 +160,27 @@ html {
 .logo-text .brand {
   font-size: 2rem;
   font-weight: 500;
-  letter-spacing: var(--letter-spacing-base); /* khoảng cách giữa các chữ */
+  letter-spacing: var(--letter-spacing-base);
 }
 
 .logo-text .tagline {
   font-size: 0.5rem;
-  letter-spacing: 1px; /* thu hẹp lại so với mặc định */
+  letter-spacing: 1px;
   margin-top: 0.2rem;
 }
 
+/* Navigation Menu */
 .navigation-menu {
   display: flex;
   align-items: center;
-  gap: 2rem; /* Khoảng cách giữa các mục menu, nút và phần đổi ngôn ngữ */
+  gap: 2rem;
 }
 
 .main-nav ul {
   display: flex;
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-family-base);
   list-style: none;
-  gap: 3rem; /* Khoảng cách giữa các mục li */
+  gap: 3rem;
 }
 
 .main-nav a {
@@ -140,34 +190,32 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.7px;
   transition: color 0.3s ease;
-  position: relative; /* Cần thiết cho gạch chân pseudo-element */
-  padding-bottom: 5px; /* Tạo không gian cho gạch chân */
+  position: relative;
+  padding-bottom: 5px;
 }
 
 .main-nav a.active {
-  color: var(--color-text-white); /* Đảm bảo màu chữ của mục active luôn rõ */
+  color: var(--color-text-white);
 }
 
-/* Gạch chân cho hiệu ứng hover và active */
+/* Navigation Hover Effect */
 .main-nav a::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0; /* Ban đầu không có chiều rộng */
-  height: 1.5px; /* Độ dày của gạch chân */
-  background-color: var(
-    --color-text-white
-  ); /* Đổi màu gạch chân thành màu trắng */
-  transition: width 0.3s ease-out; /* Hiệu ứng trượt ra */
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-text-white);
+  transition: width 0.3s ease-out;
 }
 
-/* Khi hover hoặc link đang active, gạch chân sẽ có chiều rộng 100% */
 .main-nav a:hover::after,
 .main-nav a.active::after {
   width: 100%;
 }
 
+/* CTA Button */
 .cta-button {
   background-color: var(--color-primary);
   color: var(--color-text-white);
@@ -179,25 +227,26 @@ html {
   transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-family-base);
 }
 
 .cta-button:hover {
   background-color: var(--color-primary-darker);
 }
 
+/* Language Switcher */
 .divider {
   display: inline-block;
-  width: 0.7px; /* độ dày vạch */
-  height: 30px; /* chiều cao vạch (tăng tùy ý) */
-  background: white; /* màu vạch */
+  width: 0.7px;
+  height: 30px;
+  background: white;
 }
 
 .lang-switcher {
   display: flex;
   align-items: center;
   gap: 2rem;
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-family-base);
 }
 
 .lang-switcher a {
@@ -206,60 +255,24 @@ html {
   font-size: var(--font-size-base);
 }
 
-.first-section-text {
-  position: absolute;
-  bottom: 60px; /* Cách phần cuối 60px */
-  left: 2rem; /* Căn lề trái giống với header */
-  max-width: 700px; /* Đặt chiều rộng tối đa để văn bản không quá dài */
-  z-index: 3; /* Tăng z-index để nằm trên lớp phủ gradient */
-}
+/* =================================================================
+   SECTION 2 - SECOND SECTION
+   ================================================================= */
 
-.first-section-text h2 {
-  font-size: 5rem;
-  font-weight: 500;
-  margin-bottom: 0.6rem;
-  letter-spacing: var(--letter-spacing-base);
-  font-family: "Times New Roman", serif;
-}
-
-.first-section-text p {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  font-family: "Times New Roman", serif;
-}
-
-/* Thêm lớp phủ gradient ở chân section để chuyển cảnh mượt mà */
-.first-section::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 250px; /* Chiều cao của vùng mờ, có thể điều chỉnh */
-  background: linear-gradient(to top, var(--color-background) 10%, transparent);
-  z-index: 2; /* Nằm trên lớp phủ đen và video, nhưng dưới text */
-}
-
-/* ==== Section 2 ==== */
 .second-section {
   height: 100vh;
   width: 100%;
-  background-color: inherit; /* Màu nền cho section */
+  background-color: inherit;
   position: relative;
   color: #fff;
-  margin-top: 50px; /* Thay đổi từ -40px thành 50px để tạo khoảng cách */
+  margin-top: 50px;
 }
 
 .sticky-wrapper {
-  /* Phần tử này sẽ "dính" lại khi cuộn */
   position: sticky;
   top: 0;
   height: 100vh;
   width: 100%;
-  
 }
 
 .second-section-content {
@@ -273,18 +286,18 @@ html {
   gap: 1.5rem;
 }
 
+/* Section Text */
 .second-section-text {
   text-align: center;
   max-width: 70%;
   width: 90vw;
   z-index: 2;
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-family-base);
   margin: 0 auto;
   background: inherit;
   padding: 1.2rem 1rem;
 }
 
-/* Trạng thái ban đầu của các đoạn văn bản: ẩn đi */
 .second-section-text > p {
   opacity: 0;
   transform: translateY(32px);
@@ -293,19 +306,13 @@ html {
   will-change: opacity, transform;
 }
 
-/* Khi section được cuộn tới, các đoạn văn bản sẽ hiện ra */
 .second-section-text.is-visible > p {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Thêm độ trễ cho đoạn văn bản thứ hai để nó xuất hiện sau */
 .second-section-text.is-visible > p:last-child {
-  transition-delay: 0.4s; /* Chữ nhỏ sẽ xuất hiện sau 0.4 giây */
-}
-
-.highlight {
-  color: var(--color-primary);
+  transition-delay: 0.4s;
 }
 
 .second-section-text .large-text {
@@ -323,8 +330,8 @@ html {
   margin-bottom: 5px;
 }
 
+/* Section Image */
 .second-section-image {
-  /* Hiệu ứng xuất hiện */
   opacity: 0;
   transform: scale(0.3);
   transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
@@ -339,7 +346,6 @@ html {
   align-items: center;
   justify-content: center;
   position: relative;
-  /* Hiệu ứng fade ở cuối ảnh */
 }
 
 .second-section-image.is-visible {
@@ -358,40 +364,44 @@ html {
 }
 
 
-/* ===== SECTION 3 ===== */
+/* =================================================================
+   SECTION 3, 4, 5 - SCROLL VIDEO SECTIONS
+   ================================================================= */
+
 .scroll-video-section {
-  height: 200vh; /* Giảm từ 300vh xuống 200vh để dừng sớm hơn */
+  height: 100vh;
   background-color: var(--color-background);
   position: relative;
-  margin-top: 150px; 
+  margin-top: 50px;
   --scroll-progress: 0;
+}
+
+.scroll-video-section:not(.is-active-scroll) {
+  --scroll-progress: 0 !important;
+}
+
+.scroll-video-section.is-active-scroll {
+  --scroll-progress: var(--scroll-progress);
 }
 
 .scroll-video-sticky-wrapper {
   height: 100vh;
   width: 100%;
   position: sticky;
-  top: 0;
   overflow: hidden;
 }
 
+/* Video Wrapper */
 .video-wrapper {
-  position: absolute; /* Định vị tuyệt đối để có thể di chuyển tự do */
-  top: calc(
-    10px + 70px * var(--scroll-progress)
-  ); 
-  left: calc(
-    5px + (40vw - 20px + 0.3rem - 5px) * var(--scroll-progress)
-  ); 
-  width: calc(
-    (100vw - 30px) - (40vw - 20px + 0.3rem + 5px) * var(--scroll-progress)
-  ); 
-  height: calc(
-    (100vh - 10px) - 90px * var(--scroll-progress)
-  ); 
+  position: absolute;
+  top: calc(10px + 70px * var(--scroll-progress));
+  left: calc(5px + (40vw - 20px + 1rem - 5px) * var(--scroll-progress));
+  width: calc((100vw - 30px) - (40vw - 20px + 1rem + 5px) * var(--scroll-progress));
+  height: calc((100vh - 10px) - 90px * var(--scroll-progress));
   border-radius: var(--radius-md);
   overflow: hidden;
   z-index: 10;
+  transition: all 0.1s ease-out;
 }
 
 .video-wrapper video {
@@ -400,79 +410,78 @@ html {
   object-fit: cover;
 }
 
+/* Video Title */
 .scroll-video-title {
   position: absolute;
   font-size: 2rem;
-  font-family: var(--font-family-base); /* Áp dụng font Times New Roman */
-  line-height: 1.2; /* Khoảng cách dòng cho tiêu đề chính */
+  font-family: var(--font-family-base);
+  line-height: 1.2;
   z-index: 20;
-  transition: top 0.5s ease, left 0.5s ease;
+  transition: top 0.1s ease-out, left 0.1s ease-out;
   top: 30%;
-  left: 20%; /* Dịch sang trái một chút so với vị trí trung tâm */
+  left: 20%;
   transform: translate(-50%, -50%);
   color: var(--color-text-white);
 }
-/* Khi cuộn, di chuyển "lập tức" lên góc trái và chuyển màu đột ngột */
+
 .scroll-video-section.is-active-scroll .scroll-video-title {
   top: 10px;
   left: 40px;
   transform: translate(0, 0);
-  color: var(--color-primary); /* Chuyển thành màu vàng đột ngột */
+  color: var(--color-primary);
 }
 
+/* Video Descriptions */
 .scroll-video-descriptions {
   position: absolute;
-  /* Vị trí cuối cùng: chiếm 1/3 bên trái */
-  top: 80px; /* Căn lề trên bằng với video, cách tiêu đề một khoảng */
+  top: 80px;
   left: 40px;
-  width: calc(40vw - 80px); /* Thu hẹp lại còn 40% */
-  height: calc(
-    100vh - 100px
-  ); /* Chiều cao bằng với video (100vh - 80px top - 20px bottom) */
+  width: calc(40vw - 80px);
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  z-index: 5; /* Nằm dưới video */
+  z-index: 5;
   opacity: 0;
   transition: opacity 0.5s ease-out;
-  transition-delay: 0.2s; /* Xuất hiện sau khi video đã bắt đầu co lại */
-  justify-content: center; /* Căn các khối giữa để đều với video */
-  align-items: stretch; /* Cho phép các khối mở rộng theo chiều ngang */
+  transition-delay: 0.2s;
+  justify-content: center;
+  align-items: stretch;
 }
 
-/* Khi animation chạy, làm hiện phần mô tả */
 .scroll-video-section.is-active-scroll .scroll-video-descriptions {
   opacity: 1;
 }
 
+/* Description Boxes */
 .scroll-video-desc-box {
   background-color: var(--color-component-bg);
   padding: 1rem;
   border-radius: 30px;
-  cursor: pointer; /* Thêm cursor pointer để người dùng biết có thể click */
-  transition: all 0.4s ease; /* Tăng thời gian transition để mượt mà hơn */
-  min-height: 100px; /* Chiều cao tối thiểu cho khối đóng */
+  cursor: pointer;
+  transition: all 0.4s ease;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex-shrink: 0; /* Không cho khối bị co lại */
+  flex-shrink: 0;
 }
+
 
 .scroll-video-desc-box:hover {
-  background-color: rgba(37, 37, 37, 0.8); /* Hiệu ứng hover nhẹ */
+  background-color: rgba(37, 37, 37, 0.8);
 }
 
-/* Khối mở sẽ tự động mở rộng để lấp đầy không gian còn lại */
 .scroll-video-desc-box--active {
-  flex-grow: 1; /* Cho phép khối mở mở rộng để lấp đầy không gian */
-  min-height: auto; /* Bỏ min-height cố định */
+  flex-grow: 1;
+  min-height: auto;
 }
 
 .scroll-video-desc-box h4 {
   font-size: 1.4rem;
-  font-family: var(--font-family-base); /* Áp dụng font Times New Roman */
-  line-height: 1.5; /* Khoảng cách dòng cho tiêu đề */
-  letter-spacing: 0.6px; /* Giãn cách giữa các ký tự */
+  font-family: var(--font-family-base);
+  line-height: 1.5;
+  letter-spacing: 0.6px;
   font-weight: 500;
   text-transform: uppercase;
   display: flex;
@@ -480,44 +489,34 @@ html {
   align-items: center;
 }
 
-/* Thêm khoảng cách dưới tiêu đề cho box có đoạn văn bản dài */
-.scroll-video-desc-box--with-text h4 {
-  margin-bottom: 1.8rem;
-}
-
-/* Thêm khoảng trống bên dưới cho khối văn bản để tạo dáng gần vuông */
-.scroll-video-desc-box--with-text .desc-text-content {
-  padding-bottom: 3.7rem; /* Tăng giá trị này để khối dài hơn */
-}
-
-/* --- Icon Styles --- */
-.scroll-video-desc-box h4 i {
-  font-size: 1.8rem; /* Kích thước icon */
-  color: var(--color-text-white); /* Màu trắng mặc định */
-  flex-shrink: 0; /* Ngăn icon bị co lại */
-}
-
-.scroll-video-desc-box h4 .icon-orange {
-  color: var(--color-primary); /* Màu cam cho icon đầu tiên */
-}
 
 .scroll-video-desc-box p {
   font-size: 1.1rem;
-  font-family: var(--font-family-base); /* Áp dụng font Times New Roman */
-  line-height: 1.6; /* Tăng khoảng cách giữa các dòng để dễ đọc hơn */
+  font-family: var(--font-family-base);
+  line-height: 1.6;
   color: var(--color-text-light);
 }
 
 .desc-text-content p:not(:last-child) {
-  margin-bottom: 0.5rem; /* Thêm khoảng cách giữa các đoạn văn */
+  margin-bottom: 0.5rem;
 }
 
-/* ==== ACCORDION EFFECTS ==== */
-.accordion-header span{
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+/* Icons */
+.scroll-video-desc-box h4 i {
+  font-size: 1.8rem;
+  color: var(--color-text-white);
+  flex-shrink: 0;
+}
+
+
+/* =================================================================
+   ACCORDION EFFECTS
+   ================================================================= */
+
+.accordion-header span {
+  font-size: 1.5rem;
   cursor: pointer;
-  user-select: none; /* Ngăn việc select text khi click */
+  user-select: none;
 }
 
 .accordion-content {
@@ -530,53 +529,56 @@ html {
 }
 
 .accordion-content--active {
-  max-height: 500px; /* Đủ cao để chứa nội dung */
+  max-height: 220px;
   opacity: 1;
-  letter-spacing: 0.5px; /* Giãn cách giữa các ký tự */
-  flex-grow: 1; /* Cho phép nội dung mở rộng để lấp đầy không gian */
+  letter-spacing: 0.5px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Căn nội dung lên trên */
+  justify-content: flex-start;
+  overflow-y: auto;
 }
 
-/* Icon effects */
 .accordion-icon {
   transition: transform 0.2s ease, color 0.3s ease;
-  color: var(--color-text-white); /* Màu trắng mặc định */
+  color: var(--color-text-white);
 }
 
 .scroll-video-desc-box--active .accordion-icon {
-  color: var(--color-primary); /* Màu vàng khi active */
-  transform: rotate(-90deg); /* Xoay -90 độ để hướng lên phải */
+  color: var(--color-primary);
+  transform: rotate(-90deg);
 }
-/* ========== END SECTION 3 ========== */
 
-/* --- Section 6 --- */
+
+/* =================================================================
+   SECTION 6 - TEAM SECTION
+   ================================================================= */
+
 .team-section {
-  padding: 120px 40px;
+  padding: 50px 40px;
   background-color: var(--color-background);
-  overflow-x: hidden; /* Ngăn thanh cuộn ngang không cần thiết */
-  margin-top: 50px; /* Thêm khoảng cách 50px từ section trước */
+  overflow-x: hidden;
+  margin-top: 50px;
 }
 
 .team-container {
   display: flex;
-  gap: 1rem; /* Khoảng cách giữa 2 cột */
-  align-items: stretch; /* Căn 2 cột có cùng chiều cao */
+  gap: 1rem;
+  align-items: stretch;
 }
 
-/* Cột mô tả bên trái */
+/* Team Description */
 .team-description {
-  flex: 1; /* Chiếm 1 phần */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Khoảng cách giữa 2 khối div con */
-  text-align: justify; /* Căn đều text */
+  gap: 1rem;
+  text-align: justify;
 }
 
 .team-desc-block {
   background-color: var(--color-component-bg);
-  padding: 1.2rem; /* Tăng padding để nội dung bên trong thoáng hơn */
+  padding: 2rem;
   border-radius: 25px;
 }
 
@@ -584,252 +586,126 @@ html {
   color: var(--color-primary);
   font-size: 2rem;
   font-weight: 500;
+  font-family: var(--font-family-base);
   margin-bottom: 2rem;
+
 }
 
 .team-description h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.2;
+  font-family: var(--font-family-base);
+  line-height: 1.4;
   margin-bottom: 1.2rem;
+  text-transform: uppercase;
 }
 
 .team-description p {
   color: var(--color-text-light);
   font-size: 1.1rem;
-  line-height: 1.7;
+  font-family: var(--font-family-base);
+  line-height: 1.6;
 }
 
-/* Cột banner ảnh bên phải */
+/* Image Marquee */
 .image-marquee-wrapper {
-  flex: 2; /* Chiếm 2 phần */
-  overflow: hidden; /* Đây là "cửa sổ" để nhìn vào banner */
-  border-radius: var(--radius-md); /* Thêm bo góc cho khung chứa ảnh */
-  cursor: grab; /* Con trỏ chuột khi hover */
-  user-select: none; /* Ngăn select text khi drag */
-}
-
-.image-marquee-wrapper:active {
-  cursor: grabbing; /* Con trỏ khi đang drag */
+  flex: 2;
+  overflow: hidden;
+  border-radius: var(--radius-md);
 }
 
 .image-marquee {
   display: flex;
-  gap: 1rem; /* Khoảng cách giữa các ảnh */
-  /* Animation chạy ngang */
+  gap: 1rem;
   animation: marquee-scroll 25s linear infinite;
-  height: 100%; /* Cho dải ảnh cao bằng wrapper */
-  transition: transform 0.1s ease-out; /* Smooth drag effect */
-}
-
-.image-marquee.dragging {
-  animation-play-state: paused; /* Tạm dừng animation khi drag */
+  height: 100%;
 }
 
 .marquee-item {
-  flex-shrink: 0; /* Quan trọng: để ảnh không bị co lại */
-  width: 400px; /* Tăng chiều rộng để ảnh có dạng ngang */
-  height: 100%; /* Cho ảnh cao bằng dải marquee */
-  background-color: var(--color-component-bg); /* Màu nền tạm thời */
+  flex-shrink: 0;
+  width: 400px;
+  height: 100%;
   border-radius: var(--radius-md);
-  object-fit: cover; /* Đảm bảo ảnh lấp đầy mà không bị méo */
+  object-fit: cover;
 }
 
-/* Định nghĩa animation */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
   }
   to {
-    /* Di chuyển sang trái một đoạn bằng đúng 1 bộ ảnh */
     transform: translateX(-50%);
   }
 }
 
-/* --- Custom Scrollbar Styles --- */
+/* =================================================================
+   SECTION 7 - PROJECT SECTION
+   ================================================================= */
 
-/* For Webkit-based browsers (Chrome, Safari, Edge, etc.) */
-::-webkit-scrollbar {
-  width: 8px; /* Độ rộng của thanh cuộn */
-}
 
-/* Ẩn các nút mũi tên trên thanh cuộn */
-::-webkit-scrollbar-button {
-  display: none;
-}
 
-::-webkit-scrollbar-track {
-  background: var(--color-component-bg); /* Màu nền của rãnh cuộn */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #d38c37; /* Màu vàng cam cho thanh cuộn */
-  border-radius: 10px; /* Bo góc cho thanh cuộn */
-}
-
-/* For Firefox */
-html {
-  scrollbar-width: thin; /* Làm cho thanh cuộn mỏng hơn */
-  scrollbar-color: var(--color-primary) var(--color-component-bg); /* Màu thanh cuộn và màu rãnh */
-}
-
-/* --- Section 7: Projects Stack --- */
-.project-section {
-  /* Chiều cao lớn để có không gian cuộn cho hiệu ứng */
-  height: 300vh;
-  background-color: var(--color-background);
-  position: relative;
-  margin-top: 50px; /* Thêm khoảng cách 50px từ section trước */
-}
-
-.project-container {
-  display: flex;
-  gap: 2rem;
-  /* Dính lại trong suốt quá trình cuộn của section cha */
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  padding: 80px 40px;
-  align-items: flex-start; /* Căn các cột lên trên cùng */
-}
-
-/* Cột trái */
-.project-stack-column {
-  flex: 2; /* Chiếm 2 phần */
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Quan trọng: để flex-grow hoạt động */
-}
-
-.project-section-title {
-  color: var(--color-primary);
-  font-size: 2rem; /* Giống .scroll-video-title */
-  font-weight: 500;
-  margin-bottom: 2rem;
-  flex-shrink: 0; /* Không cho tiêu đề bị co lại */
-}
-
-.project-image-stack {
-  position: relative; /* Làm container cho các ảnh absolute */
-  flex-grow: 1; /* Chiếm hết không gian dọc còn lại */
-  width: 100%;
-}
-
-.project-image-card {
-  position: absolute; /* Xếp chồng tất cả các ảnh lên nhau */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  opacity: 0; /* Mặc định tất cả đều ẩn */
-}
-
-.project-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* HIỂN THỊ ẢNH ĐANG ACTIVE */
-.project-image-card.is-active {
-  opacity: 1;
-  /* Thêm hiệu ứng chuyển động mượt mà */
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Cột phải */
-.project-description-column {
-  flex: 1; /* Chiếm 1 phần */
-  padding-top: calc(2rem + 2rem); /* Bù cho chiều cao của tiêu đề cột trái */
-}
-
-.project-description-sticky-content h3 {
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.3;
-  margin-bottom: 1.5rem;
-}
-
-.project-description-sticky-content p {
-  color: var(--color-text-light);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
+/* =================================================================
+   SECTION 8 - TEAM CONSULTATION
+   ================================================================= */
 
 .team-consultation {
   color: #fff;
-  padding: 80px 40px; /* Thêm padding cho section */
-  font-family: Arial, sans-serif;
+  padding: 20px 40px;
+  font-family: var(--font-family-base);
   background: #1f1f1f;
-  margin-top: 50px; /* Thêm khoảng cách 50px từ section trước */
+  margin-bottom: 80px;
 }
 
 .team-wrapper {
   display: flex;
-  gap: 0; /* Xóa gap, sẽ dùng padding thay thế */
+  gap: 0;
   align-items: stretch;
-  background-color: #101010; /* Nền mới cho container */
-  border-radius: var(--radius-md); /* Bo tròn 4 góc */
-  overflow: hidden; /* Quan trọng: để bo góc cho phần tử con hoạt động */
+  background-color: #101010;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
+/* Team Image */
 .team-image {
   flex: 1;
-  padding: 0; /* Xóa padding để ảnh chiếm toàn bộ */
+  padding: 0;
   text-align: center;
-  position: relative; /* Để định vị caption */
+  position: relative;
 }
 
 .team-image img {
   width: 100%;
-  height: 100%; /* Quan trọng: cao bằng container */
+  height: 100%;
   object-fit: cover;
-  display: block; /* Xóa khoảng trống thừa dưới ảnh */
+  display: block;
 }
 
-.team-caption {
-  font-size: 12px;
-  color: var(--color-primary);
-  margin-top: 12px;
-  /* Định vị caption ở trên ảnh */
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  text-align: left;
-  background: rgba(16, 16, 16, 0.7);
-  padding: 10px;
-  border-radius: var(--radius-sm);
-}
-
+/* Team Content */
 .team-content {
   flex: 1;
-  padding: 40px; /* Thêm padding cho nội dung form */
+  padding: 40px;
 }
 
 .team-content h2 {
   font-size: 28px;
+  font-family: var(--font-family-base);
   margin-bottom: 16px;
   font-weight: 500;
 }
 
-.team-content .highlight {
-  color: var(--color-primary);
-}
-
 .team-content p {
+  font-family: var(--font-family-base);
   margin-bottom: 12px;
   line-height: 1.6;
 }
 
 .orange-text {
   color: var(--color-primary);
+  font-family: var(--font-family-base);
   font-weight: 500;
 }
 
+/* Consultation Form */
 .consultation-form {
   display: flex;
   flex-direction: column;
@@ -845,6 +721,37 @@ html {
   background: transparent;
   color: #fff;
   font-size: 14px;
+}
+
+
+/* Select dropdown styling */
+.consultation-form select {
+  background-color: #101010;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+  transition: background-color 0.3s ease;
+}
+
+
+.consultation-form select option {
+  background-color: #101010;
+  color: #fff;
+  padding: 8px 12px;
+}
+
+.consultation-form select option:hover,
+.consultation-form select option:checked {
+  background-color: #007bff;
+  color: #fff;
 }
 
 .phone-input {
@@ -868,28 +775,49 @@ html {
 }
 
 .privacy-check {
-  font-size: 12px;
+  font-size: 14px;
   color: #bbb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.privacy-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
 }
 
 .privacy-check a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
 }
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
 
 .site-footer {
   background: #000;
   color: #fff;
-  padding: 15px;
-  font-family: Arial, sans-serif;
+  padding: 15px 30px;
+  font-family: var(--font-family-base);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .footer-wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 25px;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
+
+/* Footer Columns */
 .footer-column ul {
   list-style: none;
   padding: 0;
@@ -897,103 +825,115 @@ html {
 }
 
 .footer-column ul li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .footer-column ul li a {
-  color: #fff;
+  color: #bbb;
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 5px;
 }
 
-.footer-column ul li a:hover {
-  color: var(--color-primary);
+/* Footer Links Hover Effect */
+.footer-column ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-text-white);
+  transition: width 0.3s ease-out;
+}
+
+.footer-column ul li a:hover::after {
+  width: 100%;
 }
 
 .footer-column h4 {
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: #fff;
 }
 
 .footer-column p {
-  font-size: 13px;
-  margin-bottom: 10px;
+  font-size: 11px;
   color: #bbb;
-  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
+
+/* Footer Brand */
 .footer-brand h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
 .footer-brand p {
-  font-size: 13px;
-  margin-bottom: 15px;
+  font-size: 11px;
+  margin-bottom: 8px;
   color: #bbb;
 }
 
+/* Footer Social Icons */
 .footer-socials {
   display: flex;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 
 .footer-socials a {
-  color: #fff;
-  font-size: 22px;
-  transition: color 0.3s;
-  text-decoration: none /* Đảm bảo không có gạch chân */;
+  color: #000;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 3px;
 }
 
 .footer-socials a:hover {
-  color: var(--color-primary);
+  transform: scale(1.1);
 }
 
-.footer-note {
-  font-size: 11px;
-  color: #777;
-  line-height: 1.4;
-}
+/* =================================================================
+   FIXED ELEMENTS
+   ================================================================= */
 
-.footer-copyright {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding-top: 15px;
-  border-top: 1px solid var(--color-component-bg); /* Thêm đường kẻ ngang để phân tách */
-  color: #888;
-  font-size: 13px;
-}
-
-/* --- Nút gọi điện thoại cố định --- */
+/* Fixed Call Button */
 .fixed-call-button {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 60px;
-  height: 60px;
-  background-color: var(--color-primary); /* Màu vàng cam chủ đạo */
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
   color: #fff;
-  border-radius: 50%; /* Bo tròn thành hình tròn */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px; /* Kích thước icon */
+  font-size: 24px;
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* Luôn nằm trên cùng */
-  transition: transform 0.3s ease; /* Hiệu ứng chuyển động mượt */
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
-/* Hiệu ứng nổi lên khi hover */
 .fixed-call-button:hover {
   transform: scale(1.1);
 }
 
-/* Hiệu ứng vòng tròn tỏa ra */
 .fixed-call-button::before {
   content: "";
   position: absolute;
@@ -1005,26 +945,44 @@ html {
   height: 100%;
   background-color: var(--color-primary);
   border-radius: 50%;
-  /* Gọi animation đã định nghĩa ở dưới */
   animation: pulse-effect 2s infinite ease-out;
 }
 
-/* Định nghĩa animation tỏa sáng */
 @keyframes pulse-effect {
   0% {
-    /* Bắt đầu từ kích thước gốc, độ mờ 70% */
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.7;
   }
   100% {
-    /* Kết thúc ở kích thước lớn hơn 2.5 lần, và mờ hẳn đi */
-    transform: translate(-50%, -50%) scale(2.5);
+    transform: translate(-50%, -50%) scale(2);
     opacity: 0;
   }
 }
 
-/* --- Nút Hamburger & Sidebar (Mặc định ẩn trên desktop) --- */
-.menu-toggle,
-.mobile-sidebar {
+/* =================================================================
+   CUSTOM SCROLLBAR
+   ================================================================= */
+
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-button {
   display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-component-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d38c37;
+  border-radius: 10px;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-component-bg);
 }
