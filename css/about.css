@@ -1,7 +1,3 @@
-/* =================================================================
-   GLOBAL STYLES & VARIABLES
-   ================================================================= */
-
 /* CSS Variables */
 :root {
   --color-primary: #d38c37;
@@ -15,7 +11,7 @@
   --radius-sm: 10px;
   --radius-md: 22px;
 
-  --font-size-base: 13px;
+  --font-size-base: 0.8rem;
   --letter-spacing-base: 3px;
   --font-family-base: "Times New Roman", serif;
 }
@@ -30,8 +26,8 @@
 body,
 html {
   font-family: sans-serif;
-  color: #fff;
-  background-color: #1f1f1f;
+  color: var(--color-text-white);
+  background-color: var(--color-background);
 }
 
 /* Common Utility Classes */
@@ -39,10 +35,7 @@ html {
   color: var(--color-primary);
 }
 
-/* =================================================================
-   SECTION 1 - FIRST SECTION (HERO)
-   ================================================================= */
-
+/* SECTION 1 */
 .first-section {
   height: 100vh;
   width: 100%;
@@ -488,6 +481,7 @@ html {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.7;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(2);
     opacity: 0;
@@ -756,18 +750,22 @@ html {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Ảnh chiếm 2/3, mô tả chiếm 1/3 */
+  grid-template-columns: 2fr 1fr;
+  /* Ảnh chiếm 2/3, mô tả chiếm 1/3 */
   gap: 1rem;
-  align-items: start; /* Căn trên, không stretch */
+  align-items: start;
+  /* Căn trên, không stretch */
   width: 100%;
-  margin-top: 100px; /* Space for title */
+  margin-top: 100px;
+  /* Space for title */
 }
 
 /* Left Side - Image Content */
 .fifth-section-left {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Căn trên */
+  align-items: flex-start;
+  /* Căn trên */
 }
 
 .scroll-video-descriptions {
@@ -777,7 +775,8 @@ html {
   opacity: 1;
   justify-content: flex-start;
   align-items: stretch;
-  height: 550px; /* Bằng chiều cao ảnh */
+  height: 550px;
+  /* Bằng chiều cao ảnh */
 }
 
 .scroll-video-desc-box {
@@ -785,11 +784,13 @@ html {
   padding: 1.2rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Hiệu ứng mượt mà hơn */
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Hiệu ứng mượt mà hơn */
   min-height: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Căn giữa khi thu gọn */
+  justify-content: center;
+  /* Căn giữa khi thu gọn */
   flex-shrink: 0;
 }
 
@@ -799,8 +800,10 @@ html {
 
 .scroll-video-desc-box--active {
   background-color: rgba(37, 37, 37, 0.9);
-  justify-content: flex-start; /* Khi mở thì căn trên */
-  flex: 1; /* Giữ kích thước bình thường */
+  justify-content: flex-start;
+  /* Khi mở thì căn trên */
+  flex: 1;
+  /* Giữ kích thước bình thường */
 }
 
 /* Accordion Header - Copy from index.html */
@@ -809,7 +812,8 @@ html {
   font-weight: 500;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Căn trên thay vì center */
+  align-items: flex-start;
+  /* Căn trên thay vì center */
   padding: 0;
   text-transform: uppercase;
   cursor: pointer;
@@ -823,17 +827,21 @@ html {
   cursor: pointer;
   color: var(--color-text-white);
   letter-spacing: 0.5px;
-  flex: 1; /* Chiếm không gian còn lại */
-  line-height: 1.3; /* Giảm line-height để icon căn đúng */
+  flex: 1;
+  /* Chiếm không gian còn lại */
+  line-height: 1.3;
+  /* Giảm line-height để icon căn đúng */
 }
 
 .accordion-icon {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-text-white);
   font-size: 1.8rem;
-  margin-top: 0.1rem; /* Căn chỉnh với dòng đầu tiên của text */
-  flex-shrink: 0; /* Không bị co lại */
+  margin-top: 0.1rem;
+  /* Căn chỉnh với dòng đầu tiên của text */
+  flex-shrink: 0;
+  /* Không bị co lại */
 }
 
 .scroll-video-desc-box--active .accordion-icon {
@@ -845,9 +853,9 @@ html {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -857,25 +865,29 @@ html {
   opacity: 1;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  flex: 1; /* Kéo dài phần content để lấp đầy không gian còn lại */
+  flex: 1;
+  /* Kéo dài phần content để lấp đầy không gian còn lại */
 }
 
 .desc-text-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100%; /* Chiều cao đầy đủ của content */
+  height: 100%;
+  /* Chiều cao đầy đủ của content */
 }
 
 .desc-text-content p {
-  font-size: 1.1rem; /* Giống index.html */
+  font-size: 1.1rem;
+  /* Giống index.html */
   line-height: 1.6;
   color: var(--color-text-light);
   font-family: var(--font-family-base);
 }
 
 .desc-text-content p:not(:last-child) {
-  margin-bottom: 0.5rem; /* Giống index.html */
+  margin-bottom: 0.5rem;
+  /* Giống index.html */
 }
 
 .desc-text-content p:last-child {
@@ -892,13 +904,15 @@ html {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  justify-content: flex-start; /* Căn trên */
+  justify-content: flex-start;
+  /* Căn trên */
 }
 
 .expertise-image-container {
   position: relative;
   width: 100%;
-  height: 550px; /* Chiều cao cố định */
+  height: 550px;
+  /* Chiều cao cố định */
   border-radius: 20px;
   overflow: hidden;
 }
@@ -1008,6 +1022,7 @@ html {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -1407,4 +1422,3 @@ html {
 .footer-socials a:hover {
   transform: scale(1.1);
 }
-

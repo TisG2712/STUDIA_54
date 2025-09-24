@@ -1,0 +1,103 @@
+/* CSS Variables */
+:root {
+    --color-primary: #d38c37;
+    --color-primary-darker: #b6752f;
+    --color-background: #1f1f1f;
+    --color-component-bg: #252525;
+    --color-text-light: #a0a0a0;
+    --color-text-white: #fff;
+    --color-text-muted: #888;
+
+    --radius-sm: 10px;
+    --radius-md: 22px;
+
+    --font-size-base: 13px;
+    --letter-spacing-base: 3px;
+    --font-family-base: "Times New Roman", serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: var(--font-family-base);
+    color: #fff;
+    background-color: #1f1f1f;
+}
+
+/* Common Utility Classes */
+.highlight {
+    color: var(--color-primary);
+}
+
+.first-section-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.first-section-text h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    position: absolute;
+    bottom: 80px;
+    z-index: 3;
+    color: var(--color-primary);
+}
+
+.first-section-text p {
+    width: 100%;
+    left: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* ===== SLIDESHOW STYLES ===== */
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Overlay for better text readability */
+.slideshow-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}

@@ -1,0 +1,264 @@
+/* CSS Variables */
+:root {
+    --color-primary: #d38c37;
+    --color-primary-darker: #b6752f;
+    --color-background: #1f1f1f;
+    --color-component-bg: #252525;
+    --color-text-light: #a0a0a0;
+    --color-text-white: #fff;
+    --color-text-muted: #888;
+
+    --radius-sm: 10px;
+    --radius-md: 22px;
+
+    --font-size-base: 13px;
+    --letter-spacing-base: 3px;
+    --font-family-base: "Times New Roman", serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: var(--font-family-base);
+    color: #fff;
+    background-color: #1f1f1f;
+}
+
+/* Common Utility Classes */
+.highlight {
+    color: var(--color-primary);
+}
+
+/* ===== SECTION 1 - COMPACT ===== */
+.first-section {
+    height: 50px;
+    padding: 20px 0;
+}
+
+/* ===== SECTION 2 - SERVICES ===== */
+.services-section {
+    background-color: var(--color-background);
+    padding-top: 100px;
+    margin-bottom: 80px;
+    font-family: var(--font-family-base);
+}
+
+.services-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.services-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: var(--font-family-base);
+    text-align: left;
+    padding-left: 30px;
+}
+
+.services-image {
+    width: 100%;
+    padding: 30px;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.services-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* ===== SECTION 3 - TEXT CONTENT ===== */
+.text-content-section {
+    width: 100%;
+    margin-bottom: 100px;
+    font-family: var(--font-family-base);
+}
+
+.text-content-wrapper {
+    display: flex;
+    gap: 40px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.text-column-left {
+    flex: 60%;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+.text-column-right {
+    flex: 40%;
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.text-column-left p,
+.text-column-right p {
+    margin: 0;
+}
+
+/* ===== SECTION 4 - ARCHITECTURAL DESIGN ===== */
+.architectural-section {
+    background-color: var(--color-background);
+    width: 100%;
+    margin-bottom: 40px;
+    font-family: var(--font-family-base);
+}
+
+.architectural-wrapper {
+    background-color: #1a1a1a;
+    border-radius: var(--radius-md);
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.architectural-content {
+    padding: 40px;
+    flex: 30%;
+    color: white;
+}
+
+.architectural-title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.architectural-description {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+.architectural-button {
+    background-color: var(--color-primary);
+    font-family: var(--font-family-base);
+    color: #fff;
+    border: none;
+    padding: 20px 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.architectural-image {
+    height: 100%;
+    flex: 70%;
+}
+
+.architectural-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ===== CONTACT FORM STYLES ===== */
+.contact-form {
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.radio-label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 12px;
+    accent-color: var(--color-primary);
+}
+
+.radio-text {
+    color: white;
+    font-size: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 18px 20px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-button {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+}
+
+
+/* ===== CONTACT SECTION SPECIFIC STYLES ===== */
+.contact-content {
+    padding: 40px;
+    flex: 30%;
+    color: white;
+}
+
+.contact-title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.contact-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-text-light);
+}

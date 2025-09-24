@@ -26,7 +26,7 @@
         Trình duyệt của bạn không hỗ trợ thẻ video.
       </video>
       <header class="main-header">
-        <a href="/" class="logo-text">
+        <a href="./index.html" class="logo-text">
           <h1 class="brand">STUDIA 54</h1>
           <p class="tagline">ARCHITECTURE | DESIGN | FURNITURE</p>
         </a>
@@ -40,9 +40,21 @@
               <li><a href="./pages/services.html">DỊCH VỤ</a></li>
             </ul>
           </nav>
-          <button type="button" class="cta-button">
-            LIÊN HỆ VỚI CHÚNG TÔI
-          </button>
+          <div class="contact-dropdown">
+            <button type="button" class="cta-button contact-main-btn">
+              LIÊN HỆ VỚI CHÚNG TÔI
+            </button>
+            <div class="contact-dropdown-menu">
+              <a href="#" class="contact-dropdown-item whatsapp-btn">
+                <i class="ri-whatsapp-fill"></i>
+                <span>Reach us on WhatsApp</span>
+              </a>
+              <a href="#" class="contact-dropdown-item submit-btn">
+                <i class="ri-add-line"></i>
+                <span>Submit a Request</span>
+              </a>
+            </div>
+          </div>
           <div class="lang-switcher">
             <span class="divider"></span>
             <a href="#">VN</a>
@@ -61,30 +73,28 @@
 
     <!-- ===== SECTION 2 ===== -->
     <section class="second-section">
-      <div class="sticky-wrapper">
-        <div class="second-section-content">
-          <div class="second-section-text">
-            <p class="large-text">
-              NGÀY NAY, CHÚNG TÔI CÓ
-              <span class="highlight">DANH MỤC VÀ PHẠM VI DỰ ÁN </span>
-              RỘNG RÃI NHẤT TRONG PHÂN KHÚC CAO CẤP
-            </p>
-            <p class="normal-text">
-              Hơn 600 dự án tại 32 quốc gia, với diện tích trung bình từ 900 m².
-              Hơn hai triệu người trên
-              <span class="highlight"> toàn thế giới</span> theo dõi sự phát
-              triển của Studia 54, bao gồm những người nổi tiếng, nhà thiết kế
-              và kiến trúc sư danh tiếng.
-            </p>
-          </div>
-          <div class="second-section-image" id="expanding-image-container">
-            <!-- Thay thế bằng đường dẫn ảnh của bạn -->
-            <img
-              src="./assets/images/global.png"
-              alt="Illustrator Store In the World"
-              loading="lazy"
-            />
-          </div>
+      <div class="second-section-content">
+        <div class="second-section-text">
+          <p class="large-text">
+            NGÀY NAY, CHÚNG TÔI CÓ
+            <span class="highlight">DANH MỤC VÀ PHẠM VI DỰ ÁN </span>
+            RỘNG RÃI NHẤT TRONG PHÂN KHÚC CAO CẤP
+          </p>
+          <p class="normal-text">
+            Hơn 600 dự án tại 32 quốc gia, với diện tích trung bình từ 900 m².
+            Hơn hai triệu người trên
+            <span class="highlight"> toàn thế giới</span> theo dõi sự phát triển
+            của Studia 54, bao gồm những người nổi tiếng, nhà thiết kế và kiến
+            trúc sư danh tiếng.
+          </p>
+        </div>
+        <div class="second-section-image" id="expanding-image-container">
+          <!-- Thay thế bằng đường dẫn ảnh của bạn -->
+          <img
+            src="./assets/images/global.png"
+            alt="Illustrator Store In the World"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -103,19 +113,16 @@
               class="desc-text-content accordion-content accordion-content--active"
             >
               <p>
-                Trong quá trình kiến ​​tạo một ngôi nhà, chúng tôi nỗ lực thấu
-                hiểu trọn vẹn tầm nhìn của bạn — những chi tiết nào truyền cảm
-                hứng cho bạn và cách bạn hình dung về một chốn an cư hoàn hảo.
+                Trong quá trình kiến ​​tạo một ngôi nhà, chúng tôi nỗ lực
+                <span class="highlight"
+                  >thấu hiểu trọn vẹn tầm nhìn của bạn</span
+                >
+                — những chi tiết nào truyền cảm hứng cho bạn và cách bạn hình
+                dung về một chốn an cư hoàn hảo.
               </p>
               <p>
-                Chúng tôi thiết kế nhà theo phong cách đặc trưng của Studia 54,
-                sử dụng các giải pháp kiến ​​trúc và kết cấu riêng, kết hợp vật
-                liệu tự nhiên và lựa chọn bảng màu hài hòa với môi trường xung
-                quanh.
-              </p>
-              <p>
-                Cách tiếp cận này cho phép ngôi nhà hòa quyện hoàn hảo với cảnh
-                quan, tạo cảm giác hòa hợp tuyệt đối với thiên nhiên.
+                Cách tiếp cận này cho phép ngôi nhà hòa quyện liền mạch với cảnh
+                quan, tạo cảm giác hòa hợp hoàn toàn với thiên nhiên.
               </p>
             </div>
           </div>
@@ -127,14 +134,16 @@
             <div class="desc-text-content accordion-content">
               <p>
                 Hơn 10 năm kinh nghiệm xử lý các thách thức phức tạp về kiến
-                ​​trúc, kết cấu và kỹ thuật đã giúp chúng tôi trở thành chuyên
-                gia quốc tế trong việc thực hiện các dự án cao cấp quy mô lớn,
-                bao gồm các khu dân cư có diện tích trên 10.000 m².
+                ​​trúc, kết cấu và kỹ thuật đã giúp chúng tôi trở thành
+                <span class="highlight">chuyên gia quốc tế</span> trong việc
+                thực hiện các dự án cao cấp quy mô lớn, bao gồm các khu dân cư
+                có diện tích trên 10.000 m².
               </p>
               <p>
                 Với phương pháp tiếp cận toàn diện từ đội ngũ kiến ​​trúc sư và
-                kỹ sư hàng đầu, chúng tôi kiến ​​tạo nên những không gian sống
-                được cá nhân hóa, định hình một môi trường sống chăm sóc bạn.
+                kỹ sư hàng đầu, chúng tôi kiến ​​tạo nên những
+                <span class="highlight">không gian sống được cá nhân hóa</span>,
+                định hình một môi trường sống chăm sóc bạn.
               </p>
             </div>
           </div>
@@ -153,9 +162,11 @@
                 hậu bảo vệ khỏi các yếu tố thời tiết.
               </p>
               <p>
-                Bằng cách hòa mình vào phong cách sống của bạn, chúng tôi mang
-                đến tầm nhìn về ngôi nhà lý tưởng của bạn - được xây dựng hài
-                hòa với thiên nhiên, dành cho bạn và gia đình.
+                <span class="highlight"
+                  >Bằng cách hòa mình vào phong cách sống của bạn, chúng tôi
+                  mang đến tầm nhìn về ngôi nhà lý tưởng của bạn - được xây dựng
+                  hài hòa với thiên nhiên, dành cho bạn và gia đình.</span
+                >
               </p>
             </div>
           </div>
@@ -191,7 +202,7 @@
         <div class="scroll-video-descriptions">
           <div class="scroll-video-desc-box scroll-video-desc-box--active">
             <h4 class="accordion-header">
-              <span>Hài hòa không gian với những chi tiết hoàn hảo</span>
+              <span> Không gian hài hòa với những chi tiết hoàn hảo</span>
               <i class="ri-arrow-right-down-line accordion-icon"></i>
             </h4>
             <div
@@ -199,12 +210,15 @@
             >
               <p>
                 Hành trình kiến ​​tạo không gian nội thất của chúng tôi bắt đầu
-                bằng sự thấu hiểu sâu sắc về phong cách sống và khát vọng của
-                bạn, nắm bắt được bản chất của không gian sống lý tưởng.
+                bằng
+                <span class="highlight"
+                  >sự thấu hiểu sâu sắc về phong cách sống và khát vọng của
+                  bạn</span
+                >, nắm bắt được bản chất của không gian sống lý tưởng.
               </p>
               <p>
                 Danh mục sản phẩm của chúng tôi phản ánh phong cách đặc trưng
-                của Studia 54 — sự kết hợp màu sắc được tuyển chọn kỹ lưỡng và
+                của Studia 54 - sự kết hợp màu sắc được tuyển chọn kỹ lưỡng và
                 các điểm nhấn bố cục làm nổi bật hình học không gian, biến nội
                 thất thành nguồn cảm hứng bất tận.
               </p>
@@ -212,7 +226,7 @@
           </div>
           <div class="scroll-video-desc-box">
             <h4 class="accordion-header">
-              <span>Thực hiện các dự án thiết kế với mọi mức độ phức tạp</span>
+              <span>Biến những dự án phức tạp thành hiện thực</span>
               <i class="ri-arrow-right-down-line accordion-icon"></i>
             </h4>
             <div class="desc-text-content accordion-content">
@@ -223,31 +237,33 @@
                 với chiều sâu và vẻ sang trọng tinh tế.
               </p>
               <p>
-                Trong hơn 10 năm qua, chúng tôi đã thực hiện những dự án thiết
-                kế cao cấp phức tạp, không ngừng trau dồi chuyên môn — từ căn hộ
-                gia đình sang trọng rộng 1.000 m² ở Moscow, nhà hàng ấm cúng tại
-                Burj Khalifa, cho đến cung điện rộng 6.800 m² ở Ả Rập Xê Út mang
-                đậm dấu ấn phương Đông tinh tế.
+                <span class="highlight">Trong hơn 10 năm qua, </span>chúng tôi
+                đã thực hiện những dự án thiết kế cao cấp phức tạp, không ngừng
+                trau dồi chuyên môn - từ căn hộ gia đình sang trọng rộng 1.000
+                m² ở Moscow, nhà hàng ấm cúng tại Burj Khalifa, cho đến cung
+                điện rộng 6.800 m² ở Ả Rập Xê Út mang đậm dấu ấn phương Đông
+                tinh tế.
               </p>
             </div>
           </div>
           <div class="scroll-video-desc-box">
             <h4 class="accordion-header">
-              <span>Một cách tiếp cận đa diện để sáng tạo nội thất</span>
+              <span>Một cách tiếp cận đa chiều để sáng tạo nội thất</span>
               <i class="ri-arrow-right-down-line accordion-icon"></i>
             </h4>
             <div class="desc-text-content accordion-content">
               <p>
-                We see interiors as an inseparable extension of architecture.
-                Just as an architect envisions the flow of life within a home,
-                an interior designer completes this vision, meticulously shaping
-                every detail to create an atmosphere of harmony and absolute
-                comfort
+                Chúng tôi xem nội thất là một phần không thể tách rời của kiến
+                ​​trúc. Giống như kiến ​​trúc sư hình dung dòng chảy cuộc sống
+                trong một ngôi nhà, nhà thiết kế nội thất hoàn thiện tầm nhìn
+                này, tỉ mỉ định hình từng chi tiết để
+                <span class="highlight"
+                  >tạo nên bầu không khí hài hòa và thoải mái tuyệt đối.</span
+                >
               </p>
             </div>
           </div>
         </div>
-
         <!-- Tiêu đề chính, nằm trên video -->
         <div class="scroll-video-title" data-text="/ THIẾT KẾ NỘI THẤT">
           / THIẾT KẾ NỘI THẤT
@@ -269,7 +285,7 @@
       </div>
     </section>
 
-    <!-- ===== SECTION 5 ==== -->
+    <!-- ===== SECTION 5 ===== -->
     <section class="scroll-video-section">
       <div class="scroll-video-sticky-wrapper">
         <!-- Phần text mô tả, ban đầu sẽ ẩn -->
@@ -284,14 +300,19 @@
             >
               <p>
                 Mọi chi tiết trong dự án của bạn đều được thực hiện chính xác —
-                đúng như hình dung trong quá trình phát triển. Từ bố cục đến nội
-                thất độc quyền, mọi thứ đều được hiện thực hóa với độ chính xác
-                tỉ mỉ.
+                đúng như hình dung trong quá trình phát triển.
+                <span class="highlight"
+                  >Từ bố cục đến nội thất độc quyền, mọi thứ đều được hiện thực
+                  hóa với độ chính xác tỉ mỉ.</span
+                >
               </p>
               <p>
-                Cơ sở sản xuất nội bộ rộng 1.500 m² của chúng tôi cho phép chúng
-                tôi sản xuất các tấm da lộn và veneer tùy chỉnh, tủ bếp phức tạp
-                và bộ sưu tập nội thất cao cấp.
+                <span class="highlight"
+                  >Cơ sở sản xuất nội bộ rộng 1.500 m²</span
+                >
+                của chúng tôi cho phép chúng tôi sản xuất các tấm da lộn và
+                veneer tùy chỉnh, tủ bếp phức tạp và bộ sưu tập nội thất cao
+                cấp.
               </p>
             </div>
           </div>
@@ -302,22 +323,45 @@
             </h4>
             <div class="desc-text-content accordion-content">
               <p>
-                FiftyFourms thể hiện chuyên môn của chúng tôi trong việc xử lý
-                các vật liệu và hình khối phức tạp.
+                <span class="highlight">FiftyFourms</span> thể hiện chuyên môn
+                của chúng tôi trong việc xử lý các vật liệu và hình khối phức
+                tạp.
               </p>
               <p>
                 Dưới sự hướng dẫn của chuyên gia công nghệ người Ý, sự kết hợp
                 giữa tay nghề thủ công tinh xảo và thiết bị hiện đại đã tạo nên
-                những sản phẩm chất lượng cao, nổi bật với thiết kế đặc trưng
-                của Studia 54.
+                những sản phẩm <span class="highlight">chất lượng cao</span>,
+                nổi bật với thiết kế đặc trưng của Studia 54.
+              </p>
+            </div>
+          </div>
+
+          <div class="scroll-video-desc-box">
+            <h4 class="accordion-header">
+              <span>Trang thiết bị hiện đại và đội ngũ kinh nghiệm</span>
+              <i class="ri-arrow-right-down-line accordion-icon"></i>
+            </h4>
+            <div class="desc-text-content accordion-content">
+              <p>
+                Với cơ sở sản xuất riêng được trang bị đầy đủ máy móc hiện đại,
+                chúng tôi có thể kiểm soát toàn bộ quy trình sản xuất từ khâu
+                thiết kế đến hoàn thiện sản phẩm. Điều này cho phép chúng tôi
+                đảm bảo
+                <span class="highlight">chất lượng tuyệt đối</span> và thời gian
+                giao hàng chính xác cho mọi dự án, từ những sản phẩm đơn lẻ đến
+                các dự án quy mô lớn.
+              </p>
+              <p>
+                Cơ sở sản xuất của chúng tôi được vận hành bởi đội ngũ kỹ thuật
+                viên giàu kinh nghiệm, sẵn sàng đáp ứng mọi yêu cầu phức tạp
+                nhất của khách hàng.
               </p>
             </div>
           </div>
         </div>
-
         <!-- Tiêu đề chính, nằm trên video -->
-        <div class="scroll-video-title" data-text="/ SẢN XUẤT ĐỒ NỘI THẤT">
-          / SẢN XUẤT ĐỒ NỘI THẤT
+        <div class="scroll-video-title" data-text="/ SẢN XUẤT NỘI THẤT">
+          / SẢN XUẤT NỘI THẤT
         </div>
 
         <!-- Khung video -->
@@ -331,7 +375,7 @@
             loading="lazy"
           >
             <source
-              src="./assets/video/Future_production.mp4"
+              src="./assets/video/Furniture_production.mp4"
               type="video/mp4"
             />
           </video>
@@ -346,7 +390,10 @@
         <div class="team-description">
           <div class="team-desc-block">
             <h2>/ ĐỘI NGŨ STUDIA 54</h2>
-            <h3>Dự án của bạn nằm trong tay của 200 chuyên gia</h3>
+            <h3>
+              Dự án của bạn nằm trong tay của
+              <span class="highlight">200 chuyên gia</span>
+            </h3>
             <p>
               Dự án của bạn bắt đầu tại văn phòng rộng 800 m² của chúng tôi, nơi
               đội ngũ 200 chuyên gia tận tâm sẽ hiện thực hóa tầm nhìn của bạn
@@ -421,8 +468,55 @@
       </div>
     </section>
 
-    <!-- ===== SECTION 7: PROJECTS STACK ===== -->
-
+    <!-- ===== SECTION 7 ===== -->
+    <section class="project-section">
+      <div class="project-container">
+        <!-- Cột trái (2/3) chứa tiêu đề và ảnh cuộn -->
+        <div class="project-stack-column">
+          <h2 class="project-section-title">/DỰ ÁN STUDIA 54</h2>
+          <div class="project-image-stack">
+            <div class="project-image-card">
+              <img
+                src="./assets/images/project1.png"
+                alt="Project 1"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-image-card">
+              <img
+                src="./assets/images/project2.png"
+                alt="Project 2"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-image-card">
+              <img
+                src="./assets/images/project3.png"
+                alt="Project 3"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Cột phải (1/3) chứa mô tả, sẽ dính lại -->
+        <div class="project-description-column">
+          <div class="project-description-sticky-content">
+            <h3>Chúng tôi biết bạn cần gì</h3>
+            <p>
+              Việc triển khai các dự án ở nhiều quốc gia đòi hỏi sự tổ chức và
+              kiểm soát hoàn hảo. Mọi giai đoạn từ lập kế hoạch đến sản xuất đều
+              tuân theo một khuôn khổ có cấu trúc chặt chẽ, đảm bảo kết quả hoàn
+              hảo.
+            </p>
+            <p>
+              Bằng cách xử lý toàn bộ quy trình, chúng tôi giúp bạn thoát khỏi
+              những lo lắng không cần thiết, cho phép bạn tận hưởng trọn vẹn
+              hành trình kiến ​​tạo ngôi nhà mơ ước.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Section 8: Form -->
     <section class="team-consultation">
       <div class="team-wrapper">
@@ -433,31 +527,33 @@
             alt="Team Leaders"
             loading="lazy"
           />
-          <p class="team-caption">
-            ОЛЬГА ИВАНОВА И СТАНИСЛАВ КЛЮЕВ - CEO STUDIA 54
-          </p>
         </div>
 
         <!-- Bên phải: text + form -->
         <div class="team-content">
-          <h2>BƯỚC VÀO THẾ GIỚI CỦA STUDIA 54</h2>
+          <h2>BƯỚC VÀO <STUDIA class="highlight">THẾ GIỚI CỦA STUDIA 54</span></h2>
           <p>
             Nơi ước mơ của bạn thành hiện thực thông qua tầm nhìn độc đáo của
             studio chúng tôi. Chúng tôi mong muốn được đồng hành cùng bạn trên
             hành trình đầy cảm hứng này và mang đến cho bạn những dự án tuyệt
             vời.
           </p>
-          <p class="orange-text">
-            Điền vào mẫu và người quản lý của chúng tôi sẽ liên hệ với bạn
+          <p>
+            <span class="highlight"
+              >Điền vào mẫu và người quản lý của chúng tôi sẽ liên hệ với
+              bạn</span
+            >
           </p>
 
           <form class="consultation-form">
             <input type="text" placeholder="Tên của bạn" />
             <div class="phone-input">
               <select>
-                <option>AE (+971)</option>
-                <option>VN (+84)</option>
-                <option>US (+1)</option>
+                <option value="+84">Việt Nam (+84)</option>
+                <option value="+1">Hoa Kỳ (+1)</option>
+                <option value="+44">Anh (+44)</option>
+                <option value="+81">Nhật Bản (+81)</option>
+                <option value="+86">Trung Quốc (+86)</option>
               </select>
               <input type="text" placeholder="50 123 4567" />
             </div>
@@ -476,21 +572,21 @@
         <!-- Cột menu -->
         <div class="footer-column">
           <ul>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">CONTACTS</a></li>
-            <li><a href="#">SERVICES</a></li>
-            <li><a href="#">CAREER</a></li>
+            <li><a href="./pages/about.html">GIỚI THIỆU</a></li>
+            <li><a href="./pages/contacts.html">LIÊN HỆ</a></li>
+            <li><a href="./pages/services.html">DỊCH VỤ</a></li>
+            <li><a href="#">TUYỂN DỤNG</a></li>
             <li><a href="#">BLOG</a></li>
           </ul>
         </div>
 
         <div class="footer-column">
           <ul>
-            <li><a href="#">PORTFOLIO</a></li>
-            <li><a href="#">COMMERCIALS</a></li>
-            <li><a href="#">ARCHITECTURAL DESIGN</a></li>
-            <li><a href="#">RESIDENTIAL INTERIORS</a></li>
-            <li><a href="#">FURNITURE BRAND FIFTYFOURMS</a></li>
+            <li><a href="./pages/portfolio.html">DANH MỤC</a></li>
+            <li><a href="#">THƯƠNG MẠI</a></li>
+            <li><a href="#">THIẾT KẾ KIẾN TRÚC</a></li>
+            <li><a href="#">NỘI THẤT DÂN CƯ</a></li>
+            <li><a href="#">THƯƠNG HIỆU NỘI THẤT FIFTYFOURMS</a></li>
           </ul>
         </div>
 
@@ -503,13 +599,13 @@
         </div>
 
         <div class="footer-column">
-          <h4>WE WORK ALL OVER THE WORLD, OFFICE</h4>
+          <h4>TRỤ SỞ CHÍNH</h4>
           <p>
             191014, St. Petersburg, Novgorodskaya 23A, office 340
             (pre-registration)
           </p>
 
-          <h4>COOPERATION</h4>
+          <h4>HỢP TÁC</h4>
           <p>partners@studia-54.com</p>
         </div>
 
