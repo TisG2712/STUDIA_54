@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu - Studia 54</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../about_page/css/about.css" />
+  </head>
+  <body>
+    <!-- ===== SECTION 1 ===== -->
+    <section class="first-section">
+      <!-- Thêm poster và các định dạng video khác nhau -->
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        id="bg-video"
+        preload="auto"
+        poster="../../public/images/illustrator_form.jpg"
+      >
+        <source src="../../public/video/video_capri.mp4" type="video/mp4" />
+        Trình duyệt của bạn không hỗ trợ thẻ video.
+      </video>
+      <header class="main-header">
+        <div class="header-left">
+          <a href="../../index.html" class="logo-text">
+            <img src="../../public/images/Logo_Capri.png" alt="Logo Capri" class="logo-image">
+          </a>
+          <div class="logo-divider"></div>
+          <div class="breadcrumb">
+            <a href="../../index.html">TRANG CHỦ</a>
+            <span class="divider"></span>
+            <span class="current">GIỚI THIỆU</span>
+          </div>
+        </div>
+
+        <div class="navigation-menu">
+          <nav class="main-nav">
+            <ul>
+              <li><a href="../about_page/about.html" class="active">GIỚI THIỆU</a></li>
+              <li><a href="../portfolio_page/portfolio.html">DANH MỤC</a></li>
+              <li><a href="../contacts_page/contacts.html">LIÊN HỆ</a></li>
+              <li><a href="#">DỊCH VỤ</a></li>
+            </ul>
+          </nav>
+          <div class="contact-dropdown">
+            <button type="button" class="cta-button contact-main-btn">
+              LIÊN HỆ VỚI CHÚNG TÔI
+            </button>
+            <div class="contact-dropdown-menu">
+              <a href="#" class="contact-dropdown-item whatsapp-btn">
+                <i class="ri-whatsapp-fill"></i>
+                <span>Liên hệ trên WhatsApp</span>
+              </a>
+              <a href="#" class="contact-dropdown-item submit-btn">
+                <i class="ri-add-line"></i>
+                <span>
+                  Gửi yêu cầu</span>
+              </a>
+            </div>
+          </div>
+          <div class="lang-switcher">
+            <span class="divider"></span>
+            <a href="#">VN</a>
+            <a href="#">EN</a>
+          </div>
+        </div>
+      </header>
+      <div class="first-section-text">
+        <p>
+          <span class="highlight">BIẾN TẦM NHÌN CỦA BẠN</span> THÀNH HIỆN THỰC
+          THEO PHONG CÁCH ĐẶC TRƯNG CỦA CAPRI
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 ===== -->
+    <section class="second-section">
+      <div class="second-section-wrapper">
+        <!-- Left Side - Text Content -->
+        <div class="second-section-left">
+          <h2 class="section-title">/ GIỚI THIỆU VỀ CHÚNG TÔI</h2>
+          <p class="main-text">
+            TẠI STUDIO CỦA CHÚNG TÔI, VIỆC THIẾT KẾ NGÔI NHÀ HOÀN HẢO CỦA BẠN
+            BẮT ĐẦU VỚI BƯỚC QUAN TRỌNG NHẤT -
+            <span class="highlight">HIỂU VỀ GIẤC MƠ CỦA BẠN</span>
+          </p>
+          <p class="sub-text">
+            <span class="highlight">Chúng tôi tích hợp sáu lĩnh vực chính</span>
+            để đảm bảo mọi giai đoạn trong quá trình xây dựng ngôi nhà của bạn
+            đều là một phần của quá trình linh hoạt:
+          </p>
+
+          <div class="services-list">
+            <div class="service-item" data-image="architecture">
+              <span class="service-number">01</span>
+              <span class="service-name">KIẾN TRÚC</span>
+            </div>
+            <div class="service-item" data-image="interior">
+              <span class="service-number">02</span>
+              <span class="service-name">THIẾT KẾ NỘI THẤT</span>
+            </div>
+            <div class="service-item" data-image="landscaping">
+              <span class="service-number">03</span>
+              <span class="service-name">CẢNH QUAN</span>
+            </div>
+            <div class="service-item" data-image="construction">
+              <span class="service-number">04</span>
+              <span class="service-name">XÂY DỰNG</span>
+            </div>
+            <div class="service-item" data-image="furniture">
+              <span class="service-number">05</span>
+              <span class="service-name">NỘI THẤT CAO CẤP</span>
+            </div>
+            <div class="service-item" data-image="manufacturing">
+              <span class="service-number">06</span>
+              <span class="service-name">SẢN XUẤT NỘI BỘ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Image Content -->
+        <div class="second-section-right">
+          <div class="image-container">
+            <img
+              src="../../pages/about_page/images/about1.jpg"
+              alt="Architecture"
+              class="service-image active"
+              data-service="architecture"
+            />
+            <img
+              src="../../pages/about_page/images/about2.jpg"
+              alt="Interior Design"
+              class="service-image"
+              data-service="interior"
+            />
+            <img
+              src="../../pages/about_page/images/about3.jpg"
+              alt="Landscaping"
+              class="service-image"
+              data-service="landscaping"
+            />
+            <img
+              src="../../pages/about_page/images/about4.jpg"
+              alt="Construction"
+              class="service-image"
+              data-service="construction"
+            />
+            <img
+              src="../../pages/about_page/images/about5.jpg"
+              alt="Premium Furniture"
+              class="service-image"
+              data-service="furniture"
+            />
+            <img
+              src="../../pages/about_page/images/about6.jpg"
+              alt="In-house Manufacturing"
+              class="service-image"
+              data-service="manufacturing"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4 - DESIGN PHILOSOPHY ===== -->
+    <section class="fourth-section">
+      <div class="fourth-section-wrapper">
+        <p class="philosophy-text">
+          MỌI CHI TIẾT TRONG NGÔI NHÀ CỦA BẠN ĐỀU ĐƯỢC THIẾT KẾ CHU ĐÁO ĐỂ
+          <span class="highlight">NÂNG CAO CÁCH SỐNG CỦA BẠN</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5 - EXPERTISE ===== -->
+    <section class="fifth-section">
+      <!-- Section Title - Separate -->
+      <div class="section-title-container">
+        <h2 class="section-title">/ CHUYÊN MÔN</h2>
+      </div>
+
+      <div class="fifth-section-wrapper">
+        <!-- Left Side - Image Content -->
+        <div class="fifth-section-left">
+          <div class="expertise-image-container">
+            <img
+              src="../../pages/about_page/images/expertise1.jpg"
+              alt="Expertise 1"
+              class="expertise-image active"
+              data-expertise="manufacturing"
+            />
+            <img
+              src="../../pages/about_page/images/expertise2.jpg"
+              alt="Expertise 2"
+              class="expertise-image"
+              data-expertise="design"
+            />
+            <img
+              src="../../pages/about_page/images/expertise3.jpg"
+              alt="Expertise 3"
+              class="expertise-image"
+              data-expertise="quality"
+            />
+          </div>
+        </div>
+
+        <!-- Right Side - Descriptions Only -->
+        <div class="fifth-section-right">
+          <div class="expertise-descriptions">
+            <div
+              class="expertise-desc-box expertise-desc-box--active"
+              data-expertise="manufacturing"
+            >
+              <h4 class="accordion-header">
+                <span>NỘI THẤT</span>
+                <i class="ri-arrow-right-down-line accordion-icon"></i>
+              </h4>
+              <div
+                class="desc-text-content accordion-content accordion-content--active"
+              >
+                <p>
+                  Năm 2017, chúng tôi đã <span class="highlight">định hình phong cách nội thất đặc trưng</span>
+                  của Studio Capri — bảng màu tinh tế và những điểm nhấn bố cục táo
+                  bạo, thể hiện hình học không gian. Các chi tiết được chăm chút
+                  kỹ lưỡng mang đến sự ấm áp, trong khi hệ thống đèn chiếu sáng
+                  và các tác phẩm nghệ thuật biến không gian nội thất thành
+                  nguồn cảm hứng bất tận.
+                </p>
+              </div>
+            </div>
+
+            <div class="expertise-desc-box" data-expertise="design">
+              <h4 class="accordion-header">
+                <span>KIẾN TRÚC VÀ XÂY DỰNG</span>
+                <i class="ri-arrow-right-down-line accordion-icon"></i>
+              </h4>
+              <div class="desc-text-content accordion-content">
+                <p>
+                  Chúng tôi <span class="highlight">thiết kế và xây dựng những căn hộ riêng tư quy mô lớn,</span>
+                  kỹ thuật tiên tiến, đáp ứng mọi khía cạnh theo phong cách
+                  sống của bạn. Phương pháp của chúng tôi đảm bảo rằng ngôi nhà
+                  của bạn không chỉ là một không gian sống mà còn là một môi
+                  trường sống được thiết kế để <span class="highlight">nâng cao sự thoải mái và hạnh phúc</span>
+                  của bạn.
+                </p>
+              </div>
+            </div>
+
+            <div class="expertise-desc-box" data-expertise="quality">
+              <h4 class="accordion-header">
+                <span>Chất lượng và dịch vụ hoàn hảo nhất</span>
+                <i class="ri-arrow-right-down-line accordion-icon"></i>
+              </h4>
+              <div class="desc-text-content accordion-content">
+                <p>
+                  Với
+                  <span class="highlight">hơn 10 năm kinh nghiệm</span> trong
+                  lĩnh vực thiết kế và xây dựng, chúng tôi cam kết mang đến
+                  <span class="highlight">chất lượng dịch vụ tốt nhất</span>.
+                </p>
+                <p>
+                  Từ khâu tư vấn, thiết kế đến thi công và bảo hành, chúng tôi
+                  <span class="highlight">đồng hành cùng bạn</span> trong suốt
+                  quá trình tạo nên ngôi nhà mơ ước.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6 ===== -->
+    <section class="team-section" style="margin-bottom: 50px">
+      <div class="team-container">
+        <!-- Cột mô tả (1/3) -->
+        <div class="team-description">
+          <div class="team-desc-block">
+            <h2>/ ĐỘI NGŨ STUDIO CAPRI</h2>
+            <h3>
+              Dự án của bạn nằm trong tay của
+              <span class="highlight">200 chuyên gia</span>
+            </h3>
+            <p>
+              Dự án của bạn bắt đầu tại văn phòng rộng 800 m² của chúng tôi, nơi
+              đội ngũ 200 chuyên gia tận tâm sẽ hiện thực hóa tầm nhìn của bạn
+              theo phong cách đặc trưng của Studia Capri.
+            </p>
+          </div>
+          <div class="team-desc-block">
+            <p>
+              Mọi chi tiết đều được quản lý tỉ mỉ bởi người quản lý dự án cá
+              nhân của bạn, đảm bảo thực hiện liền mạch từ khái niệm đến hoàn
+              thành thông qua phương pháp dự án cao cấp có cấu trúc của chúng
+              tôi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cột banner ảnh chạy (2/3) -->
+        <div class="image-marquee-wrapper">
+          <div class="image-marquee" id="team-marquee">
+            <!-- Bộ ảnh 1 -->
+            <img
+              src="../../public/images/team_picture_1.png"
+              alt="Team Image 1"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_2.png"
+              alt="Team Image 2"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_3.png"
+              alt="Team Image 3"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_4.png"
+              alt="Team Image 4"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_5.png"
+              alt="Team Image 5"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <!-- Bộ ảnh 2 (Lặp lại để tạo hiệu ứng vòng lặp vô tận) -->
+            <!-- Bộ ảnh 1 -->
+            <img
+              src="../../public/images/team_picture_1.png"
+              alt="Team Image 1"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_2.png"
+              alt="Team Image 2"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_3.png"
+              alt="Team Image 3"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_4.png"
+              alt="Team Image 4"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="../../public/images/team_picture_5.png"
+              alt="Team Image 5"
+              class="marquee-item"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7 ===== -->
+    <section class="seventh-section">
+      <div class="section-title-container">
+        <h2 class="section-title">/ DỊCH VỤ ĐẶC BIỆT</h2>
+      </div>
+
+      <div class="seventh-section-wrapper">
+        <!-- Phần mô tả bên trái -->
+        <div class="seventh-section-left">
+          <div class="service-descriptions">
+            <div
+              class="service-desc-item active"
+              data-service="personal-manager"
+            >
+              <h3>QUẢN LÝ CÁ NHÂN</h3>
+              <p>
+                Chúng tôi tạo ra không gian hoàn hảo bằng cách thấu hiểu sâu sắc
+                mong muốn và lối sống của bạn, được hướng dẫn bởi người quản lý
+                cá nhân chuyên nghiệp.
+              </p>
+            </div>
+
+            <div
+              class="service-desc-item"
+              data-service="comprehensive-approach"
+            >
+              <h3>PHƯƠNG PHÁP TOÀN DIỆN</h3>
+              <p>
+                Chúng tôi áp dụng phương pháp tích hợp để quản lý dự án nhà của
+                bạn từ khái niệm đến hoàn thành, đảm bảo một không gian sống
+                hoàn hảo.
+              </p>
+            </div>
+
+            <div class="service-desc-item" data-service="studia54-style">
+              <h3>PHONG CÁCH STUDIO CAPRI</h3>
+              <p>
+                Phong cách đặc trưng của Studia Capri là sự kết hợp hài hòa giữa
+                hình dáng, màu sắc và ánh sáng, biến đổi không gian thành những
+                tác phẩm nghệ thuật.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phần ảnh bên phải -->
+        <div class="seventh-section-right">
+          <div class="service-image-container">
+            <!-- Ảnh 1: Quản lý cá nhân -->
+            <img
+              src="../../pages/about_page/images/expertise1.jpg"
+              alt="Personal Manager"
+              class="service-image active"
+              data-service="personal-manager"
+            />
+            <!-- Ảnh 2: Phương pháp toàn diện -->
+            <img
+              src="../../pages/about_page/images/expertise2.jpg"
+              alt="Comprehensive Approach"
+              class="service-image"
+              data-service="comprehensive-approach"
+            />
+            <!-- Ảnh 3: Phong cách Studia 54 -->
+            <img
+              src="../../pages/about_page/images/expertise3.jpg"
+              alt="Studia 54 Style"
+              class="service-image"
+              data-service="studia54-style"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 8: Form -->
+    <section class="team-consultation">
+      <div class="team-wrapper">
+        <!-- Bên trái: ảnh -->
+        <div class="team-image">
+          <img
+            src="../../public/images/illustrator_form.jpg"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Bên phải: text + form -->
+        <div class="team-content">
+          <h2>BƯỚC VÀO <STUDIA class="highlight">THẾ GIỚI CỦA CAPRI</span></h2>
+          <p>
+            Nơi ước mơ của bạn thành hiện thực thông qua tầm nhìn độc đáo của
+            studio chúng tôi. Chúng tôi mong muốn được đồng hành cùng bạn trên
+            hành trình đầy cảm hứng này và mang đến cho bạn những dự án tuyệt
+            vời.
+          </p>
+          <p>
+            <span class="highlight"
+              >Điền vào mẫu và người quản lý của chúng tôi sẽ liên hệ với
+              bạn</span
+            >
+          </p>
+
+          <form class="consultation-form">
+            <input type="text" placeholder="Tên của bạn" />
+            <div class="phone-input">
+              <select>
+                <option value="+84">Việt Nam (+84)</option>
+                <option value="+1">Hoa Kỳ (+1)</option>
+                <option value="+44">Anh (+44)</option>
+                <option value="+81">Nhật Bản (+81)</option>
+                <option value="+86">Trung Quốc (+86)</option>
+              </select>
+              <input type="text" placeholder="50 123 4567" />
+            </div>
+            <button type="submit">Yêu cầu tư vấn của người quản lý</button>
+            <label class="privacy-check">
+              <input type="checkbox" />
+              Tôi chấp nhận các điều khoản của
+              <a href="./pages/privacy.html">Chính sách bảo mật</a>
+            </label>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-wrapper">
+        <!-- Cột menu -->
+        <div class="footer-column">
+          <ul>
+            <li><a href="../about_page/about.html">GIỚI THIỆU</a></li>
+            <li><a href="../contacts_page/contacts.html">LIÊN HỆ</a></li>
+            <li><a href="../services_page/services.html">DỊCH VỤ</a></li>
+            <li><a href="#">TUYỂN DỤNG</a></li>
+            <li><a href="#">BLOG</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <ul>
+            <li><a href="../portfolio_page/portfolio.html">DANH MỤC</a></li>
+            <li><a href="#">THƯƠNG MẠI</a></li>
+            <li><a href="#">THIẾT KẾ KIẾN TRÚC</a></li>
+            <li><a href="#">NỘI THẤT DÂN CƯ</a></li>
+            <li><a href="#">THƯƠNG HIỆU NỘI THẤT FIFTYFOURMS</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột thông tin liên hệ -->
+        <div class="footer-column">
+          <h4>RUSSIA</h4>
+          <p>+7 (931) 270 54 54 | welcome@studia-54.com</p>
+          <h4>DUBAI</h4>
+          <p>+971 (58) 562-45-54 | DMCC, Dubai, UAE (international office)</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>TRỤ SỞ CHÍNH</h4>
+          <p>
+            191014, St. Petersburg, Novgorodskaya 23A, office 340
+            (pre-registration)
+          </p>
+
+          <h4>HỢP TÁC</h4>
+          <p>partners@studia-54.com</p>
+        </div>
+
+        <!-- Cột logo + social -->
+        <div class="footer-column footer-brand">
+          <h2>STUDIA 54</h2>
+          <p>© 2013 — 2025 Studia-54 Interior Design and Engineering</p>
+          <div class="footer-socials">
+            <a href="#"><i class="ri-whatsapp-fill"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
+            <a href="#"><i class="ri-pinterest-fill"></i></a>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-vk-fill"></i></a>
+            <a href="#"><i class="ri-youtube-fill"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Nút gọi điện thoại cố định -->
+    <a class="fixed-call-button">
+      <i class="ri-phone-fill"></i>
+    </a>
+    <!-- Phone Popup -->
+    <div class="phone-popup" id="phonePopup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h3>Chúng tôi có mặt tại:</h3>
+          <button class="popup-close" id="closePhonePopup">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="popup-body">
+          <div class="whatsapp-section">
+            <button class="whatsapp-button" id="whatsappButton">
+              <i class="ri-whatsapp-fill"></i>
+              <span>Liên hệ trên WhatsApp</span>
+            </button>
+          </div>
+          <div class="qr-section">
+            <span>Quét mã QR</span>
+            <img
+              src="../../public/images/qr_whatsapp.png"
+              alt="WhatsApp QR Code"
+              class="qr-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone Popup Overlay -->
+    <div class="phone-popup-overlay" id="phonePopupOverlay"></div>
+
+    <script src="../../pages/about_page/js/about.js" defer></script>
+  </body>
+</html>

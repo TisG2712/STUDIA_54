@@ -1,0 +1,1470 @@
+/* CSS Variables */
+:root {
+    --color-primary: #d38c37;
+    --color-primary-darker: #b6752f;
+    --color-background: #1f1f1f;
+    --color-component-bg: #252525;
+    --color-text-light: #a0a0a0;
+    --color-text-white: #fff;
+    --color-text-muted: #888;
+
+    --radius-sm: 15px;
+    --radius-md: 30px;
+
+    --font-size-base: 0.8rem;
+    --letter-spacing-base: 0.5;
+    --line-height-base: 1.4;
+    --font-family-base: "Times New Roman", serif;
+    --gap-base: 2rem;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: sans-serif;
+    color: var(--color-text-white);
+    background-color: var(--color-background);
+}
+
+/* Common Utility Classes */
+.highlight {
+    color: var(--color-primary);
+}
+
+/* SECTION 1 */
+.first-section {
+    height: 100vh;
+    /* Chiều cao bằng 100% chiều cao của màn hình xem */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Ẩn các phần của video tràn ra ngoài section */
+}
+
+/* Video Background */
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    /* Đảm bảo video lấp đầy toàn bộ không gian mà không bị méo */
+    opacity: 0;
+    /* Ẩn video ban đầu */
+    transition: opacity 0.1s ease-in;
+    /* Hiệu ứng mờ dần khi hiện ra */
+}
+
+#bg-video.is-loaded {
+    opacity: 1;
+}
+
+/* Thêm lớp phủ để che bớt độ mờ của video và tăng độ tương phản cho văn bản */
+.first-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,
+            0,
+            0,
+            0.2);
+    /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
+    z-index: 1;
+    /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
+}
+
+/* Gradient Overlay */
+.first-section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--color-background) 10%, transparent);
+    z-index: 2;
+}
+
+.first-section-text {
+    position: absolute;
+    bottom: 60px;
+    left: 2rem;
+    max-width: 550px;
+    z-index: 3;
+}
+
+.first-section-text h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-base);
+    font-family: var(--font-family-base);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: var(--line-height-base);
+}
+
+.first-section-text p {
+    font-size: 1.5rem;
+    line-height: var(--line-height-base);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-base);
+    font-family: var(--font-family-base);
+}
+
+/* NAVIGATION & HEADER */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 99;
+    /* Z-index cao nhất để luôn nằm trên cùng */
+    height: 120px;
+    max-height: 120px;
+    background-color: rgba(25, 25, 25, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-header.is-hidden {
+    transform: translateY(-100%);
+}
+
+/* Header Left Section */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Logo */
+.logo-image {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Logo Divider */
+.logo-divider {
+    width: 250%;
+    height: 1px;
+    background: linear-gradient(to right, #fff 0%, #fff 30%, transparent 100%);
+    margin-left: 0;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.7rem;
+    font-family: var(--font-family-base);
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #888;
+}
+
+.breadcrumb .divider {
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.breadcrumb .current {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-weight: 500;
+}
+
+/* Navigation Menu */
+.navigation-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main-nav ul {
+    display: flex;
+    font-family: var(--font-family-base);
+    list-style: none;
+    gap: 3rem;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a.active {
+    color: var(--color-text-white);
+}
+
+/* Navigation Hover Effect */
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text-white);
+    transition: width 0.3s ease-out;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/* Contact Button */
+.cta-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    padding: 0.8rem 2.5rem;
+    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    font-size: var(--font-size-base);
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-darker);
+}
+
+/* Contact Dropdown Container */
+.contact-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contact Dropdown Menu */
+.contact-dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: transparent;
+    padding: 8px 0;
+    margin-top: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-dropdown.active .contact-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Contact Dropdown Items */
+.contact-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.8rem 1.5rem;
+    background: #252525cc;
+    backdrop-filter: blur(5px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.5s ease;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-base);
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+.contact-dropdown-item:hover {
+    color: var(--color-primary);
+    transform: translateY(-5px);
+}
+
+.contact-dropdown-item i {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.contact-dropdown-item span {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Language Switcher */
+.divider {
+    display: inline-block;
+    width: 0.7px;
+    height: 15px;
+    background: white;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: var(--font-family-base);
+}
+
+.lang-switcher a {
+    color: #fff;
+    text-decoration: none;
+    font-size: var(--font-size-base);
+}
+
+/* SECTION 2 */
+.second-section {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--color-background);
+    padding: 80px 0;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.second-section-wrapper {
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+/* Left Side - Text Content */
+.second-section-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    gap: 1.7rem;
+}
+
+.section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: var(--font-family-base);
+    margin: 0;
+}
+
+.main-text {
+    font-size: 1.5rem;
+    width: 100%;
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-base);
+    font-weight: 500;
+    color: var(--color-text-white);
+    font-family: var(--font-family-base);
+    margin-bottom: 2rem;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    line-height: var(--line-height-base);
+    width: 100%;
+    color: var(--color-text-light);
+    font-family: var(--font-family-base);
+}
+
+/* Services List */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.2rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-item::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 70%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-item:hover::after {
+    transform: scaleX(0.7);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-number {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-family: var(--font-family-base);
+}
+
+.service-name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-text-white);
+    font-family: var(--font-family-base);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-base);
+}
+
+/* Right Side - Image Content */
+.second-section-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-container {
+    position: relative;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: var(--radius-md);
+}
+
+.service-image.active {
+    opacity: 1;
+}
+
+/* SECTION 4 - DESIGN PHILOSOPHY */
+.fourth-section {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.fourth-section-wrapper {
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.philosophy-text {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--color-text-white);
+    font-family: var(--font-family-base);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    /* Hiệu ứng fade-in khi cuộn đến */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.philosophy-text.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SECTION 5 */
+.fifth-section {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    padding: 30px 0;
+    position: relative;
+    margin: 0 40px;
+    /* Cách lề trái và phải 40px */
+}
+
+/* Section Title Container - Separate */
+.fifth-section .section-title-container {
+    position: absolute;
+    z-index: 2;
+}
+
+.fifth-section-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    /* Đảm bảo ảnh trái, mô tả phải */
+    gap: 1rem;
+    /* Khoảng cách giữa ảnh và mô tả */
+    align-items: flex-start;
+    /* Căn trên, không stretch */
+    width: 100%;
+    margin-top: 100px;
+    /* Space for title */
+    position: relative;
+    /* Đảm bảo container có position relative */
+}
+
+/* Left Side - Image Content */
+.fifth-section-left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Căn trên */
+    flex: 2;
+    /* Chiếm 1 phần bằng nhau */
+    order: 1;
+    /* Đảm bảo ảnh ở bên trái */
+    position: relative;
+    /* Đảm bảo không bị chồng lên */
+}
+
+.expertise-descriptions {
+    display: flex;
+    /* Class riêng cho section 5, không bị conflict */
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 1;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 550px;
+    /* Bằng chiều cao ảnh */
+    position: relative;
+    /* Không cần !important nữa */
+}
+
+.expertise-desc-box {
+    background-color: var(--color-component-bg);
+    padding: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hiệu ứng mượt mà hơn */
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Căn giữa khi thu gọn */
+    flex-shrink: 0;
+}
+
+.expertise-desc-box--active {
+    background-color: rgba(37, 37, 37, 0.9);
+    justify-content: flex-start;
+    /* Khi mở thì căn trên */
+    flex: 1;
+    /* Giữ kích thước bình thường */
+}
+
+/* Accordion Header - Copy from index.html */
+.accordion-header {
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Căn trên thay vì center */
+    padding: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: var(--font-family-base);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-header span {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--color-text-white);
+    letter-spacing: 0.5px;
+    flex: 1;
+    /* Chiếm không gian còn lại */
+    line-height: var(--line-height-base);
+    /* Giảm line-height để icon căn đúng */
+}
+
+.accordion-icon {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-text-white);
+    font-size: 1.8rem;
+    margin-top: 0.1rem;
+    /* Căn chỉnh với dòng đầu tiên của text */
+    flex-shrink: 0;
+    /* Không bị co lại */
+}
+
+.expertise-desc-box--active .accordion-icon {
+    color: var(--color-primary);
+    transform: rotate(-90deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.accordion-content--active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1rem 0;
+    flex: 1;
+    /* Kéo dài phần content để lấp đầy không gian còn lại */
+}
+
+.desc-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    /* Chiều cao đầy đủ của content */
+}
+
+.desc-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--color-text-light);
+    font-family: var(--font-family-base);
+    letter-spacing: var(--letter-spacing-base);
+}
+
+.desc-text-content p:not(:last-child) {
+    margin-bottom: 0.5rem;
+    /* Giống index.html */
+}
+
+.desc-text-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Right Side - Descriptions Only */
+.fifth-section-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-start;
+    /* Căn trên */
+    flex: 1;
+    /* Chiếm 1 phần bằng nhau */
+    order: 2;
+    /* Đảm bảo mô tả ở bên phải */
+    position: relative;
+    /* Đảm bảo không bị chồng lên */
+}
+
+.expertise-image-container {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    /* Chiều cao cố định */
+    overflow: hidden;
+}
+
+.expertise-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: var(--radius-md);
+}
+
+.expertise-image.active {
+    opacity: 1;
+}
+
+/* --- Section 6 --- */
+.team-section {
+    height: 80vh;
+    padding: 50px 40px;
+    background-color: var(--color-background);
+    margin-top: 80px;
+}
+
+.team-container {
+    display: flex;
+    gap: 1rem;
+    /* Khoảng cách giữa 2 cột */
+    align-items: stretch;
+    /* Căn 2 cột có cùng chiều cao */
+}
+
+/* Cột mô tả bên trái */
+.team-description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.team-desc-block {
+    background-color: var(--color-component-bg);
+    padding: 1rem;
+    /* Tăng padding để nội dung bên trong thoáng hơn */
+    border-radius: 25px;
+}
+
+.team-description h2 {
+    color: var(--color-primary);
+    font-family: var(--font-family-base);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.team-description h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.team-description p {
+    color: var(--color-text-light);
+    font-family: var(--font-family-base);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+}
+
+/* Cột banner ảnh bên phải */
+.image-marquee-wrapper {
+    flex: 2;
+    overflow: hidden;
+    /* Đây là "cửa sổ" để nhìn vào banner */
+    border-radius: var(--radius-md);
+    /* Thêm bo góc cho khung chứa ảnh */
+    cursor: grab;
+    /* Con trỏ chuột khi hover */
+    user-select: none;
+    /* Ngăn select text khi drag */
+}
+
+.image-marquee {
+    display: flex;
+    gap: 1rem;
+    /* JavaScript sẽ điều khiển animation */
+    height: 100%;
+    width: 200%;
+    /* Đảm bảo container đủ rộng cho 2 bộ ảnh (5 ảnh + 5 ảnh lặp lại) */
+}
+
+.marquee-item {
+    flex-shrink: 0;
+    /* Quan trọng: để ảnh không bị co lại */
+    width: calc(20% - 0.8rem);
+    /* 5 ảnh = 100%, trừ đi gap */
+    /* Tăng chiều rộng để ảnh có dạng ngang */
+    height: 100%;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    /* Đảm bảo ảnh lấp đầy mà không bị méo */
+}
+
+/* SECTION 7 - SERVICE SECTION */
+.seventh-section {
+    height: 100vh;
+    padding: 10px 40px;
+    background-color: var(--color-background);
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.seventh-section .section-title-container {
+    position: absolute;
+    left: 0.2rem;
+    z-index: 2;
+}
+
+.seventh-section .section-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: var(--font-family-base);
+    margin: 0;
+    margin-left: 40px;
+}
+
+.seventh-section-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: stretch;
+    margin-top: 100px;
+    gap: 2rem;
+}
+
+/* Service Descriptions */
+.seventh-section-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.service-descriptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-desc-item {
+    background-color: var(--color-component-bg);
+    padding: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0.6;
+    transform: scale(0.95);
+    user-select: none;
+}
+
+.service-desc-item.active {
+    opacity: 1;
+    background-color: var(--color-primary);
+    transform: scale(1);
+}
+
+.service-desc-item h3 {
+    color: var(--color-text-white);
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: var(--font-family-base);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.service-desc-item p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    font-family: var(--font-family-base);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.service-desc-item.active h3 {
+    color: var(--color-background);
+}
+
+.service-desc-item.active p {
+    color: var(--color-background);
+}
+
+/* Service Images */
+.seventh-section-right {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.service-image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    /* Giảm z-index để không che khuất header */
+}
+
+.service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: scale(1.2);
+    z-index: 2;
+    /* Giảm z-index để không che khuất header */
+    display: block;
+    visibility: hidden;
+}
+
+.service-image.active {
+    opacity: 1 !important;
+    transform: scale(1);
+    z-index: 3;
+    /* Giảm z-index để không che khuất header */
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Đảm bảo ảnh đầu tiên hiển thị mặc định */
+.service-image:first-child {
+    opacity: 1;
+    z-index: 4;
+    /* Giảm z-index để không che khuất header */
+}
+
+/* SECTION 8 - TEAM CONSULTATION */
+.team-consultation {
+    color: #fff;
+    padding: 0 40px;
+    /* Thêm padding cho section */
+    font-family: Arial, sans-serif;
+    background: #1f1f1f;
+    margin: 50px 0;
+}
+
+.team-wrapper {
+    display: flex;
+    align-items: stretch;
+    background-color: #101010;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    /* Quan trọng: để bo góc cho phần tử con hoạt động */
+    height: 50%;
+}
+
+.team-image {
+    flex: 1;
+    text-align: center;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    /* Quan trọng: cao bằng container */
+    object-fit: cotain;
+    display: block;
+    /* Xóa khoảng trống thừa dưới ảnh */
+}
+
+.team-content {
+    flex: 1;
+    padding: 50px;
+    /* Thêm padding cho nội dung form */
+}
+
+.team-content h2 {
+    font-size: 2rem;
+    font-family: var(--font-family-base);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.team-content .highlight {
+    color: var(--color-primary);
+}
+
+.team-content p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    font-family: var(--font-family-base);
+}
+
+.orange-text {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.consultation-form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.consultation-form input,
+.consultation-form select {
+    padding: 14px 0;
+    border: none;
+    border-bottom: 1px solid #444;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    /* Loại bỏ border mặc định khi focus */
+}
+
+.consultation-form input:focus,
+.consultation-form select:focus {
+    outline: none;
+    /* Đảm bảo không có outline khi focus */
+    border-bottom: 1px solid var(--color-primary);
+    /* Thay đổi màu border-bottom khi focus */
+}
+
+/* Tùy chỉnh dropdown của select */
+.consultation-form select option {
+    background-color: var(--color-component-bg);
+    /* Nền trắng cho dropdown */
+    color: var(--color-text-white);
+    /* Chữ đen cho dropdown */
+    padding: 10px;
+    /* Thêm padding cho các option */
+}
+
+/* Hiệu ứng hover cho option */
+.consultation-form select option:hover {
+    background-color: var(--color-primary);
+    /* Nền cam khi hover */
+    color: var(--color-text-white);
+    /* Chữ trắng khi hover */
+}
+
+/* Hiệu ứng khi option được chọn */
+.consultation-form select option:checked {
+    background-color: var(--color-primary);
+    /* Nền cam khi được chọn */
+    color: var(--color-text-white);
+    /* Chữ trắng khi được chọn */
+}
+
+.phone-input {
+    display: flex;
+    gap: 20px;
+}
+
+.consultation-form button {
+    background: var(--color-primary);
+    font-family: var(--font-family-base);
+    color: var(--color-text-white);
+    padding: 20px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 20px 0 1px 0;
+}
+
+.consultation-form button:hover {
+    background: var(--color-primary-darker);
+}
+
+.privacy-check {
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+    color: #bbb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.privacy-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.privacy-check a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.privacy-check a:hover {
+    text-decoration: underline;
+}
+
+/* Call Button Fixed*/
+.fixed-call-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    /* Màu vàng cam chủ đạo */
+    color: #fff;
+    border-radius: 50%;
+    /* Bo tròn thành hình tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    /* Kích thước icon */
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    /* Luôn nằm trên cùng */
+    transition: transform 0.3s ease;
+    /* Hiệu ứng chuyển động mượt */
+}
+
+/* Hiệu ứng nổi lên khi hover */
+.fixed-call-button:hover {
+    transform: scale(1.2);
+}
+
+/* Hiệu ứng vòng tròn tỏa ra */
+.fixed-call-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    /* Gọi animation đã định nghĩa ở dưới */
+    animation: pulse-effect 2s infinite ease-out;
+}
+
+/* Định nghĩa animation tỏa sáng */
+@keyframes pulse-effect {
+    0% {
+        /* Bắt đầu từ kích thước gốc, độ mờ 70% */
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        /* Kết thúc ở kích thước lớn hơn 2.5 lần, và mờ hẳn đi */
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* ===== PHONE POPUP ===== */
+.phone-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.phone-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background-color: #1f1f1f;
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    max-width: 500px;
+    transform: scale(0.2);
+    transition: transform 0.3s ease;
+}
+
+.phone-popup.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.popup-header h3 {
+    color: var(--color-text-white);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-base);
+}
+
+.popup-close {
+    position: absolute;
+    right: 10px;
+    background: none;
+    top: 10px;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.popup-body {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-component-bg);
+    border-radius: var(--radius-md);
+}
+
+.whatsapp-section {
+    display: flex;
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+    align-items: center;
+    /* căn giữa theo chiều dọc */
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    max-height: 40px;
+    color: var(--color-text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-base);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    gap: 0.5rem;
+}
+
+.whatsapp-button:hover {
+    background-color: #20b358;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button i {
+    font-size: 1.2rem;
+}
+
+.qr-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.qr-section span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-family-base);
+    margin-bottom: 0.7rem;
+    color: var(--color-text-white);
+}
+
+.qr-image {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Phone Popup Overlay */
+.phone-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.phone-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* FOOTER */
+.site-footer {
+    background: #101010;
+    color: var(--color-text-white);
+    padding: 15px 30px;
+    font-family: var(--font-family-base);
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 32px;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Footer Columns */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 15px;
+}
+
+.footer-column ul li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Links Hover Effect */
+.footer-column ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text-white);
+    transition: width 0.3s ease-out;
+}
+
+.footer-column ul li a:hover::after {
+    width: 100%;
+}
+
+.footer-column h4 {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text-white);
+    letter-spacing: 0.5px;
+}
+
+.footer-column p {
+    font-size: 0.7rem;
+    color: #969696;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Brand */
+.footer-brand h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.footer-brand p {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+}
+
+/* Footer Social Icons */
+.footer-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #969696;
+}
+
+.footer-socials a {
+    color: #000;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.footer-socials a:hover {
+    transform: scale(1.2);
+}
+
+/* CUSTOM SCROLLBAR */
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d38c37;
+    border-radius: 10px;
+}

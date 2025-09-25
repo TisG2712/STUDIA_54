@@ -8,7 +8,8 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./pages/home_page/css/main.css" />
+    <link rel="stylesheet" href="./pages/home_page/css/index_responsive.css" />
   </head>
   <body>
     <!-- ===== SECTION 1 ===== -->
@@ -20,24 +21,22 @@
         loop
         playsinline
         id="bg-video"
-        poster="./assets/images/illustrator.jpg"
       >
-        <source src="./assets/video/video_background.mp4" type="video/mp4" />
+        <source src="./public/video/video_capri.mp4" type="video/mp4" />
         Trình duyệt của bạn không hỗ trợ thẻ video.
       </video>
       <header class="main-header">
         <a href="./index.html" class="logo-text">
-          <h1 class="brand">STUDIA 54</h1>
-          <p class="tagline">ARCHITECTURE | DESIGN | FURNITURE</p>
+          <img src="./public/images/Logo_Capri.png" alt="Logo Capri" class="logo-image">
         </a>
 
         <div class="navigation-menu">
           <nav class="main-nav">
             <ul>
-              <li><a href="./pages/about.html">GIỚI THIỆU</a></li>
-              <li><a href="./pages/portfolio.html">DANH MỤC</a></li>
-              <li><a href="./pages/contacts.html">LIÊN HỆ</a></li>
-              <li><a href="./pages/services.html">DỊCH VỤ</a></li>
+              <li><a href="./pages/about_page/about.html">GIỚI THIỆU</a></li>
+              <li><a href="./pages/portfolio_page/portfolio.html">DANH MỤC</a></li>
+              <li><a href="./pages/contacts_page/contacts.html">LIÊN HỆ</a></li>
+              <li><a href="./pages/services_page/services.html">DỊCH VỤ</a></li>
             </ul>
           </nav>
           <div class="contact-dropdown">
@@ -47,11 +46,12 @@
             <div class="contact-dropdown-menu">
               <a href="#" class="contact-dropdown-item whatsapp-btn">
                 <i class="ri-whatsapp-fill"></i>
-                <span>Reach us on WhatsApp</span>
+                <span>Liên hệ trên WhatsApp</span>
               </a>
               <a href="#" class="contact-dropdown-item submit-btn">
                 <i class="ri-add-line"></i>
-                <span>Submit a Request</span>
+                <span>
+                  Gửi yêu cầu</span>
               </a>
             </div>
           </div>
@@ -63,10 +63,9 @@
         </div>
       </header>
       <div class="first-section-text">
-        <h2>STUDIA 54</h2>
+        <h2>CAPRI</h2>
         <p>
-          <span class="highlight">CÔNG TY QUỐC TẾ HÀNG ĐẦU</span> VỀ THIẾT KẾ
-          KIẾN TRÚC VÀ NỘI THẤT CAO CẤP
+          CÔNG TY HÀNG ĐẦU VỀ <span class="highlight">THIẾT KẾ KIẾN TRÚC VÀ NỘI THẤT CAO CẤP</span>
         </p>
       </div>
     </section>
@@ -81,18 +80,14 @@
             RỘNG RÃI NHẤT TRONG PHÂN KHÚC CAO CẤP
           </p>
           <p class="normal-text">
-            Hơn 600 dự án tại 32 quốc gia, với diện tích trung bình từ 900 m².
-            Hơn hai triệu người trên
-            <span class="highlight"> toàn thế giới</span> theo dõi sự phát triển
-            của Studia 54, bao gồm những người nổi tiếng, nhà thiết kế và kiến
-            trúc sư danh tiếng.
+           "Kiến tạo <span class="highlight">không gian sống đẳng cấp</span> không thể trộn lẫn, Capri mang đến sự tinh tế và sáng tạo, chinh phục <span class="highlight">hàng triệu khách hàng</span>"
           </p>
         </div>
         <div class="second-section-image" id="expanding-image-container">
           <!-- Thay thế bằng đường dẫn ảnh của bạn -->
           <img
-            src="./assets/images/global.png"
-            alt="Illustrator Store In the World"
+            src="./pages/home_page/images/global.png"
+            alt="Image Global"
             loading="lazy"
           />
         </div>
@@ -133,15 +128,15 @@
             </h4>
             <div class="desc-text-content accordion-content">
               <p>
-                Hơn 10 năm kinh nghiệm xử lý các thách thức phức tạp về kiến
-                ​​trúc, kết cấu và kỹ thuật đã giúp chúng tôi trở thành
+                Hơn 10 năm kinh nghiệm xử lý các thách thức phức tạp về kiến trúc, 
+                kết cấu và kỹ thuật đã giúp chúng tôi trở thành
                 <span class="highlight">chuyên gia quốc tế</span> trong việc
                 thực hiện các dự án cao cấp quy mô lớn, bao gồm các khu dân cư
                 có diện tích trên 10.000 m².
               </p>
               <p>
-                Với phương pháp tiếp cận toàn diện từ đội ngũ kiến ​​trúc sư và
-                kỹ sư hàng đầu, chúng tôi kiến ​​tạo nên những
+                Với phương pháp tiếp cận toàn diện từ đội ngũ kiến trúc sư và
+                kỹ sư hàng đầu, chúng tôi kiến tạo nên những
                 <span class="highlight">không gian sống được cá nhân hóa</span>,
                 định hình một môi trường sống chăm sóc bạn.
               </p>
@@ -183,14 +178,14 @@
             muted
             loop
             playsinline
-            poster="./assets/images/illustrator.jpg"
-            loading="lazy"
+            loading="lazy"   
           >
             <source
-              src="./assets/video/Architectural_design.mp4"
+              src="./public/video/Architectural_design.mp4"
               type="video/mp4"
             />
           </video>
+          <!-- thuộc tính loading="lazy" chỉ tải khi cần thiết giúp tối ưu hiệu năng -->
         </div>
       </div>
     </section>
@@ -209,7 +204,7 @@
               class="desc-text-content accordion-content accordion-content--active"
             >
               <p>
-                Hành trình kiến ​​tạo không gian nội thất của chúng tôi bắt đầu
+                Hành trình kiến tạo không gian nội thất của chúng tôi bắt đầu
                 bằng
                 <span class="highlight"
                   >sự thấu hiểu sâu sắc về phong cách sống và khát vọng của
@@ -254,7 +249,7 @@
             <div class="desc-text-content accordion-content">
               <p>
                 Chúng tôi xem nội thất là một phần không thể tách rời của kiến
-                ​​trúc. Giống như kiến ​​trúc sư hình dung dòng chảy cuộc sống
+                trúc. Giống như kiến trúc sư hình dung dòng chảy cuộc sống
                 trong một ngôi nhà, nhà thiết kế nội thất hoàn thiện tầm nhìn
                 này, tỉ mỉ định hình từng chi tiết để
                 <span class="highlight"
@@ -276,10 +271,9 @@
             muted
             loop
             playsinline
-            poster="./assets/images/illustrator.jpg"
             loading="lazy"
           >
-            <source src="./assets/video/Interior_design.mp4" type="video/mp4" />
+            <source src="./public/video/Interior_design.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -323,7 +317,7 @@
             </h4>
             <div class="desc-text-content accordion-content">
               <p>
-                <span class="highlight">FiftyFourms</span> thể hiện chuyên môn
+                <span class="highlight">Studio Capri</span> thể hiện chuyên môn
                 của chúng tôi trong việc xử lý các vật liệu và hình khối phức
                 tạp.
               </p>
@@ -331,7 +325,7 @@
                 Dưới sự hướng dẫn của chuyên gia công nghệ người Ý, sự kết hợp
                 giữa tay nghề thủ công tinh xảo và thiết bị hiện đại đã tạo nên
                 những sản phẩm <span class="highlight">chất lượng cao</span>,
-                nổi bật với thiết kế đặc trưng của Studia 54.
+                nổi bật với thiết kế đặc trưng của Studio Capri.
               </p>
             </div>
           </div>
@@ -371,11 +365,10 @@
             muted
             loop
             playsinline
-            poster="./assets/images/illustrator.jpg"
             loading="lazy"
           >
             <source
-              src="./assets/video/Furniture_production.mp4"
+              src="./public/video/Furniture_production.mp4"
               type="video/mp4"
             />
           </video>
@@ -389,7 +382,7 @@
         <!-- Cột mô tả (1/3) -->
         <div class="team-description">
           <div class="team-desc-block">
-            <h2>/ ĐỘI NGŨ STUDIA 54</h2>
+            <h2>/ ĐỘI NGŨ STUDIO CAPRI</h2>
             <h3>
               Dự án của bạn nằm trong tay của
               <span class="highlight">200 chuyên gia</span>
@@ -397,7 +390,7 @@
             <p>
               Dự án của bạn bắt đầu tại văn phòng rộng 800 m² của chúng tôi, nơi
               đội ngũ 200 chuyên gia tận tâm sẽ hiện thực hóa tầm nhìn của bạn
-              theo phong cách đặc trưng của Studia 54.
+              theo phong cách đặc trưng của Studio Capri.
             </p>
           </div>
           <div class="team-desc-block">
@@ -415,51 +408,63 @@
           <div class="image-marquee" id="team-marquee">
             <!-- Bộ ảnh 1 -->
             <img
-              src="./assets/images/team_picture_1.png"
+              src="./public/images/team_picture_1.png"
               alt="Team Image 1"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_2.png"
+              src="./public/images/team_picture_2.png"
               alt="Team Image 2"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_3.png"
+              src="./public/images/team_picture_3.png"
               alt="Team Image 3"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_4.png"
+              src="./public/images/team_picture_4.png"
               alt="Team Image 4"
               class="marquee-item"
               loading="lazy"
             />
-            <!-- Bộ ảnh 2 (Lặp lại để tạo hiệu ứng liên tục) -->
             <img
-              src="./assets/images/team_picture_1.png"
+              src="./public/images/team_picture_5.png
+              alt="Team Image 5"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <!-- Bộ ảnh 2 (Lặp lại để tạo hiệu ứng vòng lặp vô tận) -->
+            <img
+              src="./public/images/team_picture_1.png"
               alt="Team Image 1"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_2.png"
+              src="./public/images/team_picture_2.png"
               alt="Team Image 2"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_3.png"
+              src="./public/images/team_picture_3.png"
               alt="Team Image 3"
               class="marquee-item"
               loading="lazy"
             />
             <img
-              src="./assets/images/team_picture_4.png"
+              src="./public/images/team_picture_4.png"
               alt="Team Image 4"
+              class="marquee-item"
+              loading="lazy"
+            />
+            <img
+              src="./public/images/team_picture_5.png
+              alt="Team Image 5"
               class="marquee-item"
               loading="lazy"
             />
@@ -477,21 +482,21 @@
           <div class="project-image-stack">
             <div class="project-image-card">
               <img
-                src="./assets/images/project1.png"
+                src="./pages/home_page/images/home1.jpg"
                 alt="Project 1"
                 loading="lazy"
               />
             </div>
             <div class="project-image-card">
               <img
-                src="./assets/images/project2.png"
+                src="./pages/home_page/images/home2.jpg"
                 alt="Project 2"
                 loading="lazy"
               />
             </div>
             <div class="project-image-card">
               <img
-                src="./assets/images/project3.png"
+                src="./pages/home_page/images/home3.jpg"
                 alt="Project 3"
                 loading="lazy"
               />
@@ -523,15 +528,14 @@
         <!-- Bên trái: ảnh -->
         <div class="team-image">
           <img
-            src="./assets/images/CEO_studia54.png"
-            alt="Team Leaders"
+            src="./public/images/illustrator_form.jpg"
             loading="lazy"
           />
         </div>
 
         <!-- Bên phải: text + form -->
         <div class="team-content">
-          <h2>BƯỚC VÀO <STUDIA class="highlight">THẾ GIỚI CỦA STUDIA 54</span></h2>
+          <h2>BƯỚC VÀO <STUDIA class="highlight">THẾ GIỚI CỦA CAPRI</span></h2>
           <p>
             Nơi ước mơ của bạn thành hiện thực thông qua tầm nhìn độc đáo của
             studio chúng tôi. Chúng tôi mong muốn được đồng hành cùng bạn trên
@@ -561,20 +565,21 @@
             <label class="privacy-check">
               <input type="checkbox" />
               Tôi chấp nhận các điều khoản của
-              <a href="#">Chính sách bảo mật</a>
+              <a href="./pages/privacy.html">Chính sách bảo mật</a>
             </label>
           </form>
         </div>
       </div>
     </section>
+    
     <footer class="site-footer">
       <div class="footer-wrapper">
         <!-- Cột menu -->
         <div class="footer-column">
           <ul>
-            <li><a href="./pages/about.html">GIỚI THIỆU</a></li>
-            <li><a href="./pages/contacts.html">LIÊN HỆ</a></li>
-            <li><a href="./pages/services.html">DỊCH VỤ</a></li>
+            <li><a href="./pages/about_page/about.html">GIỚI THIỆU</a></li>
+            <li><a href="./pages/contacts_page/contacts.html">LIÊN HỆ</a></li>
+            <li><a href="./pages/services_page/services.html">DỊCH VỤ</a></li>
             <li><a href="#">TUYỂN DỤNG</a></li>
             <li><a href="#">BLOG</a></li>
           </ul>
@@ -582,7 +587,7 @@
 
         <div class="footer-column">
           <ul>
-            <li><a href="./pages/portfolio.html">DANH MỤC</a></li>
+            <li><a href="./pages/portfolio_page/portfolio.html">DANH MỤC</a></li>
             <li><a href="#">THƯƠNG MẠI</a></li>
             <li><a href="#">THIẾT KẾ KIẾN TRÚC</a></li>
             <li><a href="#">NỘI THẤT DÂN CƯ</a></li>
@@ -626,10 +631,40 @@
     </footer>
 
     <!-- Nút gọi điện thoại cố định -->
-    <a href="tel:+971585624554" class="fixed-call-button">
+    <a class="fixed-call-button">
       <i class="ri-phone-fill"></i>
     </a>
+    <!-- Phone Popup -->
+    <div class="phone-popup" id="phonePopup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h3>Chúng tôi có mặt tại:</h3>
+          <button class="popup-close" id="closePhonePopup">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="popup-body">
+          <div class="whatsapp-section">
+            <button class="whatsapp-button" id="whatsappButton">
+              <i class="ri-whatsapp-fill"></i>
+              <span>Liên hệ trên WhatsApp</span>
+            </button>
+          </div>
+          <div class="qr-section">
+            <span>Quét mã QR</span>
+            <img
+              src="./public/images/qr_whatsapp.png"
+              alt="WhatsApp QR Code"
+              class="qr-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <script src="./js/main.js" defer></script>
+    <!-- Phone Popup Overlay -->
+    <div class="phone-popup-overlay" id="phonePopupOverlay"></div>
+
+    <script src="./pages/home_page/js/main.js" defer></script>
   </body>
 </html>
