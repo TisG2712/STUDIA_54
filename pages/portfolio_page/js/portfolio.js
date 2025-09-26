@@ -126,23 +126,21 @@ function initFilterSidebar() {
     resetFilters.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // Reset all filter options
+      // Remove active class from ALL filter options
       filterOptions.forEach((option) => {
         option.classList.remove("active");
-      });
-
-      // Set default active options
-      const defaultOptions = document.querySelectorAll(
-        '[data-filter="all"], [data-filter="100-300"], [data-filter="hotels"]'
-      );
-      defaultOptions.forEach((option) => {
-        option.classList.add("active");
       });
 
       // Clear search input
       if (searchInput) {
         searchInput.value = "";
       }
+
+      // Show all projects (reset any filtering)
+      const projectItems = document.querySelectorAll(".project-item");
+      projectItems.forEach((item) => {
+        item.style.display = "block";
+      });
     });
   }
 

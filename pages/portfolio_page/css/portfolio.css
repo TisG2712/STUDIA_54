@@ -436,6 +436,18 @@ html {
     cursor: pointer;
 }
 
+/* Project link styling */
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 .project-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -515,6 +527,7 @@ html {
 
 .project-info {
     background-color: #101010;
+    font-family: var(--font-family-base);
     padding: 2rem;
     flex: 1;
     display: flex;
@@ -681,10 +694,6 @@ html {
     flex: 1;
 }
 
-.filter-option i {
-    font-size: 1.1rem;
-    color: var(--color-text-white);
-}
 
 /* Action Buttons */
 .action-buttons {
@@ -1000,7 +1009,7 @@ html {
     display: flex;
     justify-content: flex-start;
     margin-top: 20px;
-    gap: 32px;
+    gap: 70px;
     max-width: 100%;
     flex-wrap: wrap;
 }

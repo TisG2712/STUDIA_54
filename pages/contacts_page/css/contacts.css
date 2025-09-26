@@ -694,14 +694,17 @@ html {
   border: none;
   border-radius: var(--radius-md);
   padding: 15px 30px;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
   align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-base);
-  font-size: 1rem;
+  text-decoration: none;
+  width: fit-content;
 }
 
 .services-button:hover {
@@ -760,7 +763,7 @@ html {
   background-color: rgba(0,
       0,
       0,
-      0.3);
+      0.4);
   /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
   z-index: 1;
   /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
@@ -1031,7 +1034,7 @@ html {
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-  gap: 32px;
+  gap: 70px;
   max-width: 100%;
   flex-wrap: wrap;
 }

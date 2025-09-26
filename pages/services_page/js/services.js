@@ -101,6 +101,55 @@ function initContactDropdown() {
   });
 }
 
+// ORDER PROJECT BUTTONS FUNCTIONALITY
+function initOrderProjectButtons() {
+  const orderButtons = document.querySelectorAll(".order-project-btn");
+  const contactFormSection = document.getElementById("contact-form-section");
+  const radioButtons = document.querySelectorAll('input[name="service"]');
+
+  orderButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const sectionNumber = button.getAttribute("data-section");
+      let radioIndex = 0; // Default to first radio button
+
+      // Map section numbers to radio button indices
+      switch (sectionNumber) {
+        case "3": // Section 3 - Thiết kế kiến trúc
+          radioIndex = 0;
+          break;
+        case "4": // Section 4 - Thiết kế nội thất
+          radioIndex = 1;
+          break;
+        case "5": // Section 5 - Thiết kế cảnh quan
+          radioIndex = 2;
+          break;
+        default:
+          radioIndex = 0;
+      }
+
+      // Scroll to contact form section
+      if (contactFormSection) {
+        contactFormSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Select the corresponding radio button after scroll
+        setTimeout(() => {
+          if (radioButtons[radioIndex]) {
+            radioButtons[radioIndex].checked = true;
+
+            // Trigger change event to ensure any listeners are notified
+            radioButtons[radioIndex].dispatchEvent(new Event("change"));
+          }
+        }, 500); // Small delay to ensure scroll is complete
+      }
+    });
+  });
+}
+
 // PHONE POPUP FUNCTIONALITY
 function initPhonePopup() {
   const phonePopup = document.getElementById("phonePopup");
@@ -165,4 +214,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // initBackgroundVideo();
   initContactDropdown();
   initPhonePopup();
+  initOrderProjectButtons();
 });
