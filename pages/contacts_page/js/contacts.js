@@ -182,4 +182,64 @@ document.addEventListener("DOMContentLoaded", function () {
   initContactDropdown();
   initPhonePopup();
   initWhatsAppSection2();
+  initMobileMenu(); // Initialize mobile menu
 });
+
+// MOBILE MENU FUNCTIONALITY
+function initMobileMenu() {
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const mobileSidebarClose = document.getElementById("mobileSidebarClose");
+  const mobileSidebarOverlay = document.querySelector(
+    ".mobile-sidebar-overlay"
+  );
+
+  if (!mobileMenuToggle || !mobileSidebar) return;
+
+  // Toggle mobile menu
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    mobileMenuToggle.classList.toggle("active");
+    mobileSidebar.classList.toggle("active");
+
+    // Prevent body scroll when menu is open
+    if (mobileSidebar.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Close mobile menu
+  const closeMobileMenu = () => {
+    mobileMenuToggle.classList.remove("active");
+    mobileSidebar.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+
+  // Close on close button click
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close on overlay click
+  if (mobileSidebarOverlay) {
+    mobileSidebarOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileSidebar.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close on window resize (if going to desktop)
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 480 && mobileSidebar.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
+}

@@ -1,5 +1,6 @@
 /* CSS Variables */
 :root {
+    /* Colors */
     --color-primary: #d38c37;
     --color-primary-darker: #b6752f;
     --color-background: #1f1f1f;
@@ -8,14 +9,105 @@
     --color-text-white: #fff;
     --color-text-muted: #888;
 
+    /* Border Radius */
     --radius-sm: 15px;
     --radius-md: 30px;
 
+    /* Typography */
     --font-size-base: 0.8rem;
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.2rem;
+    --font-size-large: 1.4rem;
+    --font-size-normal: 1rem;
+    --font-size-small: 0.9rem;
+    --font-size-xs: 0.7rem;
     --letter-spacing-base: 0.5;
+    --letter-spacing-large: 2px;
+    --letter-spacing-medium: 1px;
+    --letter-spacing-small: 0.7px;
     --line-height-base: 1.4;
-    --font-family-base: "Times New Roman", serif;
+    --line-height-large: 1.6;
+    --line-height-xl: 1.7;
+    --font-family-base: Roboto Condensed, Arial, sans-serif;
+
+    /* Spacing */
     --gap-base: 2rem;
+    --gap-large: 40px;
+    --gap-xl: 70px;
+    --gap-small: 1rem;
+    --padding-base: 30px;
+    --padding-large: 40px;
+    --padding-xl: 50px;
+    --padding-small: 15px;
+    --padding-xs: 10px;
+    --margin-base: 20px;
+    --margin-large: 50px;
+    --margin-xl: 100px;
+    --margin-small: 10px;
+
+    /* Layout */
+    --header-height: 120px;
+    --logo-width: 100px;
+    --logo-divider-width: 250%;
+    --nav-gap: 2rem;
+    --nav-item-gap: 3rem;
+    --breadcrumb-gap: 1rem;
+    --breadcrumb-margin-top: 0.7rem;
+
+    /* Button & Form */
+    --button-padding: 0.8rem 2.5rem;
+    --button-padding-large: 20px 30px;
+    --button-padding-small: 15px 30px;
+    --form-input-padding: 18px 20px;
+    --form-group-margin: 20px;
+    --radio-margin: 10px;
+    --radio-input-margin: 12px;
+
+    /* Call Button */
+    --call-button-size: 50px;
+    --call-button-bottom: 20px;
+    --call-button-right: 20px;
+    --call-button-font-size: 24px;
+
+    /* Popup */
+    --popup-max-width: 500px;
+    --popup-padding: 2rem;
+    --popup-body-gap: 1.5rem;
+    --popup-body-padding: 1rem;
+    --qr-image-size: 150px;
+    --whatsapp-button-padding: 0.8rem 1.5rem;
+    --whatsapp-button-max-height: 40px;
+    --whatsapp-button-gap: 0.5rem;
+    --whatsapp-icon-size: 1.2rem;
+
+    /* Footer */
+    --footer-padding: 15px 30px;
+    --footer-wrapper-gap: 70px;
+    --footer-wrapper-margin: 20px;
+    --footer-column-margin: 15px;
+    --footer-h4-margin: 8px;
+    --footer-p-margin: 20px;
+    --footer-social-gap: 10px;
+    --footer-social-margin: 20px 0 15px 0;
+    --footer-social-size: 30px;
+    --footer-social-icon-size: 16px;
+    --footer-brand-h2-size: 30px;
+    --footer-brand-h2-margin: 8px;
+
+    /* Z-index */
+    --z-header: 99;
+    --z-dropdown: 1000;
+    --z-call-button: 1000;
+    --z-popup: 2000;
+    --z-popup-overlay: 1999;
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.5s ease;
+    --transition-bounce: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Reset & Base Styles */
@@ -27,9 +119,14 @@
 
 body,
 html {
-    font-family: sans-serif;
+    font-family: var(--font-family-base);
     color: var(--color-text-white);
     background-color: var(--color-background);
+}
+
+/* Global font-family inheritance */
+* {
+    font-family: inherit;
 }
 
 /* Common Utility Classes */
@@ -47,14 +144,13 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    z-index: 99;
-    /* Z-index cao nhất để luôn nằm trên cùng */
-    height: 120px;
-    max-height: 120px;
+    z-index: var(--z-header);
+    height: var(--header-height);
+    max-height: var(--header-height);
     background-color: rgba(25, 25, 25, 0.3);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
-    transition: transform 0.5s ease-in-out;
+    transition: transform var(--transition-slow);
 }
 
 .main-header.is-hidden {
@@ -70,16 +166,16 @@ html {
 
 /* Logo */
 .logo-image {
-    width: 100px;
+    width: var(--logo-width);
     height: auto;
     object-fit: contain;
 }
 
 /* Logo Divider */
 .logo-divider {
-    width: 250%;
+    width: var(--logo-divider-width);
     height: 1px;
-    background: linear-gradient(to right, #fff 0%, #fff 30%, transparent 100%);
+    background: linear-gradient(to right, var(--color-text-white) 0%, var(--color-text-white) 30%, transparent 100%);
     margin-left: 0;
 }
 
@@ -87,34 +183,33 @@ html {
 .breadcrumb {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-top: 0.7rem;
-    font-family: var(--font-family-base);
+    gap: var(--breadcrumb-gap);
+    margin-top: var(--breadcrumb-margin-top);
 }
 
 .breadcrumb a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
-    letter-spacing: 0.7px;
-    transition: color 0.3s ease;
+    letter-spacing: var(--letter-spacing-small);
+    transition: color var(--transition-fast);
 }
 
 .breadcrumb a:hover {
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 .breadcrumb .divider {
-    color: #fff;
-    font-size: 0.8rem;
+    color: var(--color-text-white);
+    font-size: var(--font-size-base);
 }
 
 .breadcrumb .current {
     color: var(--color-primary);
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
-    letter-spacing: 0.7px;
+    letter-spacing: var(--letter-spacing-small);
     font-weight: 500;
 }
 
@@ -122,23 +217,22 @@ html {
 .navigation-menu {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--nav-gap);
 }
 
 .main-nav ul {
     display: flex;
-    font-family: var(--font-family-base);
     list-style: none;
-    gap: 3rem;
+    gap: var(--nav-item-gap);
 }
 
 .main-nav a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
-    letter-spacing: 0.7px;
-    transition: color 0.3s ease;
+    letter-spacing: var(--letter-spacing-small);
+    transition: color var(--transition-fast);
     position: relative;
     padding-bottom: 5px;
 }
@@ -156,7 +250,7 @@ html {
     width: 0;
     height: 1px;
     background-color: var(--color-text-white);
-    transition: width 0.3s ease-out;
+    transition: width var(--transition-fast);
 }
 
 .main-nav a:hover::after,
@@ -168,15 +262,14 @@ html {
 .cta-button {
     background-color: var(--color-primary);
     color: var(--color-text-white);
-    padding: 0.8rem 2.5rem;
+    padding: var(--button-padding);
     border-radius: var(--radius-md);
     text-transform: uppercase;
     font-size: var(--font-size-base);
-    letter-spacing: 1px;
+    letter-spacing: var(--letter-spacing-medium);
     border: none;
     cursor: pointer;
-    font-family: var(--font-family-base);
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-fast);
 }
 
 .cta-button:hover {
@@ -201,8 +294,8 @@ html {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    transition: all var(--transition-bounce);
+    z-index: var(--z-dropdown);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -222,15 +315,13 @@ html {
     padding: 0.8rem 1.5rem;
     background: #252525cc;
     backdrop-filter: blur(5px);
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: all 0.5s ease;
+    letter-spacing: var(--letter-spacing-base);
+    transition: all var(--transition-slow);
     border-radius: var(--radius-md);
-    font-family: var(--font-family-base);
-    box-sizing: border-box;
     text-transform: uppercase;
 }
 
@@ -240,7 +331,7 @@ html {
 }
 
 .contact-dropdown-item i {
-    font-size: 1.2rem;
+    font-size: var(--whatsapp-icon-size);
     text-align: center;
 }
 
@@ -255,18 +346,17 @@ html {
     display: inline-block;
     width: 0.7px;
     height: 15px;
-    background: white;
+    background: var(--color-text-white);
 }
 
 .lang-switcher {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    font-family: var(--font-family-base);
+    gap: var(--nav-gap);
 }
 
 .lang-switcher a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
     font-size: var(--font-size-base);
 }
@@ -282,35 +372,29 @@ html {
 /* ===== SECTION 2 - SERVICES ===== */
 .services-section {
     background-color: var(--color-background);
-    padding-top: 100px;
+    padding-top: var(--margin-xl);
     margin-bottom: 80px;
-    font-family: var(--font-family-base);
 }
 
 .services-content {
-    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: var(--gap-large);
 }
 
 .services-title {
-    font-size: 3.5rem;
+    font-size: var(--font-size-h1);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    font-family: var(--font-family-base);
+    letter-spacing: var(--letter-spacing-large);
     text-align: left;
-    padding-left: 30px;
+    padding-left: var(--padding-base);
 }
 
 .services-image {
     width: 100%;
-    padding: 30px;
-    margin: 0;
-
+    padding: var(--padding-base);
     overflow: hidden;
 }
 
@@ -320,47 +404,40 @@ html {
     display: block;
     border-radius: var(--radius-md);
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-fast);
 }
 
 /* ===== SECTION 3 - TEXT CONTENT ===== */
 .text-content-section {
-    width: 100%;
-    margin-bottom: 100px;
-    font-family: var(--font-family-base);
+    margin-bottom: var(--margin-xl);
 }
 
 .text-content-wrapper {
     display: flex;
-    gap: 40px;
-    padding: 0 30px;
+    gap: var(--gap-large);
+    padding: 0 var(--padding-base);
     margin: 0 auto;
 }
 
 .text-column-left {
     flex: 60%;
-    font-size: 2rem;
-    line-height: 1.6;
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-large);
 }
 
 .text-column-right {
     flex: 40%;
     color: var(--color-text-light);
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-large);
 }
 
-.text-column-left p,
-.text-column-right p {
-    margin: 0;
-}
+/* .text-column-left p, .text-column-right p margin: 0 inherited from universal selector */
 
 /* ===== SECTION 4 - ARCHITECTURAL DESIGN ===== */
 .architectural-section {
     background-color: var(--color-background);
-    width: 100%;
-    margin-bottom: 40px;
-    font-family: var(--font-family-base);
+    margin-bottom: var(--padding-large);
 }
 
 .architectural-wrapper {
@@ -374,34 +451,33 @@ html {
 }
 
 .architectural-content {
-    padding: 30px;
+    padding: var(--padding-base);
     flex: 30%;
-    color: white;
+    color: var(--color-text-white);
 }
 
 .architectural-title {
-    font-size: 2rem;
+    font-size: var(--font-size-h2);
     font-weight: 500;
     text-transform: uppercase;
-    color: white;
-    margin-bottom: 50px;
-    letter-spacing: 1px;
+    color: var(--color-text-white);
+    margin-bottom: var(--padding-xl);
+    letter-spacing: var(--letter-spacing-medium);
 }
 
 .architectural-description {
-    font-size: 1.4rem;
-    line-height: 1.7;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-xl);
     color: var(--color-text-light);
-    margin-bottom: 20px;
+    margin-bottom: var(--margin-base);
 }
 
 .architectural-button {
     background-color: var(--color-primary);
-    font-family: var(--font-family-base);
-    color: #fff;
+    color: var(--color-text-white);
     border: none;
-    padding: 20px 30px;
-    font-size: 0.9rem;
+    padding: var(--button-padding-large);
+    font-size: var(--font-size-small);
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
@@ -425,36 +501,35 @@ html {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: var(--form-group-margin);
 }
 
 .radio-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: var(--radio-margin);
     cursor: pointer;
-    color: white;
-    font-size: 1rem;
+    color: var(--color-text-white);
+    font-size: var(--font-size-normal);
 }
 
 .radio-label input[type="radio"] {
-    margin-right: 12px;
+    margin-right: var(--radio-input-margin);
     accent-color: var(--color-primary);
 }
 
 .radio-text {
-    color: white;
-    font-size: 1rem;
+    color: var(--color-text-white);
+    font-size: var(--font-size-normal);
 }
 
 .form-input {
     width: 100%;
-    padding: 18px 20px;
+    padding: var(--form-input-padding);
     background-color: #2a2a2a;
     border: 1px solid #444;
     border-radius: 5px;
-    color: white;
-    font-size: 1rem;
-    font-family: var(--font-family-base);
+    color: var(--color-text-white);
+    font-size: var(--font-size-normal);
 }
 
 .form-input::placeholder {
@@ -469,64 +544,56 @@ html {
 .form-button {
     width: 100%;
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-text-white);
     border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
+    padding: var(--button-padding-small);
+    font-size: var(--font-size-normal);
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: var(--font-family-base);
 }
 
 
 /* ===== CONTACT SECTION SPECIFIC STYLES ===== */
 .contact-content {
-    padding: 40px;
+    padding: var(--padding-large);
     flex: 30%;
-    color: white;
+    color: var(--color-text-white);
 }
 
 .contact-title {
-    font-size: 2rem;
+    font-size: var(--font-size-h2);
     font-weight: 500;
     text-transform: uppercase;
-    color: white;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    color: var(--color-text-white);
+    margin-bottom: var(--padding-xs);
+    letter-spacing: var(--letter-spacing-medium);
 }
 
 .contact-description {
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: var(--font-size-normal);
+    line-height: var(--line-height-base);
     color: var(--color-text-light);
 }
-
-
 
 /* Call Button Fixed*/
 .fixed-call-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    bottom: var(--call-button-bottom);
+    right: var(--call-button-right);
+    width: var(--call-button-size);
+    height: var(--call-button-size);
     background-color: var(--color-primary);
-    /* Màu vàng cam chủ đạo */
-    color: #fff;
+    color: var(--color-text-white);
     border-radius: 50%;
-    /* Bo tròn thành hình tròn */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    /* Kích thước icon */
+    font-size: var(--call-button-font-size);
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    /* Luôn nằm trên cùng */
-    transition: transform 0.3s ease;
-    /* Hiệu ứng chuyển động mượt */
+    z-index: var(--z-call-button);
+    transition: transform var(--transition-fast);
 }
 
 /* Hiệu ứng nổi lên khi hover */
@@ -572,13 +639,13 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2000;
+    z-index: var(--z-popup);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .phone-popup.active {
@@ -587,12 +654,12 @@ html {
 }
 
 .popup-content {
-    background-color: #1f1f1f;
+    background-color: var(--color-background);
     border-radius: var(--radius-md);
-    padding: 2rem;
-    max-width: 500px;
+    padding: var(--popup-padding);
+    max-width: var(--popup-max-width);
     transform: scale(0.2);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-fast);
 }
 
 .phone-popup.active .popup-content {
@@ -608,11 +675,10 @@ html {
 
 .popup-header h3 {
     color: var(--color-text-white);
-    font-size: 1.2rem;
+    font-size: var(--font-size-h4);
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 1rem;
-    font-family: var(--font-family-base);
 }
 
 .popup-close {
@@ -626,13 +692,13 @@ html {
     cursor: pointer;
     padding: 0;
     border-radius: 50%;
-    transition: all 0.4s ease;
+    transition: all var(--transition-medium);
 }
 
 .popup-body {
     display: flex;
-    gap: 1.5rem;
-    padding: 1rem;
+    gap: var(--popup-body-gap);
+    padding: var(--popup-body-padding);
     background-color: var(--color-component-bg);
     border-radius: var(--radius-md);
 }
@@ -647,20 +713,19 @@ html {
 
 .whatsapp-button {
     background-color: #25D366;
-    max-height: 40px;
+    max-height: var(--whatsapp-button-max-height);
     color: var(--color-text-white);
     border: none;
     border-radius: var(--radius-md);
-    padding: 0.8rem 1.5rem;
-    font-size: 0.8rem;
+    padding: var(--whatsapp-button-padding);
+    font-size: var(--font-size-base);
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
     display: flex;
     align-items: center;
-    font-family: var(--font-family-base);
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    gap: 0.5rem;
+    gap: var(--whatsapp-button-gap);
 }
 
 .whatsapp-button:hover {
@@ -670,7 +735,7 @@ html {
 }
 
 .whatsapp-button i {
-    font-size: 1.2rem;
+    font-size: var(--whatsapp-icon-size);
 }
 
 .qr-section {
@@ -681,16 +746,15 @@ html {
 }
 
 .qr-section span {
-    font-size: 0.9rem;
+    font-size: var(--font-size-small);
     font-weight: 500;
-    font-family: var(--font-family-base);
     margin-bottom: 0.7rem;
     color: var(--color-text-white);
 }
 
 .qr-image {
-    width: 150px;
-    height: 150px;
+    width: var(--qr-image-size);
+    height: var(--qr-image-size);
     border-radius: var(--radius-sm);
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -705,10 +769,10 @@ html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
-    z-index: 1999;
+    z-index: var(--z-popup-overlay);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
 }
 
 .phone-popup-overlay.active {
@@ -720,18 +784,15 @@ html {
 .site-footer {
     background: #101010;
     color: var(--color-text-white);
-    padding: 15px 30px;
-    font-family: var(--font-family-base);
-    max-width: 100%;
+    padding: var(--footer-padding);
     overflow-x: hidden;
 }
 
 .footer-wrapper {
     display: flex;
     justify-content: flex-start;
-    margin-top: 20px;
-    gap: 70px;
-    max-width: 100%;
+    margin-top: var(--footer-wrapper-margin);
+    gap: var(--footer-wrapper-gap);
     flex-wrap: wrap;
 }
 
@@ -743,17 +804,17 @@ html {
 }
 
 .footer-column ul li {
-    margin-bottom: 15px;
+    margin-bottom: var(--footer-column-margin);
 }
 
 .footer-column ul li a {
     color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
     position: relative;
     padding-bottom: 5px;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--letter-spacing-base);
 }
 
 /* Footer Links Hover Effect */
@@ -765,7 +826,7 @@ html {
     width: 0;
     height: 1px;
     background-color: var(--color-text-white);
-    transition: width 0.3s ease-out;
+    transition: width var(--transition-fast);
 }
 
 .footer-column ul li a:hover::after {
@@ -773,51 +834,50 @@ html {
 }
 
 .footer-column h4 {
-    font-size: 0.8rem;
-    margin-bottom: 8px;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--footer-h4-margin);
     font-weight: 500;
     color: var(--color-text-white);
-    letter-spacing: 0.5px;
+    letter-spacing: var(--letter-spacing-base);
 }
 
 .footer-column p {
-    font-size: 0.7rem;
+    font-size: var(--font-size-xs);
     color: #969696;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
+    margin-bottom: var(--footer-p-margin);
+    letter-spacing: var(--letter-spacing-base);
 }
 
 /* Footer Brand */
 .footer-brand h2 {
-    font-size: 30px;
+    font-size: var(--footer-brand-h2-size);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: var(--footer-brand-h2-margin);
 }
 
 .footer-brand p {
-    font-size: 0.7rem;
+    font-size: var(--font-size-xs);
     color: var(--color-text-light);
 }
 
 /* Footer Social Icons */
 .footer-socials {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    gap: var(--footer-social-gap);
+    margin: var(--footer-social-margin);
     color: #969696;
 }
 
 .footer-socials a {
     color: #000;
-    font-size: 16px;
-    transition: transform 0.3s ease;
+    font-size: var(--footer-social-icon-size);
+    transition: transform var(--transition-fast);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: var(--footer-social-size);
+    height: var(--footer-social-size);
     background-color: #fff;
     border-radius: 50%;
     margin: 0 6px;

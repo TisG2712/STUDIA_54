@@ -14,9 +14,44 @@
   --font-size-base: 0.8rem;
   --letter-spacing-base: 0.5;
   --line-height-base: 1.4;
-  --font-family-base: "Times New Roman", serif;
+  --font-family-base: Roboto Condensed, Arial, sans-serif;
   --gap-base: 2rem;
+
+  /* Responsive Variables */
+  --header-height: 120px;
+  --header-padding: 1rem 2rem;
+  --logo-width: 100px;
+  --logo-divider-width: 250%;
+  --nav-gap: 3rem;
+  --section-padding: 40px;
+  --container-padding: 50px;
+  --container-margin: 30px;
+  --contact-card-gap: 20px;
+  --contact-form-gap: 30px;
+  --first-section-height: 140vh;
+  --contact-form-height: 100vh;
+  --contact-image-height: 100vh;
+  --contact-card-width-large: 500px;
+  --contact-card-width-small: 250px;
+  --contact-card-padding: 20px;
+  --contact-card-icon-size: 30px;
+  --button-padding: 0.8rem 1.5rem;
+  --form-input-padding: 14px 0;
+  --social-icon-size: 80px;
+  --social-button-padding: 15px 30px;
+  --social-card-padding: 20px;
+  --video-overlay-height: 15px;
+  --breadcrumb-gap: 1rem;
+  --breadcrumb-margin: 0.7rem;
+  --dropdown-padding: 8px 0;
+  --dropdown-top: 60px;
+  --z-index-header: 99;
+  --z-index-dropdown: 1000;
+  --z-index-content: 2;
+  --z-index-overlay: 1;
+
 }
+
 
 /* Reset & Base Styles */
 * {
@@ -27,7 +62,7 @@
 
 body,
 html {
-  font-family: sans-serif;
+  font-family: var(--font-family-base);
   color: var(--color-text-white);
   background-color: var(--color-background);
 }
@@ -46,13 +81,11 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  z-index: 99;
-  /* Z-index cao nhất để luôn nằm trên cùng */
-  height: 120px;
-  max-height: 120px;
+  padding: var(--header-padding);
+  z-index: var(--z-index-header);
+  height: var(--header-height);
   background-color: rgba(25, 25, 25, 0.3);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: transform 0.5s ease-in-out;
 }
@@ -70,16 +103,16 @@ html {
 
 /* Logo */
 .logo-image {
-  width: 100px;
+  width: var(--logo-width);
   height: auto;
   object-fit: contain;
 }
 
 /* Logo Divider */
 .logo-divider {
-  width: 250%;
+  width: var(--logo-divider-width);
   height: 1px;
-  background: linear-gradient(to right, #fff 0%, #fff 30%, transparent 100%);
+  background: linear-gradient(to right, var(--color-text-white) 0%, var(--color-text-white) 30%, transparent 100%);
   margin-left: 0;
 }
 
@@ -87,32 +120,32 @@ html {
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 0.7rem;
+  gap: var(--breadcrumb-gap);
+  margin-top: var(--breadcrumb-margin);
   font-family: var(--font-family-base);
 }
 
 .breadcrumb a {
-  color: #fff;
+  color: var(--color-text-white);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--font-size-base);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   transition: color 0.3s ease;
 }
 
 .breadcrumb a:hover {
-  color: #888;
+  color: var(--color-text-muted);
 }
 
 .breadcrumb .divider {
-  color: #fff;
-  font-size: 0.8rem;
+  color: var(--color-text-white);
+  font-size: var(--font-size-base);
 }
 
 .breadcrumb .current {
   color: var(--color-primary);
-  font-size: 0.8rem;
+  font-size: var(--font-size-base);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   font-weight: 500;
@@ -129,13 +162,13 @@ html {
   display: flex;
   font-family: var(--font-family-base);
   list-style: none;
-  gap: 3rem;
+  gap: var(--nav-gap);
 }
 
 .main-nav a {
-  color: #fff;
+  color: var(--color-text-white);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--font-size-base);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   transition: color 0.3s ease;
@@ -168,7 +201,7 @@ html {
 .cta-button {
   background-color: var(--color-primary);
   color: var(--color-text-white);
-  padding: 0.8rem 2.5rem;
+  padding: var(--button-padding);
   border-radius: var(--radius-md);
   text-transform: uppercase;
   font-size: var(--font-size-base);
@@ -192,17 +225,17 @@ html {
 /* Contact Dropdown Menu */
 .contact-dropdown-menu {
   position: absolute;
-  top: 60px;
+  top: var(--dropdown-top);
   left: 0;
   right: 0;
   background: transparent;
-  padding: 8px 0;
+  padding: var(--dropdown-padding);
   margin-top: 8px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
+  z-index: var(--z-index-dropdown);
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -277,22 +310,22 @@ html {
 .first-section-content {
   display: flex;
   align-items: center;
-  height: 140vh;
-  padding: 0 40px;
-  gap: 30px;
+  height: var(--first-section-height);
+  padding: 0 var(--section-padding);
+  gap: var(--contact-form-gap);
   position: relative;
-  z-index: 2;
+  z-index: var(--z-index-content);
   font-family: var(--font-family-base);
 }
 
 .contact-form-section {
-  height: 100vh;
+  height: var(--contact-form-height);
   flex: 1;
-  color: white;
+  color: var(--color-text-white);
 }
 
 .contact-image-section {
-  height: 100vh;
+  height: var(--contact-image-height);
   flex: 2;
   display: flex;
   justify-content: center;
@@ -302,7 +335,7 @@ html {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.4;
-  color: white;
+  color: var(--color-text-white);
   margin-bottom: 50px;
   text-transform: uppercase;
 }
@@ -330,48 +363,35 @@ html {
 
 .consultation-form input,
 .consultation-form select {
-  padding: 14px 0;
+  padding: var(--form-input-padding);
   border: none;
   border-bottom: 1px solid #444;
   background: transparent;
-  color: #fff;
+  color: var(--color-text-white);
   font-size: 1rem;
   outline: none;
-  /* Loại bỏ border mặc định khi focus */
 }
 
 .consultation-form input:focus,
 .consultation-form select:focus {
   outline: none;
-  /* Đảm bảo không có outline khi focus */
   border-bottom: 1px solid var(--color-primary);
-  /* Thay đổi màu border-bottom khi focus */
 }
 
-/* Tùy chỉnh dropdown của select */
 .consultation-form select option {
   background-color: var(--color-component-bg);
-  /* Nền trắng cho dropdown */
   color: var(--color-text-white);
-  /* Chữ đen cho dropdown */
   padding: 10px;
-  /* Thêm padding cho các option */
 }
 
-/* Hiệu ứng hover cho option */
 .consultation-form select option:hover {
   background-color: var(--color-primary);
-  /* Nền cam khi hover */
   color: var(--color-text-white);
-  /* Chữ trắng khi hover */
 }
 
-/* Hiệu ứng khi option được chọn */
 .consultation-form select option:checked {
   background-color: var(--color-primary);
-  /* Nền cam khi được chọn */
   color: var(--color-text-white);
-  /* Chữ trắng khi được chọn */
 }
 
 .phone-input {
@@ -397,7 +417,7 @@ html {
 }
 
 .privacy-check {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: var(--font-family-base);
   color: #bbb;
   display: flex;
@@ -435,7 +455,7 @@ html {
 .social-media-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--section-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -455,8 +475,8 @@ html {
   align-items: center;
   gap: 15px;
   background: var(--color-primary);
-  color: white;
-  padding: 15px 30px;
+  color: var(--color-text-white);
+  padding: var(--social-button-padding);
   border-radius: 50px;
   text-decoration: none;
   line-height: var(--line-height-base);
@@ -473,8 +493,8 @@ html {
   box-shadow: 0 10px 20px rgba(211, 140, 55, 0.3);
 }
 
-.whatsapp-button i {
-  font-size: 1.3rem;
+.whatsapp-button-contacts i {
+  font-size: 1.2rem;
 }
 
 /* Social Icons Section */
@@ -490,14 +510,14 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: var(--color-text-white);
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 20px;
+  padding: var(--social-card-padding);
   border-radius: 50%;
   background: #2a2a2a;
-  width: 80px;
-  height: 80px;
+  width: var(--social-icon-size);
+  height: var(--social-icon-size);
   justify-content: center;
   position: relative;
   overflow: hidden;
@@ -557,17 +577,17 @@ html {
 .contact-info-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 var(--container-padding);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: var(--contact-card-gap);
   flex-wrap: wrap;
 }
 
 .contact-card {
   background: #2a2a2a;
-  border-radius: 30px;
-  padding: 20px;
+  border-radius: var(--radius-md);
+  padding: var(--contact-card-padding);
   display: flex;
   align-items: flex-start;
   gap: 15px;
@@ -578,14 +598,14 @@ html {
 
 /* Address card - wider */
 .contact-card:first-child {
-  width: 500px;
+  width: var(--contact-card-width-large);
   flex: 2;
 }
 
 /* Opening hours and non-working days - smaller */
 .contact-card:nth-child(2),
 .contact-card:nth-child(3) {
-  width: 250px;
+  width: var(--contact-card-width-small);
   flex: 1;
 }
 
@@ -596,8 +616,8 @@ html {
 
 .contact-card-icon {
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+  width: var(--contact-card-icon-size);
+  height: var(--contact-card-icon-size);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -650,7 +670,7 @@ html {
 
 /* ===== SECTION 4 - GLOBAL PRESENCE ===== */
 .global-presence-section {
-  padding: 0 40px;
+  padding: 0 var(--section-padding);
   font-family: var(--font-family-base);
 }
 
@@ -665,7 +685,7 @@ html {
 
 .global-text-section {
   flex: 40%;
-  color: white;
+  color: var(--color-text-white);
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -715,7 +735,7 @@ html {
 
 .global-quote {
   color: #a0a0a0;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-style: italic;
   line-height: 1.4;
   position: relative;
@@ -760,13 +780,8 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,
-      0,
-      0,
-      0.4);
-  /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
-  z-index: 1;
-  /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: var(--z-index-overlay);
 }
 
 /* Gradient Overlay */
@@ -776,9 +791,9 @@ html {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: var(--video-overlay-height);
   background: linear-gradient(to top, var(--color-background) 10%, transparent);
-  z-index: 2;
+  z-index: var(--z-index-content);
 }
 
 .video-background {
@@ -788,12 +803,12 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
+  z-index: var(--z-index-overlay);
 }
 
 .video-content {
   position: relative;
-  z-index: 2;
+  z-index: var(--z-index-content);
   left: 2rem;
   bottom: 60px;
 }
@@ -816,19 +831,15 @@ html {
   width: 50px;
   height: 50px;
   background-color: var(--color-primary);
-  /* Màu vàng cam chủ đạo */
-  color: #fff;
+  color: var(--color-text-white);
   border-radius: 50%;
-  /* Bo tròn thành hình tròn */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  /* Kích thước icon */
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  /* Luôn nằm trên cùng */
+  z-index: var(--z-index-dropdown);
   transition: transform 0.3s ease;
   /* Hiệu ứng chuyển động mượt */
 }
@@ -876,7 +887,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2000;
+  z-index: 300;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -891,7 +902,7 @@ html {
 }
 
 .popup-content {
-  background-color: #1f1f1f;
+  background-color: var(--color-background);
   border-radius: var(--radius-md);
   padding: 2rem;
   max-width: 500px;
@@ -955,8 +966,8 @@ html {
   color: var(--color-text-white);
   border: none;
   border-radius: var(--radius-md);
-  padding: 0.8rem 1.5rem;
-  font-size: 0.8rem;
+  padding: var(--button-padding);
+  font-size: var(--font-size-base);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1009,7 +1020,7 @@ html {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
-  z-index: 1999;
+  z-index: 250;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1024,7 +1035,7 @@ html {
 .site-footer {
   background: #101010;
   color: var(--color-text-white);
-  padding: 15px 30px;
+  padding: 15px var(--container-margin);
   font-family: var(--font-family-base);
   max-width: 100%;
   overflow-x: hidden;
@@ -1034,7 +1045,7 @@ html {
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-  gap: 70px;
+  gap: 60px;
   max-width: 100%;
   flex-wrap: wrap;
 }
@@ -1130,6 +1141,7 @@ html {
 .footer-socials a:hover {
   transform: scale(1.2);
 }
+
 
 /* CUSTOM SCROLLBAR */
 /* Webkit-based browsers */

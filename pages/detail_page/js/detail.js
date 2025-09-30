@@ -202,6 +202,64 @@ function initTableOfContents() {
   });
 }
 
+// MOBILE MENU FUNCTIONALITY
+function initMobileMenu() {
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const mobileSidebar = document.querySelector(".mobile-sidebar");
+  const mobileSidebarOverlay = document.querySelector(
+    ".mobile-sidebar-overlay"
+  );
+  const mobileSidebarClose = document.querySelector(".mobile-sidebar-close");
+
+  if (!mobileMenuToggle || !mobileSidebar) return;
+
+  // Toggle mobile menu
+  mobileMenuToggle.addEventListener("click", () => {
+    mobileMenuToggle.classList.toggle("active");
+    mobileSidebar.classList.toggle("active");
+    document.body.style.overflow = mobileSidebar.classList.contains("active")
+      ? "hidden"
+      : "";
+  });
+
+  // Close mobile menu when clicking overlay
+  if (mobileSidebarOverlay) {
+    mobileSidebarOverlay.addEventListener("click", () => {
+      mobileMenuToggle.classList.remove("active");
+      mobileSidebar.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Close mobile menu when clicking close button
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener("click", () => {
+      mobileMenuToggle.classList.remove("active");
+      mobileSidebar.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Close mobile menu when clicking on nav links
+  const mobileNavLinks = mobileSidebar.querySelectorAll(".mobile-nav a");
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenuToggle.classList.remove("active");
+      mobileSidebar.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // Close mobile menu on window resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 480) {
+      mobileMenuToggle.classList.remove("active");
+      mobileSidebar.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
 // Chạy tất cả các hàm khởi tạo sau khi DOM đã tải xong.
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -213,4 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize phone popup
   initPhonePopup();
+
+  // Initialize mobile menu
+  initMobileMenu();
 });

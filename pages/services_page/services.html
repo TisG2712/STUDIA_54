@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../services_page/css/services.css" />
+    <link rel="stylesheet" href="../services_page/css/services_responsive.css" />
   </head>
   <body>
     <!-- ===== SECTION 1 ===== -->
@@ -57,6 +58,12 @@
             <a href="#">EN</a>
           </div>
         </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="ri-menu-line hamburger-icon"></i>
+          <i class="ri-close-line close-icon"></i>
+        </button>
       </header>
 
     <!-- ===== SECTION 2 - SERVICES ===== -->
@@ -266,7 +273,7 @@
         <!-- Cột logo + social -->
         <div class="footer-column footer-brand">
           <h2>STUDIO CAPRI</h2>
-          <p>© 2013 — 2025 Studio Capri Interior Design and Engineering</p>
+          <p>© Studio Capri Interior Design and Engineering</p>
           <div class="footer-socials">
             <a href="#"><i class="ri-whatsapp-fill"></i></a>
             <a href="#"><i class="ri-instagram-fill"></i></a>
@@ -313,6 +320,31 @@
 
     <!-- Phone Popup Overlay -->
     <div class="phone-popup-overlay" id="phonePopupOverlay"></div>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+      <div class="mobile-sidebar-content">
+        <div class="mobile-sidebar-header">
+          <button class="mobile-sidebar-close" id="mobileSidebarClose">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="../about_page/about.html">GIỚI THIỆU</a></li>
+            <li><a href="../portfolio_page/portfolio.html">DANH MỤC</a></li>
+            <li><a href="../contacts_page/contacts.html">LIÊN HỆ</a></li>
+            <li><a href="../services_page/services.html" class="active">DỊCH VỤ</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-lang-switcher">
+          <a href="#">VN</a>
+          <div class="divider"></div>
+          <a href="#">EN</a>
+        </div>
+      </div>
+    </div>
 
     <script src="../services_page/js/services.js" defer></script>
   </body>

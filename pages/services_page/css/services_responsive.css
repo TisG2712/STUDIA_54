@@ -1,0 +1,1169 @@
+/* ===== RESPONSIVE VARIABLES ===== */
+:root {
+    /* Mobile Variables - Smaller sizes */
+    --mobile-header-height: 60px;
+    --mobile-section-padding: 15px;
+    --mobile-container-padding: 1rem;
+    --mobile-container-margin: 15px;
+    --mobile-font-size-h1: 1.8rem;
+    --mobile-font-size-h2: 1.2rem;
+    --mobile-font-size-h3: 1rem;
+    --mobile-font-size-h4: 0.9rem;
+    --mobile-font-size-large: 0.9rem;
+    --mobile-font-size-normal: 0.8rem;
+    --mobile-font-size-small: 0.75rem;
+    --mobile-gap: 0.8rem;
+    --mobile-radius: 10px;
+
+    /* Additional Mobile Variables */
+    --mobile-logo-width: 50px;
+    --mobile-logo-divider-width: 150%;
+    --mobile-nav-gap: 1.5rem;
+    --mobile-nav-item-gap: 2rem;
+    --mobile-breadcrumb-gap: 0.8rem;
+    --mobile-breadcrumb-margin-top: 0.5rem;
+    --mobile-button-padding: 0.6rem 1.5rem;
+    --mobile-button-padding-large: 15px 25px;
+    --mobile-button-padding-small: 12px 25px;
+    --mobile-form-input-padding: 12px 15px;
+    --mobile-form-group-margin: 15px;
+    --mobile-radio-margin: 8px;
+    --mobile-radio-input-margin: 10px;
+    --mobile-call-button-size: 45px;
+    --mobile-call-button-bottom: 15px;
+    --mobile-call-button-right: 15px;
+    --mobile-call-button-font-size: 20px;
+    --mobile-popup-max-width: 90%;
+    --mobile-popup-padding: 1.5rem;
+    --mobile-popup-body-gap: 1rem;
+    --mobile-popup-body-padding: 0.8rem;
+    --mobile-qr-image-size: 120px;
+    --mobile-whatsapp-button-padding: 0.6rem 1.2rem;
+    --mobile-whatsapp-button-max-height: 35px;
+    --mobile-whatsapp-button-gap: 0.4rem;
+    --mobile-whatsapp-icon-size: 1rem;
+    --mobile-footer-padding: 10px 15px;
+    --mobile-footer-wrapper-gap: 30px;
+    --mobile-footer-wrapper-margin: 15px;
+    --mobile-footer-column-margin: 10px;
+    --mobile-footer-h4-margin: 6px;
+    --mobile-footer-p-margin: 15px;
+    --mobile-footer-social-gap: 8px;
+    --mobile-footer-social-margin: 15px 0 10px 0;
+    --mobile-footer-social-size: 25px;
+    --mobile-footer-social-icon-size: 12px;
+    --mobile-footer-brand-h2-size: 1.2rem;
+    --mobile-footer-brand-h2-margin: 6px;
+}
+
+/* ===== MOBILE RESPONSIVE (≤480px) ===== */
+@media (max-width: 480px) {
+    :root {
+        /* Override base variables for mobile */
+        --header-height: var(--mobile-header-height);
+        --section-padding: var(--mobile-section-padding);
+        --container-padding: var(--mobile-container-padding);
+        --container-margin: var(--mobile-container-margin);
+        --font-size-h1: var(--mobile-font-size-h1);
+        --font-size-h2: var(--mobile-font-size-h2);
+        --font-size-h3: var(--mobile-font-size-h3);
+        --font-size-h4: var(--mobile-font-size-h4);
+        --font-size-large: var(--mobile-font-size-large);
+        --font-size-normal: var(--mobile-font-size-normal);
+        --font-size-small: var(--mobile-font-size-small);
+        --gap-base: var(--mobile-gap);
+        --radius-md: var(--mobile-radius);
+
+        /* Override additional variables for mobile */
+        --logo-width: var(--mobile-logo-width);
+        --logo-divider-width: var(--mobile-logo-divider-width);
+        --nav-gap: var(--mobile-nav-gap);
+        --nav-item-gap: var(--mobile-nav-item-gap);
+        --breadcrumb-gap: var(--mobile-breadcrumb-gap);
+        --breadcrumb-margin-top: var(--mobile-breadcrumb-margin-top);
+        --button-padding: var(--mobile-button-padding);
+        --button-padding-large: var(--mobile-button-padding-large);
+        --button-padding-small: var(--mobile-button-padding-small);
+        --form-input-padding: var(--mobile-form-input-padding);
+        --form-group-margin: var(--mobile-form-group-margin);
+        --radio-margin: var(--mobile-radio-margin);
+        --radio-input-margin: var(--mobile-radio-input-margin);
+        --call-button-size: var(--mobile-call-button-size);
+        --call-button-bottom: var(--mobile-call-button-bottom);
+        --call-button-right: var(--mobile-call-button-right);
+        --call-button-font-size: var(--mobile-call-button-font-size);
+        --popup-max-width: var(--mobile-popup-max-width);
+        --popup-padding: var(--mobile-popup-padding);
+        --popup-body-gap: var(--mobile-popup-body-gap);
+        --popup-body-padding: var(--mobile-popup-body-padding);
+        --qr-image-size: var(--mobile-qr-image-size);
+        --whatsapp-button-padding: var(--mobile-whatsapp-button-padding);
+        --whatsapp-button-max-height: var(--mobile-whatsapp-button-max-height);
+        --whatsapp-button-gap: var(--mobile-whatsapp-button-gap);
+        --whatsapp-icon-size: var(--mobile-whatsapp-icon-size);
+        --footer-padding: var(--mobile-footer-padding);
+        --footer-wrapper-gap: var(--mobile-footer-wrapper-gap);
+        --footer-wrapper-margin: var(--mobile-footer-wrapper-margin);
+        --footer-column-margin: var(--mobile-footer-column-margin);
+        --footer-h4-margin: var(--mobile-footer-h4-margin);
+        --footer-p-margin: var(--mobile-footer-p-margin);
+        --footer-social-gap: var(--mobile-footer-social-gap);
+        --footer-social-margin: var(--mobile-footer-social-margin);
+        --footer-social-size: var(--mobile-footer-social-size);
+        --footer-social-icon-size: var(--mobile-footer-social-icon-size);
+        --footer-brand-h2-size: var(--mobile-footer-brand-h2-size);
+        --footer-brand-h2-margin: var(--mobile-footer-brand-h2-margin);
+    }
+
+    /* Global Mobile Styles */
+    body {
+        padding-top: var(--header-height);
+    }
+
+    /* ===== HEADER RESPONSIVE ===== */
+    .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.6rem var(--container-padding);
+        height: var(--header-height);
+        z-index: var(--z-header);
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-image {
+        width: var(--logo-width);
+        height: auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .logo-divider,
+    .breadcrumb {
+        display: none;
+    }
+
+    /* Navigation Menu - Hide on mobile */
+    .navigation-menu {
+        display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+        position: relative;
+    }
+
+    .hamburger-icon,
+    .close-icon {
+        font-size: 1.2rem;
+        color: var(--color-text-white);
+        transition: all 0.3s ease;
+        position: absolute;
+    }
+
+    .hamburger-icon {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    .close-icon {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .mobile-menu-toggle.active .hamburger-icon {
+        opacity: 0;
+        transform: rotate(-90deg);
+    }
+
+    .mobile-menu-toggle.active .close-icon {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    /* Mobile Sidebar */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .mobile-sidebar.active {
+        right: 0;
+    }
+
+    .mobile-sidebar-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .mobile-sidebar-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        /* Trong suốt với chút trắng */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-sidebar-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-sidebar-close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        color: var(--color-text-white);
+        cursor: pointer;
+    }
+
+    .mobile-sidebar-close i {
+        font-size: 1.5rem;
+        color: var(--color-text-white);
+        transition: color 0.3s ease;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+
+    .mobile-nav li {
+        margin-bottom: 0.8rem;
+    }
+
+    .mobile-nav a {
+        color: var(--color-text-white);
+        text-decoration: none;
+        font-size: 0.6rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0.4rem 0;
+        display: inline-block;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-text-white);
+        transition: width 0.3s ease-out;
+    }
+
+    .mobile-nav a:hover::after {
+        width: 100%;
+    }
+
+    .mobile-lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-lang-switcher .divider {
+        width: 1px;
+        height: 20px;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-lang-switcher a {
+        color: var(--color-text-white);
+        text-decoration: none;
+        font-size: 0.6rem;
+    }
+
+    /* ===== SECTION 1 - COMPACT RESPONSIVE ===== */
+    .first-section {
+        height: 30px;
+        padding: 10px 0;
+    }
+
+    /* ===== SECTION 2 - SERVICES RESPONSIVE ===== */
+    .services-section {
+        padding-top: var(--margin-xl);
+        margin-bottom: 50px;
+    }
+
+    .services-content {
+        margin: 0 var(--container-margin);
+        gap: var(--gap-base);
+    }
+
+    .services-title {
+        font-size: var(--font-size-h1);
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: var(--gap-base);
+    }
+
+    .services-image {
+        padding: var(--section-padding);
+    }
+
+    .services-image img {
+        border-radius: var(--radius-md);
+    }
+
+    /* ===== SECTION 3 - TEXT CONTENT RESPONSIVE ===== */
+    .text-content-section {
+        margin-bottom: 50px;
+    }
+
+    .text-content-wrapper {
+        flex-direction: column;
+        gap: var(--gap-base);
+        padding: 0 var(--container-margin);
+    }
+
+    .text-column-left {
+        flex: none;
+        font-size: var(--font-size-h2);
+        line-height: var(--line-height-base);
+        text-align: center;
+    }
+
+    .text-column-right {
+        flex: none;
+        font-size: var(--font-size-h3);
+        line-height: var(--line-height-base);
+        text-align: center;
+    }
+
+    /* ===== SECTION 4 - ARCHITECTURAL DESIGN RESPONSIVE ===== */
+    .architectural-section {
+        margin-bottom: var(--padding-large);
+    }
+
+    .architectural-wrapper {
+        flex-direction: column;
+        width: calc(100% - 2 * var(--container-margin));
+        margin: 0 var(--container-margin);
+        gap: var(--gap-base);
+    }
+
+    .architectural-content {
+        flex: none;
+        padding: var(--section-padding);
+        order: 2;
+    }
+
+    .architectural-title {
+        font-size: var(--font-size-h2);
+        margin-bottom: var(--padding-base);
+        text-align: center;
+    }
+
+    .architectural-description {
+        font-size: var(--font-size-normal);
+        line-height: var(--line-height-base);
+        text-align: center;
+        margin-bottom: var(--gap-base);
+    }
+
+    .architectural-button {
+        width: 100%;
+        padding: var(--button-padding);
+        font-size: var(--font-size-base);
+        text-align: center;
+    }
+
+    .architectural-image {
+        flex: none;
+        height: 250px;
+        order: 1;
+    }
+
+    .architectural-image img {
+        border-radius: var(--radius-md);
+    }
+
+    /* ===== CONTACT FORM RESPONSIVE ===== */
+    .contact-form {
+        margin-top: var(--gap-base);
+    }
+
+    .form-group {
+        margin-bottom: var(--form-group-margin);
+    }
+
+    .radio-label {
+        margin-bottom: var(--radio-margin);
+        font-size: var(--font-size-normal);
+    }
+
+    .radio-label input[type="radio"] {
+        margin-right: var(--radio-input-margin);
+    }
+
+    .radio-text {
+        font-size: var(--font-size-normal);
+    }
+
+    .form-input {
+        padding: var(--form-input-padding);
+        font-size: var(--font-size-normal);
+    }
+
+    .form-button {
+        padding: var(--button-padding);
+        font-size: var(--font-size-normal);
+    }
+
+    /* ===== CONTACT SECTION RESPONSIVE ===== */
+    .contact-content {
+        padding: var(--section-padding);
+        flex: none;
+        order: 2;
+    }
+
+    .contact-title {
+        font-size: var(--font-size-h2);
+        margin-bottom: var(--gap-base);
+        text-align: center;
+    }
+
+    .contact-description {
+        font-size: var(--font-size-normal);
+        text-align: center;
+    }
+
+    /* ===== FIXED ELEMENTS RESPONSIVE ===== */
+    .fixed-call-button {
+        width: var(--call-button-size);
+        height: var(--call-button-size);
+        bottom: var(--call-button-bottom);
+        right: var(--call-button-right);
+        font-size: var(--call-button-font-size);
+    }
+
+    /* ===== POPUP RESPONSIVE ===== */
+    .popup-content {
+        max-width: var(--popup-max-width);
+        margin: 0 var(--container-margin);
+        padding: var(--popup-padding);
+    }
+
+    .popup-header h3 {
+        font-size: var(--font-size-h3);
+        margin-top: 1.5rem;
+    }
+
+    .popup-body {
+        flex-direction: column;
+        gap: var(--popup-body-gap);
+        padding: var(--popup-body-padding);
+    }
+
+    .whatsapp-button {
+        font-size: var(--font-size-small);
+        padding: var(--whatsapp-button-padding);
+        width: 100%;
+    }
+
+    .qr-section span {
+        font-size: var(--font-size-small);
+    }
+
+    .qr-image {
+        width: var(--qr-image-size);
+        height: var(--qr-image-size);
+    }
+
+    /* ===== FOOTER RESPONSIVE ===== */
+    .footer-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-base);
+        margin-top: var(--footer-wrapper-margin);
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-brand {
+        order: 0;
+        text-align: center;
+    }
+
+    .footer-brand h2 {
+        font-size: var(--footer-brand-h2-size);
+    }
+
+    .footer-column h4 {
+        font-size: var(--font-size-small);
+        margin-bottom: var(--footer-h4-margin);
+    }
+
+    .footer-column p {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--footer-p-margin);
+    }
+
+    .footer-column ul li a {
+        font-size: var(--font-size-small);
+    }
+
+    .footer-socials {
+        justify-content: center;
+        gap: var(--footer-social-gap);
+        margin: var(--footer-social-margin);
+    }
+
+    .footer-socials a {
+        width: var(--footer-social-size);
+        height: var(--footer-social-size);
+        font-size: var(--footer-social-icon-size);
+    }
+}
+
+/* ===== TABLET RESPONSIVE (481px - 768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    /* Tablet Variables */
+    :root {
+        --tablet-header-height: 80px;
+        --tablet-section-padding: 25px;
+        --tablet-container-padding: 1.5rem;
+        --tablet-container-margin: 20px;
+        --tablet-font-size-h1: 2.5rem;
+        --tablet-font-size-h2: 1.8rem;
+        --tablet-font-size-h3: 1.3rem;
+        --tablet-font-size-h4: 1.1rem;
+        --tablet-font-size-large: 1.2rem;
+        --tablet-font-size-normal: 0.9rem;
+        --tablet-font-size-small: 0.8rem;
+        --tablet-gap: 1.2rem;
+        --tablet-radius: 15px;
+
+        /* Additional Tablet Variables */
+        --tablet-logo-width: 70px;
+        --tablet-logo-divider-width: 200%;
+        --tablet-nav-gap: 1.8rem;
+        --tablet-nav-item-gap: 2.5rem;
+        --tablet-breadcrumb-gap: 1rem;
+        --tablet-breadcrumb-margin-top: 0.6rem;
+        --tablet-button-padding: 0.7rem 2rem;
+        --tablet-button-padding-large: 18px 28px;
+        --tablet-button-padding-small: 14px 28px;
+        --tablet-form-input-padding: 15px 18px;
+        --tablet-form-group-margin: 18px;
+        --tablet-radio-margin: 9px;
+        --tablet-radio-input-margin: 11px;
+        --tablet-call-button-size: 48px;
+        --tablet-call-button-bottom: 18px;
+        --tablet-call-button-right: 18px;
+        --tablet-call-button-font-size: 22px;
+        --tablet-popup-max-width: 85%;
+        --tablet-popup-padding: 1.8rem;
+        --tablet-popup-body-gap: 1.3rem;
+        --tablet-popup-body-padding: 1rem;
+        --tablet-qr-image-size: 135px;
+        --tablet-whatsapp-button-padding: 0.7rem 1.4rem;
+        --tablet-whatsapp-button-max-height: 38px;
+        --tablet-whatsapp-button-gap: 0.5rem;
+        --tablet-whatsapp-icon-size: 1.1rem;
+        --tablet-footer-padding: 12px 25px;
+        --tablet-footer-wrapper-gap: 50px;
+        --tablet-footer-wrapper-margin: 18px;
+        --tablet-footer-column-margin: 12px;
+        --tablet-footer-h4-margin: 7px;
+        --tablet-footer-p-margin: 18px;
+        --tablet-footer-social-gap: 9px;
+        --tablet-footer-social-margin: 18px 0 12px 0;
+        --tablet-footer-social-size: 28px;
+        --tablet-footer-social-icon-size: 14px;
+        --tablet-footer-brand-h2-size: 1.4rem;
+        --tablet-footer-brand-h2-margin: 7px;
+    }
+
+    /* Override base variables for tablet */
+    :root {
+        --header-height: var(--tablet-header-height);
+        --section-padding: var(--tablet-section-padding);
+        --container-padding: var(--tablet-container-padding);
+        --container-margin: var(--tablet-container-margin);
+        --font-size-h1: var(--tablet-font-size-h1);
+        --font-size-h2: var(--tablet-font-size-h2);
+        --font-size-h3: var(--tablet-font-size-h3);
+        --font-size-h4: var(--tablet-font-size-h4);
+        --font-size-large: var(--tablet-font-size-large);
+        --font-size-normal: var(--tablet-font-size-normal);
+        --font-size-small: var(--tablet-font-size-small);
+        --gap-base: var(--tablet-gap);
+        --radius-md: var(--tablet-radius);
+
+        /* Override additional variables for tablet */
+        --logo-width: var(--tablet-logo-width);
+        --logo-divider-width: var(--tablet-logo-divider-width);
+        --nav-gap: var(--tablet-nav-gap);
+        --nav-item-gap: var(--tablet-nav-item-gap);
+        --breadcrumb-gap: var(--tablet-breadcrumb-gap);
+        --breadcrumb-margin-top: var(--tablet-breadcrumb-margin-top);
+        --button-padding: var(--tablet-button-padding);
+        --button-padding-large: var(--tablet-button-padding-large);
+        --button-padding-small: var(--tablet-button-padding-small);
+        --form-input-padding: var(--tablet-form-input-padding);
+        --form-group-margin: var(--tablet-form-group-margin);
+        --radio-margin: var(--tablet-radio-margin);
+        --radio-input-margin: var(--tablet-radio-input-margin);
+        --call-button-size: var(--tablet-call-button-size);
+        --call-button-bottom: var(--tablet-call-button-bottom);
+        --call-button-right: var(--tablet-call-button-right);
+        --call-button-font-size: var(--tablet-call-button-font-size);
+        --popup-max-width: var(--tablet-popup-max-width);
+        --popup-padding: var(--tablet-popup-padding);
+        --popup-body-gap: var(--tablet-popup-body-gap);
+        --popup-body-padding: var(--tablet-popup-body-padding);
+        --qr-image-size: var(--tablet-qr-image-size);
+        --whatsapp-button-padding: var(--tablet-whatsapp-button-padding);
+        --whatsapp-button-max-height: var(--tablet-whatsapp-button-max-height);
+        --whatsapp-button-gap: var(--tablet-whatsapp-button-gap);
+        --whatsapp-icon-size: var(--tablet-whatsapp-icon-size);
+        --footer-padding: var(--tablet-footer-padding);
+        --footer-wrapper-gap: var(--tablet-footer-wrapper-gap);
+        --footer-wrapper-margin: var(--tablet-footer-wrapper-margin);
+        --footer-column-margin: var(--tablet-footer-column-margin);
+        --footer-h4-margin: var(--tablet-footer-h4-margin);
+        --footer-p-margin: var(--tablet-footer-p-margin);
+        --footer-social-gap: var(--tablet-footer-social-gap);
+        --footer-social-margin: var(--tablet-footer-social-margin);
+        --footer-social-size: var(--tablet-footer-social-size);
+        --footer-social-icon-size: var(--tablet-footer-social-icon-size);
+        --footer-brand-h2-size: var(--tablet-footer-brand-h2-size);
+        --footer-brand-h2-margin: var(--tablet-footer-brand-h2-margin);
+    }
+
+    /* Global Tablet Styles */
+    body {
+        padding-top: var(--header-height);
+    }
+
+    /* ===== HEADER RESPONSIVE ===== */
+    .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.7rem var(--container-padding);
+        height: var(--header-height);
+        z-index: var(--z-header);
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-image {
+        width: var(--logo-width);
+        height: auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo-divider {
+        display: none;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    /* Navigation Menu - Hide on tablet */
+    .navigation-menu {
+        display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+        position: relative;
+    }
+
+    .hamburger-icon,
+    .close-icon {
+        font-size: 1.5rem;
+        color: var(--color-text-white);
+        transition: all var(--transition-fast);
+        position: absolute;
+    }
+
+    .hamburger-icon {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    .close-icon {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .mobile-menu-toggle.active .hamburger-icon {
+        opacity: 0;
+        transform: rotate(-90deg);
+    }
+
+    .mobile-menu-toggle.active .close-icon {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    /* Mobile Sidebar */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        transition: right var(--transition-fast);
+    }
+
+    .mobile-sidebar.active {
+        right: 0;
+    }
+
+    .mobile-sidebar-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .mobile-sidebar-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        padding: 2.8rem 2.2rem;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-sidebar-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.8rem;
+        padding-bottom: 2.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-sidebar-close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: 38px;
+        background: none;
+        border: none;
+        color: var(--color-text-white);
+        cursor: pointer;
+    }
+
+    .mobile-sidebar-close i {
+        font-size: 1.9rem;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        margin: 0 0 2.2rem 0;
+        padding: 0;
+    }
+
+    .mobile-nav li {
+        margin-bottom: 1.2rem;
+    }
+
+    .mobile-nav a {
+        color: var(--color-text-white);
+        text-decoration: none;
+        font-size: var(--font-size-base);
+        font-weight: 500;
+        padding: 0.6rem 0;
+        display: inline-block;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .mobile-nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-text-white);
+        transition: width var(--transition-fast);
+    }
+
+    .mobile-nav a:hover::after {
+        width: 100%;
+    }
+
+    .mobile-lang-switcher {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 1.4rem;
+        margin-top: auto;
+        padding-top: 1.8rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-lang-switcher .divider {
+        width: 1px;
+        height: 26px;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-lang-switcher a {
+        color: var(--color-text-white);
+        text-decoration: none;
+        font-size: var(--font-size-base);
+        padding: 0.7rem;
+    }
+
+    /* ===== SECTION 1 - COMPACT RESPONSIVE ===== */
+    .first-section {
+        height: 40px;
+        padding: 15px 0;
+    }
+
+    /* ===== SECTION 2 - SERVICES RESPONSIVE ===== */
+    .services-section {
+        padding-top: var(--margin-xl);
+        margin-bottom: 60px;
+    }
+
+    .services-content {
+        margin: 0 var(--container-margin);
+        gap: var(--gap-base);
+    }
+
+    .services-title {
+        font-size: var(--font-size-h1);
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: var(--gap-base);
+    }
+
+    .services-image {
+        padding: var(--section-padding);
+    }
+
+    .services-image img {
+        border-radius: var(--radius-md);
+    }
+
+    /* ===== SECTION 3 - TEXT CONTENT RESPONSIVE ===== */
+    .text-content-section {
+        margin-bottom: 60px;
+    }
+
+    .text-content-wrapper {
+        flex-direction: column;
+        gap: var(--gap-base);
+        padding: 0 var(--container-margin);
+    }
+
+    .text-column-left {
+        flex: none;
+        font-size: var(--font-size-h2);
+        line-height: var(--line-height-base);
+        text-align: center;
+    }
+
+    .text-column-right {
+        flex: none;
+        font-size: var(--font-size-h3);
+        line-height: var(--line-height-base);
+        text-align: center;
+    }
+
+    /* ===== SECTION 4 - ARCHITECTURAL DESIGN RESPONSIVE ===== */
+    .architectural-section {
+        margin-bottom: var(--padding-large);
+    }
+
+    .architectural-wrapper {
+        flex-direction: column;
+        width: calc(100% - 2 * var(--container-margin));
+        margin: 0 var(--container-margin);
+        gap: var(--gap-base);
+    }
+
+    .architectural-content {
+        flex: none;
+        padding: var(--section-padding);
+        order: 2;
+    }
+
+    .architectural-title {
+        font-size: var(--font-size-h2);
+        margin-bottom: var(--padding-base);
+        text-align: center;
+    }
+
+    .architectural-description {
+        font-size: var(--font-size-normal);
+        line-height: var(--line-height-base);
+        text-align: center;
+        margin-bottom: var(--gap-base);
+    }
+
+    .architectural-button {
+        width: 100%;
+        padding: var(--button-padding);
+        font-size: var(--font-size-base);
+        text-align: center;
+    }
+
+    .architectural-image {
+        flex: none;
+        height: 300px;
+        order: 1;
+    }
+
+    .architectural-image img {
+        border-radius: var(--radius-md);
+    }
+
+    /* ===== CONTACT FORM RESPONSIVE ===== */
+    .contact-form {
+        margin-top: var(--gap-base);
+    }
+
+    .form-group {
+        margin-bottom: var(--form-group-margin);
+    }
+
+    .radio-label {
+        margin-bottom: var(--radio-margin);
+        font-size: var(--font-size-normal);
+    }
+
+    .radio-label input[type="radio"] {
+        margin-right: var(--radio-input-margin);
+    }
+
+    .radio-text {
+        font-size: var(--font-size-normal);
+    }
+
+    .form-input {
+        padding: var(--form-input-padding);
+        font-size: var(--font-size-normal);
+    }
+
+    .form-button {
+        padding: var(--button-padding);
+        font-size: var(--font-size-normal);
+    }
+
+    /* ===== CONTACT SECTION RESPONSIVE ===== */
+    .contact-content {
+        padding: var(--section-padding);
+        flex: none;
+        order: 2;
+    }
+
+    .contact-title {
+        font-size: var(--font-size-h2);
+        margin-bottom: var(--gap-base);
+        text-align: center;
+    }
+
+    .contact-description {
+        font-size: var(--font-size-normal);
+        text-align: center;
+    }
+
+    /* ===== FIXED ELEMENTS RESPONSIVE ===== */
+    .fixed-call-button {
+        width: var(--call-button-size);
+        height: var(--call-button-size);
+        bottom: var(--call-button-bottom);
+        right: var(--call-button-right);
+        font-size: var(--call-button-font-size);
+    }
+
+    /* ===== POPUP RESPONSIVE ===== */
+    .popup-content {
+        max-width: var(--popup-max-width);
+        margin: 0 var(--container-margin);
+        padding: var(--popup-padding);
+    }
+
+    .popup-header h3 {
+        font-size: var(--font-size-h3);
+        margin-top: 1.8rem;
+    }
+
+    .popup-body {
+        flex-direction: column;
+        gap: var(--popup-body-gap);
+        padding: var(--popup-body-padding);
+    }
+
+    .whatsapp-button {
+        font-size: var(--font-size-small);
+        padding: var(--whatsapp-button-padding);
+        width: 100%;
+    }
+
+    .qr-section span {
+        font-size: var(--font-size-small);
+    }
+
+    .qr-image {
+        width: var(--qr-image-size);
+        height: var(--qr-image-size);
+    }
+
+    /* ===== FOOTER RESPONSIVE ===== */
+    .footer-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-base);
+        margin-top: var(--footer-wrapper-margin);
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-brand {
+        order: 0;
+        text-align: center;
+    }
+
+    .footer-brand h2 {
+        font-size: var(--footer-brand-h2-size);
+    }
+
+    .footer-column h4 {
+        font-size: var(--font-size-small);
+        margin-bottom: var(--footer-h4-margin);
+    }
+
+    .footer-column p {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--footer-p-margin);
+    }
+
+    .footer-column ul li a {
+        font-size: var(--font-size-small);
+    }
+
+    .footer-socials {
+        justify-content: center;
+        gap: var(--footer-social-gap);
+        margin: var(--footer-social-margin);
+    }
+
+    .footer-socials a {
+        width: var(--footer-social-size);
+        height: var(--footer-social-size);
+        font-size: var(--footer-social-icon-size);
+    }
+}
+
+/* ===== DESKTOP STYLES (Hide mobile elements) ===== */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .mobile-sidebar {
+        display: none !important;
+    }
+
+    .navigation-menu {
+        display: flex !important;
+    }
+}
