@@ -14,8 +14,31 @@
     --font-size-base: 0.8rem;
     --letter-spacing-base: 0.5;
     --line-height-base: 1.4;
-    --font-family-base: "Times New Roman", serif;
+    --font-family-base: Roboto Condensed, Arial, sans-serif;
     --gap-base: 2rem;
+
+    /* Responsive Variables */
+    --header-height: 120px;
+    --section-padding: 40px;
+    --container-padding: 2rem;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.2rem;
+    --font-size-h4: 1.4rem;
+    --font-size-large: 1.5rem;
+    --font-size-normal: 1.2rem;
+
+    /* Additional Responsive Variables */
+    --logo-width: 100px;
+    --logo-divider-width: 250%;
+    --expertise-image-height: 550px;
+    --team-section-height: 80vh;
+    --team-wrapper-height: 50%;
+    --team-content-h2-size: 2rem;
+    --footer-brand-h2-size: 30px;
+    --team-content-padding: 50px;
+    --consultation-form-width: 80%;
+    --qr-image-size: 150px;
+    --grid-columns: 1fr 2fr;
 }
 
 /* Reset & Base Styles */
@@ -27,7 +50,7 @@
 
 body,
 html {
-    font-family: sans-serif;
+    font-family: var(--font-family-base);
     color: var(--color-text-white);
     background-color: var(--color-background);
 }
@@ -39,12 +62,10 @@ html {
 
 /* SECTION 1 */
 .first-section {
-    height: 100vh;
-    /* Chiều cao bằng 100% chiều cao của màn hình xem */
+    min-height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
-    /* Ẩn các phần của video tràn ra ngoài section */
 }
 
 /* Video Background */
@@ -58,18 +79,15 @@ html {
     width: auto;
     height: auto;
     object-fit: cover;
-    /* Đảm bảo video lấp đầy toàn bộ không gian mà không bị méo */
     opacity: 0;
-    /* Ẩn video ban đầu */
     transition: opacity 0.1s ease-in;
-    /* Hiệu ứng mờ dần khi hiện ra */
 }
 
 #bg-video.is-loaded {
     opacity: 1;
 }
 
-/* Thêm lớp phủ để che bớt độ mờ của video và tăng độ tương phản cho văn bản */
+/* Video overlay */
 .first-section::after {
     content: "";
     position: absolute;
@@ -77,13 +95,9 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,
-            0,
-            0,
-            0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     /* Lớp phủ màu đen mờ, bạn có thể điều chỉnh độ mờ ở giá trị cuối */
     z-index: 1;
-    /* Đặt lớp phủ trên video nhưng dưới nội dung khác */
 }
 
 /* Gradient Overlay */
@@ -107,7 +121,7 @@ html {
 }
 
 .first-section-text h2 {
-    font-size: 3rem;
+    font-size: var(--font-size-h1);
     font-weight: 500;
     letter-spacing: var(--letter-spacing-base);
     font-family: var(--font-family-base);
@@ -116,7 +130,7 @@ html {
 }
 
 .first-section-text p {
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
     line-height: var(--line-height-base);
     font-weight: 500;
     letter-spacing: var(--letter-spacing-base);
@@ -132,11 +146,11 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem var(--container-padding);
     z-index: 99;
     /* Z-index cao nhất để luôn nằm trên cùng */
-    height: 120px;
-    max-height: 120px;
+    height: var(--header-height);
+    max-height: var(--header-height);
     background-color: rgba(25, 25, 25, 0.3);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
@@ -156,14 +170,14 @@ html {
 
 /* Logo */
 .logo-image {
-    width: 100px;
+    width: var(--logo-width);
     height: auto;
     object-fit: contain;
 }
 
 /* Logo Divider */
 .logo-divider {
-    width: 250%;
+    width: var(--logo-divider-width);
     height: 1px;
     background: linear-gradient(to right, #fff 0%, #fff 30%, transparent 100%);
     margin-left: 0;
@@ -179,7 +193,7 @@ html {
 }
 
 .breadcrumb a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -192,7 +206,7 @@ html {
 }
 
 .breadcrumb .divider {
-    color: #fff;
+    color: var(--color-text-white);
     font-size: 0.8rem;
 }
 
@@ -219,7 +233,7 @@ html {
 }
 
 .main-nav a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -278,7 +292,7 @@ html {
 /* Contact Dropdown Menu */
 .contact-dropdown-menu {
     position: absolute;
-    top: 60px;
+    top: 80px;
     left: 0;
     right: 0;
     background: transparent;
@@ -288,7 +302,7 @@ html {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    z-index: 150;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -308,7 +322,7 @@ html {
     padding: 0.8rem 1.5rem;
     background: #252525cc;
     backdrop-filter: blur(5px);
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 500;
@@ -352,7 +366,7 @@ html {
 }
 
 .lang-switcher a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
     font-size: var(--font-size-base);
 }
@@ -369,7 +383,7 @@ html {
 
 .second-section-wrapper {
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--section-padding);
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -388,14 +402,14 @@ html {
 
 .section-title {
     color: var(--color-primary);
-    font-size: 2rem;
+    font-size: var(--font-size-h2);
     font-weight: 500;
     font-family: var(--font-family-base);
     margin: 0;
 }
 
 .main-text {
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
     width: 100%;
     line-height: var(--line-height-base);
     letter-spacing: var(--letter-spacing-base);
@@ -406,7 +420,7 @@ html {
 }
 
 .sub-text {
-    font-size: 1.2rem;
+    font-size: var(--font-size-normal);
     line-height: var(--line-height-base);
     width: 100%;
     color: var(--color-text-light);
@@ -469,12 +483,11 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh
 }
 
 .image-container {
     position: relative;
-    object-fit: contain;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -486,7 +499,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease;
     border-radius: var(--radius-md);
@@ -507,12 +520,12 @@ html {
 
 .fourth-section-wrapper {
     max-width: 1200px;
-    padding: 0 2rem;
+    padding: 0 var(--container-padding);
     text-align: center;
 }
 
 .philosophy-text {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     line-height: 1.4;
     font-weight: 500;
     color: var(--color-text-white);
@@ -537,7 +550,7 @@ html {
     background-color: var(--color-background);
     padding: 30px 0;
     position: relative;
-    margin: 0 40px;
+    margin: 0 var(--section-padding);
     /* Cách lề trái và phải 40px */
 }
 
@@ -585,10 +598,9 @@ html {
     opacity: 1;
     justify-content: flex-start;
     align-items: stretch;
-    height: 550px;
+    height: var(--expertise-image-height);
     /* Bằng chiều cao ảnh */
     position: relative;
-    /* Không cần !important nữa */
 }
 
 .expertise-desc-box {
@@ -616,7 +628,7 @@ html {
 
 /* Accordion Header - Copy from index.html */
 .accordion-header {
-    font-size: 1.4rem;
+    font-size: var(--font-size-h4);
     font-weight: 500;
     display: flex;
     justify-content: space-between;
@@ -630,7 +642,7 @@ html {
 }
 
 .accordion-header span {
-    font-size: 1.4rem;
+    font-size: var(--font-size-h4);
     cursor: pointer;
     color: var(--color-text-white);
     letter-spacing: 0.5px;
@@ -718,7 +730,7 @@ html {
 .expertise-image-container {
     position: relative;
     width: 100%;
-    height: 550px;
+    height: var(--expertise-image-height);
     /* Chiều cao cố định */
     overflow: hidden;
 }
@@ -740,8 +752,8 @@ html {
 
 /* --- Section 6 --- */
 .team-section {
-    height: 80vh;
-    padding: 50px 40px;
+    height: var(--team-section-height);
+    padding: 50px var(--section-padding);
     background-color: var(--color-background);
     margin-top: 80px;
 }
@@ -831,8 +843,8 @@ html {
 
 /* SECTION 7 - SERVICE SECTION */
 .seventh-section {
-    height: 100vh;
-    padding: 10px 40px;
+    min-height: 100vh;
+    padding: 10px var(--section-padding);
     background-color: var(--color-background);
     position: relative;
     margin-bottom: 50px;
@@ -855,7 +867,7 @@ html {
 
 .seventh-section-wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: var(--grid-columns);
     align-items: stretch;
     margin-top: 100px;
     gap: 2rem;
@@ -926,6 +938,8 @@ html {
 .service-image-container {
     position: relative;
     width: 100%;
+    height: var(--expertise-image-height);
+    min-height: var(--expertise-image-height);
     border-radius: 25px;
     overflow: hidden;
     display: flex;
@@ -967,13 +981,19 @@ html {
     /* Giảm z-index để không che khuất header */
 }
 
+/* Đảm bảo service item đầu tiên có opacity bình thường mặc định */
+.service-desc-item:first-child {
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* SECTION 8 - TEAM CONSULTATION */
 .team-consultation {
-    color: #fff;
-    padding: 0 40px;
+    color: var(--color-text-white);
+    padding: 0 var(--section-padding);
     /* Thêm padding cho section */
-    font-family: Arial, sans-serif;
-    background: #1f1f1f;
+    font-family: var(--font-family-base);
+    background: var(--color-background);
     margin: 50px 0;
 }
 
@@ -984,7 +1004,7 @@ html {
     border-radius: var(--radius-md);
     overflow: hidden;
     /* Quan trọng: để bo góc cho phần tử con hoạt động */
-    height: 50%;
+    height: var(--team-wrapper-height);
 }
 
 .team-image {
@@ -996,19 +1016,19 @@ html {
     width: 100%;
     height: 100%;
     /* Quan trọng: cao bằng container */
-    object-fit: cotain;
+    object-fit: contain;
     display: block;
     /* Xóa khoảng trống thừa dưới ảnh */
 }
 
 .team-content {
     flex: 1;
-    padding: 50px;
+    padding: var(--team-content-padding);
     /* Thêm padding cho nội dung form */
 }
 
 .team-content h2 {
-    font-size: 2rem;
+    font-size: var(--team-content-h2-size);
     font-family: var(--font-family-base);
     margin-bottom: 2rem;
     font-weight: 500;
@@ -1032,7 +1052,7 @@ html {
 }
 
 .consultation-form {
-    width: 80%;
+    width: var(--consultation-form-width);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1045,7 +1065,7 @@ html {
     border: none;
     border-bottom: 1px solid #444;
     background: transparent;
-    color: #fff;
+    color: var(--color-text-white);
     font-size: 1rem;
     outline: none;
     /* Loại bỏ border mặc định khi focus */
@@ -1108,7 +1128,7 @@ html {
 }
 
 .privacy-check {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: var(--font-family-base);
     color: #bbb;
     display: flex;
@@ -1123,7 +1143,7 @@ html {
 }
 
 .privacy-check a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
 }
 
@@ -1140,20 +1160,17 @@ html {
     height: 50px;
     background-color: var(--color-primary);
     /* Màu vàng cam chủ đạo */
-    color: #fff;
+    color: var(--color-text-white);
     border-radius: 50%;
     /* Bo tròn thành hình tròn */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    /* Kích thước icon */
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    /* Luôn nằm trên cùng */
+    z-index: 200;
     transition: transform 0.3s ease;
-    /* Hiệu ứng chuyển động mượt */
 }
 
 /* Hiệu ứng nổi lên khi hover */
@@ -1199,7 +1216,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2000;
+    z-index: 300;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1214,7 +1231,7 @@ html {
 }
 
 .popup-content {
-    background-color: #1f1f1f;
+    background-color: var(--color-background);
     border-radius: var(--radius-md);
     padding: 2rem;
     max-width: 500px;
@@ -1316,8 +1333,8 @@ html {
 }
 
 .qr-image {
-    width: 150px;
-    height: 150px;
+    width: var(--qr-image-size);
+    height: var(--qr-image-size);
     border-radius: var(--radius-sm);
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -1332,7 +1349,7 @@ html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
-    z-index: 1999;
+    z-index: 250;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -1344,10 +1361,11 @@ html {
 }
 
 /* FOOTER */
+/* FOOTER */
 .site-footer {
     background: #101010;
     color: var(--color-text-white);
-    padding: 15px 30px;
+    padding: 15px var(--container-padding);
     font-family: var(--font-family-base);
     max-width: 100%;
     overflow-x: hidden;
@@ -1357,7 +1375,7 @@ html {
     display: flex;
     justify-content: flex-start;
     margin-top: 20px;
-    gap: 70px;
+    gap: 60px;
     max-width: 100%;
     flex-wrap: wrap;
 }
@@ -1416,7 +1434,7 @@ html {
 
 /* Footer Brand */
 .footer-brand h2 {
-    font-size: 30px;
+    font-size: var(--footer-brand-h2-size);
     font-weight: 500;
     margin-bottom: 8px;
 }
@@ -1467,4 +1485,15 @@ html {
 ::-webkit-scrollbar-thumb {
     background-color: #d38c37;
     border-radius: 10px;
+}
+
+/* ===== DESKTOP STYLES (Hide mobile elements) ===== */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .mobile-sidebar {
+        display: none !important;
+    }
 }

@@ -14,8 +14,34 @@
     --font-size-base: 0.8rem;
     --letter-spacing-base: 0.5;
     --line-height-base: 1.4;
-    --font-family-base: "Times New Roman", serif;
+    --font-family-base: Roboto Condensed, Arial, sans-serif;
     --gap-base: 2rem;
+
+    /* Responsive Variables */
+    --header-height: 120px;
+    --header-padding: 1rem 2rem;
+    --logo-width: 100px;
+    --logo-divider-width: 250%;
+    --nav-gap: 3rem;
+    --container-margin: 30px;
+
+    /* Typography */
+    --font-size-hero-title: 3rem;
+    --font-size-hero-text: 1.2rem;
+    --hero-text-width: 700px;
+    --hero-text-left: 2rem;
+
+    /* Layout */
+    --grid-columns: repeat(2, 1fr);
+    --project-image-height: 400px;
+    --sidebar-width: 400px;
+    --sidebar-padding: 2rem;
+
+    /* Interactive Elements */
+    --call-button-size: 50px;
+    --call-button-bottom: 20px;
+    --call-button-right: 20px;
+    --qr-image-size: 150px;
 }
 
 /* Reset & Base Styles */
@@ -27,7 +53,7 @@
 
 body,
 html {
-    font-family: sans-serif;
+    font-family: var(--font-family-base);
     color: var(--color-text-white);
     background-color: var(--color-background);
 }
@@ -46,13 +72,11 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    z-index: 99;
-    /* Z-index cao nhất để luôn nằm trên cùng */
-    height: 120px;
-    max-height: 120px;
+    padding: var(--header-padding);
+    z-index: 100;
+    height: var(--header-height);
     background-color: rgba(25, 25, 25, 0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: transform 0.5s ease-in-out;
 }
@@ -70,14 +94,14 @@ html {
 
 /* Logo */
 .logo-image {
-    width: 100px;
+    width: var(--logo-width);
     height: auto;
     object-fit: contain;
 }
 
 /* Logo Divider */
 .logo-divider {
-    width: 250%;
+    width: var(--logo-divider-width);
     height: 1px;
     background: linear-gradient(to right, #fff 0%, #fff 30%, transparent 100%);
     margin-left: 0;
@@ -93,26 +117,26 @@ html {
 }
 
 .breadcrumb a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
     letter-spacing: 0.7px;
     transition: color 0.3s ease;
 }
 
 .breadcrumb a:hover {
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 .breadcrumb .divider {
-    color: #fff;
-    font-size: 0.8rem;
+    color: var(--color-text-white);
+    font-size: var(--font-size-base);
 }
 
 .breadcrumb .current {
     color: var(--color-primary);
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
     letter-spacing: 0.7px;
     font-weight: 500;
@@ -129,13 +153,13 @@ html {
     display: flex;
     font-family: var(--font-family-base);
     list-style: none;
-    gap: 3rem;
+    gap: var(--nav-gap);
 }
 
 .main-nav a {
-    color: #fff;
+    color: var(--color-text-white);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
     letter-spacing: 0.7px;
     transition: color 0.3s ease;
@@ -192,7 +216,7 @@ html {
 /* Contact Dropdown Menu */
 .contact-dropdown-menu {
     position: absolute;
-    top: 60px;
+    top: 80px;
     left: 0;
     right: 0;
     background: transparent;
@@ -202,7 +226,7 @@ html {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    z-index: 150;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -271,8 +295,7 @@ html {
     font-size: var(--font-size-base);
 }
 
-
-
+/* ===== SECTION 1 ===== */
 .first-section {
     height: 100vh;
     width: 100%;
@@ -283,34 +306,36 @@ html {
 .first-section-text {
     position: absolute;
     width: 100%;
-    height: 100vh;
-    bottom: 60px;
+    height: 100%;
+    bottom: 0;
     left: 0;
     z-index: 3;
 }
 
 .first-section-text h2 {
-    left: 2rem;
-    font-size: 3rem;
+    left: var(--hero-text-left);
+    font-size: var(--font-size-hero-title);
     font-weight: 500;
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     z-index: 3;
     color: var(--color-primary);
     font-family: var(--font-family-base);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .first-section-text p {
     position: absolute;
-    left: 2rem;
-    bottom: 20px;
-    width: 700px;
-    font-size: 1.2rem;
+    left: var(--hero-text-left);
+    bottom: 60px;
+    width: var(--hero-text-width);
+    font-size: var(--font-size-hero-text);
     line-height: 1.4;
     font-weight: 500;
     letter-spacing: 0.5px;
     color: var(--color-text-white);
     font-family: var(--font-family-base);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     z-index: 3;
 }
 
@@ -365,8 +390,8 @@ html {
 }
 
 .filters-container {
-    max-width: 1005;
-    margin: 0 30px;
+    max-width: 100%;
+    margin: 0 var(--container-margin);
 }
 
 .filters-header {
@@ -420,9 +445,9 @@ html {
 
 .projects-container {
     max-width: 100%;
-    margin: 0px 30px;
+    margin: 0px var(--container-margin);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-columns);
     gap: 1rem;
 }
 
@@ -456,7 +481,7 @@ html {
 .project-image {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: var(--project-image-height);
     overflow: hidden;
 }
 
@@ -556,22 +581,26 @@ html {
 .filter-sidebar {
     position: fixed;
     top: 0;
-    right: -400px;
-    width: 400px;
+    right: calc(-1 * var(--sidebar-width));
+    width: var(--sidebar-width);
     height: 100vh;
     background-color: var(--color-component-bg);
     backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: right 0.3s ease;
+    z-index: 1100;
+    transition: right 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .filter-sidebar.active {
     right: 0;
+    opacity: 1;
+    visibility: visible;
 }
 
 .sidebar-content {
-    padding: 2rem;
+    padding: var(--sidebar-padding);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -664,7 +693,7 @@ html {
     border-radius: 30px;
     padding: 1rem;
     color: var(--color-text-white);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -786,26 +815,21 @@ html {
 /* Call Button Fixed*/
 .fixed-call-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    bottom: var(--call-button-bottom);
+    right: var(--call-button-right);
+    width: var(--call-button-size);
+    height: var(--call-button-size);
     background-color: var(--color-primary);
-    /* Màu vàng cam chủ đạo */
-    color: #fff;
+    color: var(--color-text-white);
     border-radius: 50%;
-    /* Bo tròn thành hình tròn */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    /* Kích thước icon */
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    /* Luôn nằm trên cùng */
+    z-index: 200;
     transition: transform 0.3s ease;
-    /* Hiệu ứng chuyển động mượt */
 }
 
 /* Hiệu ứng nổi lên khi hover */
@@ -999,7 +1023,7 @@ html {
 .site-footer {
     background: #101010;
     color: var(--color-text-white);
-    padding: 15px 30px;
+    padding: 15px var(--container-margin);
     font-family: var(--font-family-base);
     max-width: 100%;
     overflow-x: hidden;
@@ -1009,7 +1033,7 @@ html {
     display: flex;
     justify-content: flex-start;
     margin-top: 20px;
-    gap: 70px;
+    gap: 60px;
     max-width: 100%;
     flex-wrap: wrap;
 }
@@ -1119,4 +1143,162 @@ html {
 ::-webkit-scrollbar-thumb {
     background-color: #d38c37;
     border-radius: 10px;
+}
+
+/* ===== DESKTOP STYLES (Hide mobile elements) ===== */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .mobile-sidebar {
+        display: none !important;
+    }
+}
+
+/* ===== PHONE POPUP ===== */
+.phone-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.phone-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background-color: var(--color-background);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    max-width: 500px;
+    transform: scale(0.2);
+    transition: transform 0.3s ease;
+}
+
+.phone-popup.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.popup-header h3 {
+    color: var(--color-text-white);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-base);
+}
+
+.popup-close {
+    position: absolute;
+    right: 10px;
+    background: none;
+    top: 10px;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.popup-body {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-component-bg);
+    border-radius: var(--radius-md);
+}
+
+.whatsapp-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    max-height: 40px;
+    color: var(--color-text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-base);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    gap: 0.5rem;
+}
+
+.whatsapp-button:hover {
+    background-color: #20b358;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button i {
+    font-size: 1.2rem;
+}
+
+.qr-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.qr-section span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-family-base);
+    margin-bottom: 0.7rem;
+    color: var(--color-text-white);
+}
+
+.qr-image {
+    width: var(--qr-image-size);
+    height: var(--qr-image-size);
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Phone Popup Overlay */
+.phone-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 250;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.phone-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }

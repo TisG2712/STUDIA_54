@@ -39,6 +39,47 @@ function initBackgroundVideo() {
   }
 }
 
+// MOBILE MENU FUNCTIONALITY
+function initHamburgerMenu() {
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const mobileSidebarClose = document.getElementById("mobileSidebarClose");
+  const mobileSidebarOverlay = document.querySelector(
+    ".mobile-sidebar-overlay"
+  );
+
+  if (!mobileMenuToggle || !mobileSidebar) return;
+
+  // Toggle mobile menu
+  mobileMenuToggle.addEventListener("click", function () {
+    mobileMenuToggle.classList.toggle("active");
+    mobileSidebar.classList.toggle("active");
+  });
+
+  // Close mobile menu
+  function closeMobileMenu() {
+    mobileMenuToggle.classList.remove("active");
+    mobileSidebar.classList.remove("active");
+  }
+
+  // Close on close button click
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close on overlay click
+  if (mobileSidebarOverlay) {
+    mobileSidebarOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close on window resize (when switching to desktop)
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+      closeMobileMenu();
+    }
+  });
+}
+
 // CONTACT DROPDOWN EFFECTS
 function initContactDropdown() {
   const contactDropdown = document.querySelector(".contact-dropdown");
@@ -112,7 +153,19 @@ function initServiceHoverEffect() {
 
   if (serviceItems.length === 0) return;
 
+  // Set first image as active by default
+  if (serviceImages.length > 0) {
+    serviceImages.forEach((img, index) => {
+      if (index === 0) {
+        img.classList.add("active");
+      } else {
+        img.classList.remove("active");
+      }
+    });
+  }
+
   serviceItems.forEach((item) => {
+    // Mouse enter event
     item.addEventListener("mouseenter", function () {
       const imageType = this.getAttribute("data-image");
 
@@ -129,7 +182,163 @@ function initServiceHoverEffect() {
         targetImage.classList.add("active");
       }
     });
+
+    // Mouse leave event - return to first image
+    item.addEventListener("mouseleave", function () {
+      serviceImages.forEach((img, index) => {
+        if (index === 0) {
+          img.classList.add("active");
+        } else {
+          img.classList.remove("active");
+        }
+      });
+    });
+
+    // Click event for mobile/touch devices
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const imageType = this.getAttribute("data-image");
+
+      console.log("Service item clicked:", imageType);
+
+      // Ẩn tất cả ảnh
+      serviceImages.forEach((img) => {
+        img.classList.remove("active");
+        console.log("Removed active from:", img.getAttribute("data-service"));
+      });
+
+      // Hiện ảnh tương ứng
+      const targetImage = document.querySelector(
+        `.service-image[data-service="${imageType}"]`
+      );
+      if (targetImage) {
+        targetImage.classList.add("active");
+        console.log(
+          "Added active to:",
+          targetImage.getAttribute("data-service")
+        );
+      } else {
+        console.log("No target image found for:", imageType);
+        // Fallback: activate first image if no match found
+        if (serviceImages.length > 0) {
+          serviceImages[0].classList.add("active");
+          console.log("Fallback: activated first image");
+        }
+      }
+    });
   });
+}
+
+// SECTION 2 - SERVICE CLICK EFFECT FOR MOBILE
+// Hiệu ứng click cho danh sách dịch vụ trên mobile - thay đổi ảnh tương ứng
+function initServiceClickEffect() {
+  const serviceItems = document.querySelectorAll(
+    ".second-section .service-item"
+  );
+  const serviceImages = document.querySelectorAll(
+    ".second-section .service-image"
+  );
+
+  if (serviceItems.length === 0 || serviceImages.length === 0) return;
+
+  console.log("Section 2 - Service items found:", serviceItems.length);
+  console.log("Section 2 - Service images found:", serviceImages.length);
+
+  // Set first image as active by default
+  if (serviceImages.length > 0) {
+    serviceImages.forEach((img, index) => {
+      if (index === 0) {
+        img.classList.add("active");
+        console.log(
+          "Section 2 - Set first image as active:",
+          img.getAttribute("data-service")
+        );
+      } else {
+        img.classList.remove("active");
+      }
+    });
+  }
+
+  serviceItems.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const imageType = this.getAttribute("data-image");
+
+      console.log("Section 2 - Service item clicked:", imageType);
+
+      // Ẩn tất cả ảnh
+      serviceImages.forEach((img) => {
+        img.classList.remove("active");
+        console.log(
+          "Section 2 - Removed active from:",
+          img.getAttribute("data-service")
+        );
+      });
+
+      // Hiện ảnh tương ứng
+      const targetImage = document.querySelector(
+        `.second-section .service-image[data-service="${imageType}"]`
+      );
+      if (targetImage) {
+        targetImage.classList.add("active");
+        console.log(
+          "Section 2 - Added active to:",
+          targetImage.getAttribute("data-service")
+        );
+      } else {
+        console.log("Section 2 - No target image found for:", imageType);
+        // Fallback: activate first image if no match found
+        if (serviceImages.length > 0) {
+          serviceImages[0].classList.add("active");
+          console.log("Section 2 - Fallback: activated first image");
+        }
+      }
+    });
+  });
+}
+
+// SECTION 2 - IMAGE DISPLAY FIX
+// Đảm bảo ảnh luôn hiển thị trên mobile và khi resize
+function initImageDisplayFix() {
+  const serviceImages = document.querySelectorAll(".service-image");
+
+  if (serviceImages.length === 0) return;
+
+  // Function to ensure at least one image is visible
+  function ensureImageVisible() {
+    const hasActiveImage = Array.from(serviceImages).some((img) =>
+      img.classList.contains("active")
+    );
+
+    if (!hasActiveImage && serviceImages.length > 0) {
+      // If no image is active, make the first one active
+      serviceImages.forEach((img, index) => {
+        if (index === 0) {
+          img.classList.add("active");
+        } else {
+          img.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  // Run on page load
+  ensureImageVisible();
+
+  // Run on window resize
+  window.addEventListener("resize", function () {
+    setTimeout(ensureImageVisible, 100); // Small delay to ensure CSS has applied
+  });
+
+  // Run when images are loaded
+  serviceImages.forEach((img) => {
+    img.addEventListener("load", ensureImageVisible);
+  });
+
+  // Run periodically to ensure images stay visible (fallback)
+  setInterval(ensureImageVisible, 2000);
 }
 
 // SECTION 4 - DESIGN PHILOSOPHY SECTION EFFECTS
@@ -248,7 +457,7 @@ function initTeamMarquee() {
 /**
  * Section 7 - Service Section: Hiệu ứng click
  */
-function initServiceClickEffect() {
+function initSeventhSectionClickEffect() {
   const serviceSection = document.querySelector(".seventh-section");
   if (!serviceSection) return;
 
@@ -257,6 +466,22 @@ function initServiceClickEffect() {
 
   console.log("Service items found:", serviceItems.length);
   console.log("Service images found:", serviceImages.length);
+
+  // Set first item and image as active by default
+  if (serviceItems.length > 0 && serviceImages.length > 0) {
+    // Remove active from all items and images
+    serviceItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+    serviceImages.forEach((img) => {
+      img.classList.remove("active");
+    });
+
+    // Set first item and image as active
+    serviceItems[0].classList.add("active");
+    serviceImages[0].classList.add("active");
+    console.log("Set first service item and image as active by default");
+  }
 
   serviceItems.forEach((item, index) => {
     item.addEventListener("click", (e) => {
@@ -292,6 +517,12 @@ function initServiceClickEffect() {
       if (targetImage) {
         targetImage.classList.add("active");
         console.log(`Image with data-service="${serviceType}" is now active`);
+      } else {
+        // Fallback: if no matching image found, activate first image
+        if (serviceImages.length > 0) {
+          serviceImages[0].classList.add("active");
+          console.log("Fallback: activated first image");
+        }
       }
 
       console.log(`Item ${index} is now active`);
@@ -367,9 +598,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Section 1 - First Section Effects
   initNavbarScroll();
   initBackgroundVideo();
+  initHamburgerMenu();
   initContactDropdown();
   // Section 2 - About Us Section Effects
   initServiceHoverEffect();
+  initServiceClickEffect();
+  initImageDisplayFix();
 
   // Section 4 - Design Philosophy Section Effects
   initPhilosophyFadeIn();
@@ -381,7 +615,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initTeamMarquee();
 
   // Section 7 - Service Section Effects
-  initServiceClickEffect();
+  initSeventhSectionClickEffect();
 
   // Initialize phone popup
   initPhonePopup();

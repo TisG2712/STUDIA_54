@@ -420,16 +420,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // HAMBURGER MENU FUNCTIONALITY
 function initHamburgerMenu() {
-  const hamburgerMenu = document.getElementById("hamburgerMenu");
-  const navigationMenu = document.getElementById("navigationMenu");
-  const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+  const hamburgerMenu = document.querySelector(".mobile-menu-toggle");
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const mobileSidebarClose = document.querySelector(".mobile-sidebar-close");
+  const mobileSidebarOverlay = document.querySelector(
+    ".mobile-sidebar-overlay"
+  );
   const body = document.body;
 
-  if (!hamburgerMenu || !navigationMenu || !mobileMenuOverlay) return;
+  if (!hamburgerMenu || !mobileSidebar) return;
 
   // Toggle mobile menu
   function toggleMobileMenu() {
-    const isActive = navigationMenu.classList.contains("active");
+    const isActive = mobileSidebar.classList.contains("active");
 
     if (isActive) {
       closeMobileMenu();
@@ -441,32 +444,37 @@ function initHamburgerMenu() {
   // Open mobile menu
   function openMobileMenu() {
     hamburgerMenu.classList.add("active");
-    navigationMenu.classList.add("active");
-    mobileMenuOverlay.classList.add("active");
+    mobileSidebar.classList.add("active");
     body.style.overflow = "hidden";
   }
 
   // Close mobile menu
   function closeMobileMenu() {
     hamburgerMenu.classList.remove("active");
-    navigationMenu.classList.remove("active");
-    mobileMenuOverlay.classList.remove("active");
+    mobileSidebar.classList.remove("active");
     body.style.overflow = "auto";
   }
 
   // Event listeners
   hamburgerMenu.addEventListener("click", toggleMobileMenu);
-  mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener("click", closeMobileMenu);
+  }
+
+  if (mobileSidebarOverlay) {
+    mobileSidebarOverlay.addEventListener("click", closeMobileMenu);
+  }
 
   // Close menu when clicking on navigation links
-  const navLinks = navigationMenu.querySelectorAll(".main-nav a");
+  const navLinks = mobileSidebar.querySelectorAll(".mobile-nav a");
   navLinks.forEach((link) => {
     link.addEventListener("click", closeMobileMenu);
   });
 
   // Close menu on escape key
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && navigationMenu.classList.contains("active")) {
+    if (e.key === "Escape" && mobileSidebar.classList.contains("active")) {
       closeMobileMenu();
     }
   });

@@ -12,6 +12,10 @@
       rel="stylesheet"
       href="../../pages/portfolio_page/css/portfolio.css"
     />
+    <link
+      rel="stylesheet"
+      href="../../pages/portfolio_page/css/portfolio_responsive.css"
+    />
   </head>
   <body>
     <!-- ===== SECTION 1 ===== -->
@@ -97,7 +101,41 @@
             <a href="#">EN</a>
           </div>
         </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="ri-menu-line hamburger-icon"></i>
+          <i class="ri-close-line close-icon"></i>
+        </button>
       </header>
+
+      <!-- Mobile Sidebar -->
+      <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-overlay"></div>
+        <div class="mobile-sidebar-content">
+          <div class="mobile-sidebar-header">
+            <button class="mobile-sidebar-close" id="mobileSidebarClose">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          <nav class="mobile-nav">
+            <ul>
+              <li>
+                <a href="../about_page/about.html" class="active">GIỚI THIỆU</a>
+              </li>
+              <li><a href="../portfolio_page/portfolio.html">DANH MỤC</a></li>
+              <li><a href="../contacts_page/contacts.html">LIÊN HỆ</a></li>
+              <li><a href="../services_page/services.html">DỊCH VỤ</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-lang-switcher">
+            <a href="#">VN</a>
+            <div class="divider"></div>
+            <a href="#">EN</a>
+          </div>
+        </div>
+      </div>
+
       <div class="first-section-text">
         <h2>DANH MỤC</h2>
         <p>
@@ -143,14 +181,14 @@
         </a>
 
         <!-- Project 2 -->
-        <!-- <div class="project-item">
+        <a href="../detail_page/detail.html" class="project-item project-link">
           <div class="project-image">
             <img
-              src="../assets/images/villa2.png"
-              alt="Dự án Biệt thự Hiện đại"
+              src="../portfolio_page/images/home.jpg"
+              alt="Villa hoa giấy ở Thạch Thất"
             />
             <div class="project-overlay">
-              <div class="project-size">8500 м²</div>
+              <div class="project-size">1000 м²</div>
               <div class="project-share">
                 <i class="ri-share-line"></i>
               </div>
@@ -158,38 +196,20 @@
           </div>
           <div class="project-info">
             <h3 class="project-title">
-              <span class="highlight">BIỆT THỰ HIỆN ĐẠI</span> TẠI DUBAI
+              Villa hoa giấy <span class="highlight">ở Thạch Thất </span>
             </h3>
           </div>
-        </div> -->
+        </a>
 
         <!-- Project 3 -->
-        <!-- <div class="project-item">
-          <div class="project-image">
-            <img src="../assets/images/villa3.png" alt="Dự án Căn hộ Cao cấp" />
-            <div class="project-overlay">
-              <div class="project-size">6500 м²</div>
-              <div class="project-share">
-                <i class="ri-share-line"></i>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">
-              KHU CĂN HỘ <span class="highlight">CAO CẤP</span>
-            </h3>
-          </div>
-        </div> -->
-
-        <!-- Project 4 -->
-        <!-- <div class="project-item">
+        <a href="../detail_page/detail.html" class="project-item project-link">
           <div class="project-image">
             <img
-              src="../assets/images/apartment.png"
-              alt="Dự án Tòa nhà Thương mại"
+              src="../portfolio_page/images/home.jpg"
+              alt="Villa hoa giấy ở Thạch Thất"
             />
             <div class="project-overlay">
-              <div class="project-size">12000 м²</div>
+              <div class="project-size">1000 м²</div>
               <div class="project-share">
                 <i class="ri-share-line"></i>
               </div>
@@ -197,10 +217,31 @@
           </div>
           <div class="project-info">
             <h3 class="project-title">
-              DỰ ÁN TÒA NHÀ <span class="highlight">THƯƠNG MẠI</span>
+              Villa hoa giấy <span class="highlight">ở Thạch Thất </span>
             </h3>
           </div>
-        </div> -->
+        </a>
+
+        <!-- Project 4 -->
+        <a href="../detail_page/detail.html" class="project-item project-link">
+          <div class="project-image">
+            <img
+              src="../portfolio_page/images/home.jpg"
+              alt="Villa hoa giấy ở Thạch Thất"
+            />
+            <div class="project-overlay">
+              <div class="project-size">1000 м²</div>
+              <div class="project-share">
+                <i class="ri-share-line"></i>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">
+              Villa hoa giấy <span class="highlight">ở Thạch Thất </span>
+            </h3>
+          </div>
+        </a>
       </div>
     </section>
 
